@@ -1,0 +1,30 @@
+parameter,target_value,source_or_basis,evidence_status
+Air delivery,>= 245 m3/min,IS 374:2019+Amd.1 Table 1 requirement,Design target; not measured
+Service value,>= 4.1 m3/min/W required; ~8.7 indicative at 28.3 W assumed input,IS 374 requirement / indicative calculation,Indicative calculation only
+Blade-tip speed cap,<= 30 m/s,IS 374 treatment of ceiling-fan tip speed,Standard requirement
+Tip speed at 380 RPM,27.86 m/s,v=omega*R with R=0.7 m,Calculated
+Top speed,380 RPM,Design target,Target; not measured
+456 RPM case,Hazard case only (tip 33.4 m/s),Exceeds 30 m/s cap,Hazard case; never an operating target
+Rotor inertia,~0.113 kg*m2,CAD mass roll-up estimate,Assumption pending CAD sign-off
+Rotor energy @380 RPM,~89.5 J,E=0.5*I*omega^2,Calculated from target masses
+Rotor energy @456 RPM,~128.8 J,E=0.5*I*omega^2,Calculated; hazard case
+Blade containment rating basis,130 J,Basis to be confirmed by test,Rating basis BLOCKED pending authorization
+Moving mass roll-up,7.00 kg (sum) vs 6.80 kg (earlier stated),Component list vs prior statement,UNRECONCILED; both retained
+Blade mass,165 g/blade,Design target with [0/45/90]s CFRP 2 mm skin,Target; assumptions pending T-01/T-05
+Blade material,quasi-isotropic [0/±45/90]s carbon/epoxy ~1.55 g/cc ~70 GPa,Typical prepreg datasheet class,Assumption; supplier data required
+Motor torque,>= 0.62 Nm continuous; >= 2.5 Nm 5 s peak,Drive sizing calculation,Specified on paper
+Motor power,>= 25 W mechanical,Drive sizing calculation,Specified on paper
+Motor overcurrent cutoff,<= 20 microseconds,Driver specification,Specified on paper
+Motor NTC trip,165 C,Supervisor protection definition,Definition value
+Temp/humidity accuracy,±0.5 C / ±3 pctRH,Sensor datasheet class + calibration plan,Prototype acceptance target
+Comfort response time,<= 5 s local mode,Comfort requirement,Prototype acceptance target
+Automation success rate,>= 95 pct over 16 defined scenarios,data/scenarios.csv + check_scenarios.py,Prototype acceptance target
+Suspension anchor demand,139.9 N,Load analysis with stated assumption set,Calculated
+Anchor ratings,600 N working / 1500 N ultimate,Hardware datasheet class,To be confirmed by supplier
+Safety cable rating,6.5 kN,SS304 cable specification,To be confirmed by supplier
+Tilt range,±20 deg with >= 1.50 m floor clearance at 2.65 m mount,Geometric derivation,Calculated on stated geometry
+Tilt interlock,tilt disabled below 2.60 m floor clearance,Supervisor definition,Definition value
+Worm actuator torque,>= 6 Nm tilt / >= 2.5 Nm pan,self-locking requirement,Supplier confirmation required
+Supervisor watchdog,350 ms,Supervisor definition,Definition value
+FOC speed control settling,<= 0.5 s,Control loop target,Control loop target
+Plausibility gates,-10..+80 C ; <= 3 K/s,Supervisor definition,Definition value

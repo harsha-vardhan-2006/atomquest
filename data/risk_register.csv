@@ -1,0 +1,15 @@
+item,state,basis_or_next_step
+Paper design; no hardware,OPEN,Nothing measured; every figure is a stated target or a documented calculation
+Moving-mass roll-up,UNRECONCILED,Component list sums 7.00 kg vs earlier stated 6.80 kg; both retained pending evidence
+CFRP strength/mass/CoM,OPEN,Requires T-01/T-05 coupons; supplier data; failure criterion definition
+Blade containment,BLOCKED,128.8 J hazard-case energy vs 130 J rating basis - thin margin; blocked pending basis and authorization
+Tip deflection,OPEN,Requires FEA and T-04; paper value ~0.55-0.6 mm vs 1 mm limit
+Rotor inertia 0.113 kg*m2,ASSUMPTION,CAD estimate pending sign-off
+Service value 8.7 m3/min/W,INDICATIVE ONLY,245 m3/min target / 28.3 W assumed input; not measured
+456 RPM case,HAZARD CASE,Tip 33.5 m/s exceeds 30 m/s cap; never an operating target
+Electrical/EMC/BIS compliance,NOT ESTABLISHED,Accredited-lab testing pending (T-12/T-13/T-21)
+Anchor/cable ratings,TO CONFIRM,139.9 N demand vs 600 N working / 1500 N ultimate anchors; 6.5 kN cable; supplier confirmation required
+Worm self-lock at rated torque,TO CONFIRM,Off-the-shelf units may not meet torque + self-lock together (T-06)
+Costs,PLANNING ESTIMATES,No quotations obtained; BOM 26,650/fan + NRE programme estimate
+Mentor + portal registration fields,OPEN,To be supplied from official portal if required
+Competition deadlines,LIVE,Portal: registration 17 Oct 2026; Round 1 abstract 18 Oct 2026 18:29 GMT

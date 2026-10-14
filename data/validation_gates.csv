@@ -1,0 +1,23 @@
+gate,name,scope,pass_criterion,status
+T-00,Documentation sign-off,All targets/assumptions recorded in repo,Repo review passes,PLANNED
+T-01,CFRP coupon static strength,[0/45/90]s carbon/epoxy coupons,Strength >= design allowables with documented basis,BLOCKED (authorization + lab access)
+T-02,Sensor calibration,Temp/humidity vs calibrated reference,Accuracy within ±0.5 C / ±3 pctRH,PLANNED (M1)
+T-03,Comfort band map,Controller logic simulation matches declared bands,check_scenarios.py passes 16/16,VERIFIED (simulation only)
+T-04,Blade tip deflection FEA,FEA under max load case,Deflection <= 1 mm with documented margins,PLANNED (paper ~0.55-0.6 mm)
+T-05,CFRP mass/CoM verification,Weigh + measure finished blade,Mass/CoM within CAD roll-up tolerance,BLOCKED until blades exist
+T-06,Worm self-lock test, Power removed at rated load,Position holds without drift,PLANNED
+T-07,Limit switch + hard-stop check,Mechanical travel limits,Travel stops within limits every time,PLANNED
+T-08,Encoder plausibility,Encoder vs supervisor model,Mismatch triggers safe state,PLANNED
+T-09,Plausibility gate test,Out-of-band/rate sensor inputs,Implausible input routes to safe default curve,PLANNED
+T-10,Override precedence,Supervisor > local > RF > web > automation,Higher layer always wins,PLANNED (M2)
+T-11,Sensor-disconnect fallback,Unplug sensing chain,Defined safe fallback engages,PLANNED (M2)
+T-12,Electrical safety (IS 302-2-80 class),Hipot/leakage on 24 V subsystem,Accredited-lab pass,BLOCKED (accredited lab required)
+T-13,EMC pre-screen,Emissions/immunity bench,Pre-screen within class limits,PLANNED
+T-14,Response time measurement,Local mode command-to-response,<= 5 s over defined scenarios,BLOCKED until hardware
+T-15,Scenario success rate,Run 16 defined scenarios on hardware,>= 95 pct success,BLOCKED until hardware
+T-16,Network-loss fallback,Drop network mid-scenario,Local-only mode engages correctly,PLANNED (M2)
+T-17,Device trigger (safe load),Trigger exhaust-fan/safe load,Trigger fires within declared window,PLANNED (M3)
+T-18,Watchdog/fault injection,Stall/overspeed-command injection,Power cut <= 350 ms window,PLANNED
+T-19,Structural static test,Full rotor at rest load,Deflection/factor per documented basis,BLOCKED (fixture + authorization)
+T-20,Powered rotor validation,Instrumented spin-up per safe protocol,All gate criteria pass,NOT AUTHORIZED at Stage 1
+T-21,Certification file review,Complete evidence dossier,All prior gates green,NOT APPLICABLE until T-20 authorized

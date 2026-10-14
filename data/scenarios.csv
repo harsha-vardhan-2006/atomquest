@@ -1,0 +1,17 @@
+id,description,temp_c,rh_pct,expected_speed_step,expected_device,notes
+S01,Cool morning,24.5,50,0,none,band 0: no cooling demand
+S02,Mild afternoon,27.0,55,1,none,band 1
+S03,Warm afternoon,30.0,60,2,none,band 2
+S04,Hot afternoon,33.5,65,3,exhaust_fan,band 3 plus humidity at trigger boundary
+S05,Very hot evening,37.0,45,4,none,band 4 no humidity trigger
+S06,Hot and humid peak,34.0,70,3,exhaust_fan,band 3 plus humidity trigger
+S07,Humid but mild temperature,26.0,68,0,exhaust_fan,low speed plus humidity trigger
+S08,Humidity trigger boundary,28.0,65,1,exhaust_fan,exact 65 pct RH boundary
+S09,Band 2 boundary,32.0,60,2,none,exact 32 C boundary
+S10,Band 3 boundary,35.0,40,3,none,exact 35 C boundary
+S11,Above band 3,36.0,50,4,none,transitions to top band
+S12,Extreme combined,38.0,90,4,exhaust_fan,top band plus strong humidity
+S13,Cool and dry idle,25.0,30,0,none,fan idle comfort preserves
+S14,Just below trigger,31.0,64.9,2,none,just below 65 pct RH
+S15,Band 1 boundary,29.0,55,1,none,exact 29 C boundary
+S16,Mild but very humid,27.5,80,1,exhaust_fan,low speed plus high humidity

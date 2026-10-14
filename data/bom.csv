@@ -1,0 +1,17 @@
+item,cost_inr,sourcing_flag,notes
+3-blade CFRP composite rotor set (custom prepreg; tooling share),6450,CUSTOM + LONG LEAD,tooling + cure + verification; no supplier datasheet yet
+24 V sensorless-FOC BLDC motor (>= 0.62 Nm cont / 2.5 Nm 5 s peak),3700,OFF-THE-SHELF,confirm rated torque with supplier
+FOC drive / controller board,1900,OFF-THE-SHELF,EMC behaviour unverified
+Supervisor MCU board (locked firmware),1400,OFF-THE-SHELF,safety-relevant sourcing to be confirmed
+Local controller MCU board,1150,OFF-THE-SHELF,
+Temp/humidity sensor set,850,OFF-THE-SHELF,accuracy vs calibrated reference to be verified
+Pan worm actuator (>= 2.5 Nm self-locking),1900,CUSTOM-RATED,self-lock at rated torque needs supplier confirmation
+Tilt worm actuator (>= 6 Nm self-locking),2250,CUSTOM-RATED,self-lock at rated torque needs supplier confirmation
+Absolute encoders + limit switches + hard stops,950,OFF-THE-SHELF,
+24 V SMPS power supply,1000,OFF-THE-SHELF,hipot/leakage/EMC verified by accredited testing
+Wi-Fi/BLE connectivity module (optional),750,OFF-THE-SHELF,radio/EMC implications open
+RF remote + manual override interface,700,OFF-THE-SHELF,
+Connected-device trigger interface or safe test load,850,OFF-THE-SHELF,
+Test instrumentation (power meter + reference sensors),1100,OFF-THE-SHELF,
+SS304 safety cable + anchor hardware,800,OFF-THE-SHELF,ratings confirmation required
+Custom mounting and pan/tilt bracket plates,900,CUSTOM,laser-cut; short lead
