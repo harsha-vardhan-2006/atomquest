@@ -103,17 +103,32 @@ assert cable_kN * 1e3 > 10 * anchor_demand
 
 # ---------------------------------------------------------------------------
 # 5. Pan/tilt clearance geometry (self-locking worm, tilt gated by floor clearance)
+# Exact lowest-tip model (13-cad-clearance-closure-plan): lowest tip below hub
+# z_low(theta) = R*cos(theta) + a*sin(theta); binding worst case is the peak
+# theta* = atan(a/R) ~ 9.73 deg where z_low = sqrt(R^2 + a^2) ~ 0.7102 m.
+# Binary ceiling rule: >= 2.660 m -> full +/-20 deg; 2.65-2.66 -> level only;
+# < 2.65 -> not qualified (level clearance itself < 1.50 m).
 # ---------------------------------------------------------------------------
 R = 0.7            # m, rotor radius
-tilt_deg = 20.0    # max design tilt
-drop = R * math.sin(math.radians(tilt_deg))
-floor_clearance_available = 2.65 - (R + drop)  # disc centre set so that static floor clearance is 2.65 m
+A_HUB = 0.12       # m, hub + motor housing half-height (axial)
+H_ROD = 0.45       # m, ceiling-to-hub drop
+THETA = [0.0, 9.7286, 20.0]  # worst-case and boundary tilts
+def z_low(t):
+    return R * math.cos(math.radians(t)) + A_HUB * math.sin(math.radians(t))
+z_peak = math.sqrt(R * R + A_HUB * A_HUB)
+min_ceiling_full = H_ROD + z_peak + 1.50
+level_floor_on_265 = 2.65 - H_ROD - z_low(0.0)
 show("5. Tilt clearance check",
-     "lowest_tip = H - (R + R*sin(tilt)) ; floor_clearance = lowest_tip",
-     {"H (floor clearance, untilted)": "2.65 m", "R": 0.7, "tilt": "20 deg"}, floor_clearance_available, "m (floor clearance at full tilt)", "geometric derivation on stated mounting geometry")
-print("  check   : requirement >= 1.50 m floor clearance at full tilt")
-assert floor_clearance_available >= 1.50
-print("  control : tilt is DISABLED below 2.60 m floor clearance (supervisor interlock).")
+     "z_low(theta) = R*cos(theta) + a*sin(theta); worst theta* = atan(a/R)",
+     {"R": R, "a (hub half-height)": A_HUB, "h_rod": H_ROD, "floor rule": "1.50 m",
+      "theta*": "9.73 deg"}, z_peak, "m worst-case lowest tip below hub", "geometric derivation on stated mounting geometry")
+print("  check   : binary rule -> level = %.3f m worst drop; full +/-20 deg needs ceiling >= %.3f m" % (z_low(0.0), min_ceiling_full))
+assert abs(min_ceiling_full - 2.6602) < 1e-3
+assert level_floor_on_265 >= 1.50 - 1e-9, "2.65 m ceiling must pass at level"
+assert 2.65 - H_ROD - z_peak < 1.50, "2.65 m ceiling must fail slightly-tilted (binary rule)"
+assert 2.70 - H_ROD - z_peak >= 1.50, "2.70 m ceiling passes all tilts <= 20 deg"
+print("  control : rule is BINARY (level-only 2.65-2.66 m; no intermediate caps);",
+        "tilt also DISABLED below 2.65 m ceiling (supervisor interlock; 27 deg stop is backstop).")
 
 
 # ---------------------------------------------------------------------------
