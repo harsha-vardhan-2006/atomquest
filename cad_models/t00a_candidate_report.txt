@@ -1,0 +1,48 @@
+================================================================================================
+T-00a CLEARANCE SCAN ACCEPTANCE REPORT
+source: CAD map cad_models/t00a_cad_map.csv (raw scan output)
+================================================================================================
+
+pair: blade-blade   threshold >= 1.0 mm
+  poses with data: 74229 / 74229   minimum: 154.16 mm
+  worst-10 poses:
+    pan -170.0 deg  tilt -27.0 deg  ->  154.16 mm
+    pan -170.0 deg  tilt -26.5 deg  ->  154.16 mm
+    pan -170.0 deg  tilt -26.0 deg  ->  154.16 mm
+    pan -170.0 deg  tilt -25.5 deg  ->  154.16 mm
+    pan -170.0 deg  tilt -25.0 deg  ->  154.16 mm
+    pan -170.0 deg  tilt -24.5 deg  ->  154.16 mm
+    pan -170.0 deg  tilt -24.0 deg  ->  154.16 mm
+    pan -170.0 deg  tilt -23.5 deg  ->  154.16 mm
+    pan -170.0 deg  tilt -23.0 deg  ->  154.16 mm
+    pan -170.0 deg  tilt -22.5 deg  ->  154.16 mm
+
+pair: blade-ceiling   threshold >= 50.0 mm
+  poses with data: 74229 / 74229   minimum: 1499.80 mm
+  worst-10 poses:
+    pan -170.0 deg  tilt -10.0 deg  ->  1499.80 mm
+    pan -170.0 deg  tilt -9.5 deg  ->  1499.80 mm
+    pan -170.0 deg  tilt -9.0 deg  ->  1499.80 mm
+    pan -170.0 deg  tilt +9.0 deg  ->  1499.80 mm
+    pan -170.0 deg  tilt +9.5 deg  ->  1499.80 mm
+    pan -170.0 deg  tilt +10.0 deg  ->  1499.80 mm
+    pan -169.5 deg  tilt -10.0 deg  ->  1499.80 mm
+    pan -169.5 deg  tilt -9.5 deg  ->  1499.80 mm
+    pan -169.5 deg  tilt -9.0 deg  ->  1499.80 mm
+    pan -169.5 deg  tilt +9.0 deg  ->  1499.80 mm
+
+pair: blade-object   threshold >= 50.0 mm
+  poses with data: 74229 / 74229   minimum: 196.67 mm
+  worst-10 poses:
+    pan -170.0 deg  tilt -27.0 deg  ->  196.67 mm
+    pan -170.0 deg  tilt +27.0 deg  ->  196.67 mm
+    pan -169.5 deg  tilt -27.0 deg  ->  196.67 mm
+    pan -169.5 deg  tilt +27.0 deg  ->  196.67 mm
+    pan -169.0 deg  tilt -27.0 deg  ->  196.67 mm
+    pan -169.0 deg  tilt +27.0 deg  ->  196.67 mm
+    pan -168.5 deg  tilt -27.0 deg  ->  196.67 mm
+    pan -168.5 deg  tilt +27.0 deg  ->  196.67 mm
+    pan -168.0 deg  tilt -27.0 deg  ->  196.67 mm
+    pan -168.0 deg  tilt +27.0 deg  ->  196.67 mm
+
+acceptance: blade-blade=PASS; blade-ceiling=PASS; blade-object=PASS

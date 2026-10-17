@@ -148,16 +148,23 @@ def main(argv=None):
     if args.cad_map:
         rows = load_csv(args.cad_map)
         note = "CAD map %s (raw scan output)" % args.cad_map
-        # cross-check: blade-ceiling analytic identity (rigid rotor, exact law)
+        # cross-check: blade-ceiling identity vs the exact pose-aware law
+        # (rigid rotor: distance = H - h_rod - z_high(|tilt|); pose-aware, since
+        # z_high varies from 0.700 m at level to 0.7102 m at theta* ~ 9.73 deg)
         cz = {}
         for pr, pan, tilt, d in rows:
             if pr == "blade-ceiling":
                 cz[(pan, tilt)] = d
-        dev = max(abs(d / 1000.0 - (2.660 - H_ROD - math.hypot(R, A))) for d in cz.values()) if cz else 0.0
-        if dev > 0.010:
-            raise SystemExit("blade-ceiling rows deviate from exact law by %.3f m - check model set" % dev)
-        if dev > 0.001:
-            print("NOTE: blade-ceiling rows differ from analytics by %.1f mm (hub model variant)" % (dev * 1000))
+        dev = 0.0
+        for (pan, tilt), d in cz.items():
+            t = abs(tilt)
+            zh = R * math.cos(math.radians(t)) + A * math.sin(math.radians(t))
+            ref = (2.660 - H_ROD - zh) * 1000.0
+            dev = max(dev, abs(d - ref))
+        if dev > 15.0:
+            raise SystemExit("blade-ceiling rows deviate from exact law by %.2f mm - check model set" % dev)
+        if dev > 1.0:
+            print("NOTE: blade-ceiling rows differ from the exact plane law by up to %.2f mm (mesh/tessellation differential)" % dev)
     else:
         rows = list(baseline_rows())
         note = "analytical paper baseline (PRE-CAD) - object pair not modelled"

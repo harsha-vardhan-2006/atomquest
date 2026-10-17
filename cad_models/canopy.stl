@@ -1,0 +1,242 @@
+solid canopy
+  facet normal np.float64(0.9914448613738104) np.float64(0.1305261922200517) np.float64(0.0)
+    vertex np.float64(300.0) np.float64(0.0) np.float64(390.0)
+    vertex np.float64(289.7777478867205) np.float64(77.64571353075623) np.float64(390.0)
+    vertex np.float64(289.7777478867205) np.float64(77.64571353075623) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.9914448613738104) np.float64(0.1305261922200517) np.float64(-0.0)
+    vertex np.float64(300.0) np.float64(0.0) np.float64(390.0)
+    vertex np.float64(289.7777478867205) np.float64(77.64571353075623) np.float64(450.0)
+    vertex np.float64(300.0) np.float64(0.0) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.9238795325112867) np.float64(0.38268343236508967) np.float64(0.0)
+    vertex np.float64(289.7777478867205) np.float64(77.64571353075623) np.float64(390.0)
+    vertex np.float64(259.8076211353316) np.float64(149.99999999999997) np.float64(390.0)
+    vertex np.float64(259.8076211353316) np.float64(149.99999999999997) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.9238795325112867) np.float64(0.38268343236508967) np.float64(-0.0)
+    vertex np.float64(289.7777478867205) np.float64(77.64571353075623) np.float64(390.0)
+    vertex np.float64(259.8076211353316) np.float64(149.99999999999997) np.float64(450.0)
+    vertex np.float64(289.7777478867205) np.float64(77.64571353075623) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.7933533402912353) np.float64(0.6087614290087203) np.float64(0.0)
+    vertex np.float64(259.8076211353316) np.float64(149.99999999999997) np.float64(390.0)
+    vertex np.float64(212.13203435596427) np.float64(212.13203435596427) np.float64(390.0)
+    vertex np.float64(212.13203435596427) np.float64(212.13203435596427) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.7933533402912353) np.float64(0.6087614290087203) np.float64(-0.0)
+    vertex np.float64(259.8076211353316) np.float64(149.99999999999997) np.float64(390.0)
+    vertex np.float64(212.13203435596427) np.float64(212.13203435596427) np.float64(450.0)
+    vertex np.float64(259.8076211353316) np.float64(149.99999999999997) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.6087614290087209) np.float64(0.7933533402912352) np.float64(0.0)
+    vertex np.float64(212.13203435596427) np.float64(212.13203435596427) np.float64(390.0)
+    vertex np.float64(150.00000000000003) np.float64(259.8076211353316) np.float64(390.0)
+    vertex np.float64(150.00000000000003) np.float64(259.8076211353316) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.6087614290087209) np.float64(0.7933533402912352) np.float64(-0.0)
+    vertex np.float64(212.13203435596427) np.float64(212.13203435596427) np.float64(390.0)
+    vertex np.float64(150.00000000000003) np.float64(259.8076211353316) np.float64(450.0)
+    vertex np.float64(212.13203435596427) np.float64(212.13203435596427) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.38268343236508967) np.float64(0.9238795325112867) np.float64(0.0)
+    vertex np.float64(150.00000000000003) np.float64(259.8076211353316) np.float64(390.0)
+    vertex np.float64(77.64571353075628) np.float64(289.7777478867205) np.float64(390.0)
+    vertex np.float64(77.64571353075628) np.float64(289.7777478867205) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.38268343236508967) np.float64(0.9238795325112867) np.float64(-0.0)
+    vertex np.float64(150.00000000000003) np.float64(259.8076211353316) np.float64(390.0)
+    vertex np.float64(77.64571353075628) np.float64(289.7777478867205) np.float64(450.0)
+    vertex np.float64(150.00000000000003) np.float64(259.8076211353316) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.13052619222005163) np.float64(0.9914448613738104) np.float64(0.0)
+    vertex np.float64(77.64571353075628) np.float64(289.7777478867205) np.float64(390.0)
+    vertex np.float64(1.8369701987210297e-14) np.float64(300.0) np.float64(390.0)
+    vertex np.float64(1.8369701987210297e-14) np.float64(300.0) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.13052619222005163) np.float64(0.9914448613738104) np.float64(-0.0)
+    vertex np.float64(77.64571353075628) np.float64(289.7777478867205) np.float64(390.0)
+    vertex np.float64(1.8369701987210297e-14) np.float64(300.0) np.float64(450.0)
+    vertex np.float64(77.64571353075628) np.float64(289.7777478867205) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.13052619222005177) np.float64(0.9914448613738103) np.float64(0.0)
+    vertex np.float64(1.8369701987210297e-14) np.float64(300.0) np.float64(390.0)
+    vertex np.float64(-77.64571353075618) np.float64(289.7777478867205) np.float64(390.0)
+    vertex np.float64(-77.64571353075618) np.float64(289.7777478867205) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.13052619222005177) np.float64(0.9914448613738103) np.float64(0.0)
+    vertex np.float64(1.8369701987210297e-14) np.float64(300.0) np.float64(390.0)
+    vertex np.float64(-77.64571353075618) np.float64(289.7777478867205) np.float64(450.0)
+    vertex np.float64(1.8369701987210297e-14) np.float64(300.0) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.38268343236508967) np.float64(0.9238795325112868) np.float64(0.0)
+    vertex np.float64(-77.64571353075618) np.float64(289.7777478867205) np.float64(390.0)
+    vertex np.float64(-149.99999999999994) np.float64(259.8076211353316) np.float64(390.0)
+    vertex np.float64(-149.99999999999994) np.float64(259.8076211353316) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.38268343236508967) np.float64(0.9238795325112868) np.float64(0.0)
+    vertex np.float64(-77.64571353075618) np.float64(289.7777478867205) np.float64(390.0)
+    vertex np.float64(-149.99999999999994) np.float64(259.8076211353316) np.float64(450.0)
+    vertex np.float64(-77.64571353075618) np.float64(289.7777478867205) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.6087614290087203) np.float64(0.7933533402912353) np.float64(0.0)
+    vertex np.float64(-149.99999999999994) np.float64(259.8076211353316) np.float64(390.0)
+    vertex np.float64(-212.13203435596424) np.float64(212.13203435596427) np.float64(390.0)
+    vertex np.float64(-212.13203435596424) np.float64(212.13203435596427) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.6087614290087203) np.float64(0.7933533402912353) np.float64(0.0)
+    vertex np.float64(-149.99999999999994) np.float64(259.8076211353316) np.float64(390.0)
+    vertex np.float64(-212.13203435596424) np.float64(212.13203435596427) np.float64(450.0)
+    vertex np.float64(-149.99999999999994) np.float64(259.8076211353316) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.7933533402912348) np.float64(0.608761429008721) np.float64(0.0)
+    vertex np.float64(-212.13203435596424) np.float64(212.13203435596427) np.float64(390.0)
+    vertex np.float64(-259.80762113533154) np.float64(150.0000000000001) np.float64(390.0)
+    vertex np.float64(-259.80762113533154) np.float64(150.0000000000001) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.7933533402912348) np.float64(0.608761429008721) np.float64(0.0)
+    vertex np.float64(-212.13203435596424) np.float64(212.13203435596427) np.float64(390.0)
+    vertex np.float64(-259.80762113533154) np.float64(150.0000000000001) np.float64(450.0)
+    vertex np.float64(-212.13203435596424) np.float64(212.13203435596427) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.9238795325112866) np.float64(0.38268343236509006) np.float64(0.0)
+    vertex np.float64(-259.80762113533154) np.float64(150.0000000000001) np.float64(390.0)
+    vertex np.float64(-289.7777478867205) np.float64(77.64571353075631) np.float64(390.0)
+    vertex np.float64(-289.7777478867205) np.float64(77.64571353075631) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.9238795325112866) np.float64(0.38268343236509006) np.float64(0.0)
+    vertex np.float64(-259.80762113533154) np.float64(150.0000000000001) np.float64(390.0)
+    vertex np.float64(-289.7777478867205) np.float64(77.64571353075631) np.float64(450.0)
+    vertex np.float64(-259.80762113533154) np.float64(150.0000000000001) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.9914448613738105) np.float64(0.13052619222005166) np.float64(0.0)
+    vertex np.float64(-289.7777478867205) np.float64(77.64571353075631) np.float64(390.0)
+    vertex np.float64(-300.0) np.float64(3.6739403974420595e-14) np.float64(390.0)
+    vertex np.float64(-300.0) np.float64(3.6739403974420595e-14) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.9914448613738105) np.float64(0.13052619222005166) np.float64(0.0)
+    vertex np.float64(-289.7777478867205) np.float64(77.64571353075631) np.float64(390.0)
+    vertex np.float64(-300.0) np.float64(3.6739403974420595e-14) np.float64(450.0)
+    vertex np.float64(-289.7777478867205) np.float64(77.64571353075631) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.9914448613738105) np.float64(-0.13052619222005113) np.float64(0.0)
+    vertex np.float64(-300.0) np.float64(3.6739403974420595e-14) np.float64(390.0)
+    vertex np.float64(-289.77774788672053) np.float64(-77.64571353075611) np.float64(390.0)
+    vertex np.float64(-289.77774788672053) np.float64(-77.64571353075611) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.9914448613738105) np.float64(-0.13052619222005113) np.float64(0.0)
+    vertex np.float64(-300.0) np.float64(3.6739403974420595e-14) np.float64(390.0)
+    vertex np.float64(-289.77774788672053) np.float64(-77.64571353075611) np.float64(450.0)
+    vertex np.float64(-300.0) np.float64(3.6739403974420595e-14) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.923879532511287) np.float64(-0.38268343236508945) np.float64(0.0)
+    vertex np.float64(-289.77774788672053) np.float64(-77.64571353075611) np.float64(390.0)
+    vertex np.float64(-259.80762113533166) np.float64(-149.99999999999991) np.float64(390.0)
+    vertex np.float64(-259.80762113533166) np.float64(-149.99999999999991) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.923879532511287) np.float64(-0.38268343236508945) np.float64(0.0)
+    vertex np.float64(-289.77774788672053) np.float64(-77.64571353075611) np.float64(390.0)
+    vertex np.float64(-259.80762113533166) np.float64(-149.99999999999991) np.float64(450.0)
+    vertex np.float64(-289.77774788672053) np.float64(-77.64571353075611) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.7933533402912355) np.float64(-0.6087614290087204) np.float64(0.0)
+    vertex np.float64(-259.80762113533166) np.float64(-149.99999999999991) np.float64(390.0)
+    vertex np.float64(-212.13203435596438) np.float64(-212.13203435596415) np.float64(390.0)
+    vertex np.float64(-212.13203435596438) np.float64(-212.13203435596415) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.7933533402912355) np.float64(-0.6087614290087204) np.float64(0.0)
+    vertex np.float64(-259.80762113533166) np.float64(-149.99999999999991) np.float64(390.0)
+    vertex np.float64(-212.13203435596438) np.float64(-212.13203435596415) np.float64(450.0)
+    vertex np.float64(-259.80762113533166) np.float64(-149.99999999999991) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.6087614290087212) np.float64(-0.7933533402912347) np.float64(0.0)
+    vertex np.float64(-212.13203435596438) np.float64(-212.13203435596415) np.float64(390.0)
+    vertex np.float64(-150.00000000000014) np.float64(-259.80762113533154) np.float64(390.0)
+    vertex np.float64(-150.00000000000014) np.float64(-259.80762113533154) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.6087614290087212) np.float64(-0.7933533402912347) np.float64(0.0)
+    vertex np.float64(-212.13203435596438) np.float64(-212.13203435596415) np.float64(390.0)
+    vertex np.float64(-150.00000000000014) np.float64(-259.80762113533154) np.float64(450.0)
+    vertex np.float64(-212.13203435596438) np.float64(-212.13203435596415) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.38268343236509) np.float64(-0.9238795325112866) np.float64(0.0)
+    vertex np.float64(-150.00000000000014) np.float64(-259.80762113533154) np.float64(390.0)
+    vertex np.float64(-77.64571353075645) np.float64(-289.7777478867204) np.float64(390.0)
+    vertex np.float64(-77.64571353075645) np.float64(-289.7777478867204) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.38268343236509) np.float64(-0.9238795325112866) np.float64(0.0)
+    vertex np.float64(-150.00000000000014) np.float64(-259.80762113533154) np.float64(390.0)
+    vertex np.float64(-77.64571353075645) np.float64(-289.7777478867204) np.float64(450.0)
+    vertex np.float64(-150.00000000000014) np.float64(-259.80762113533154) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.13052619222005216) np.float64(-0.9914448613738104) np.float64(0.0)
+    vertex np.float64(-77.64571353075645) np.float64(-289.7777478867204) np.float64(390.0)
+    vertex np.float64(-5.510910596163089e-14) np.float64(-300.0) np.float64(390.0)
+    vertex np.float64(-5.510910596163089e-14) np.float64(-300.0) np.float64(450.0)
+  endfacet
+  facet normal np.float64(-0.13052619222005216) np.float64(-0.9914448613738104) np.float64(0.0)
+    vertex np.float64(-77.64571353075645) np.float64(-289.7777478867204) np.float64(390.0)
+    vertex np.float64(-5.510910596163089e-14) np.float64(-300.0) np.float64(450.0)
+    vertex np.float64(-77.64571353075645) np.float64(-289.7777478867204) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.13052619222005116) np.float64(-0.9914448613738105) np.float64(0.0)
+    vertex np.float64(-5.510910596163089e-14) np.float64(-300.0) np.float64(390.0)
+    vertex np.float64(77.64571353075608) np.float64(-289.77774788672053) np.float64(390.0)
+    vertex np.float64(77.64571353075608) np.float64(-289.77774788672053) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.13052619222005116) np.float64(-0.9914448613738105) np.float64(0.0)
+    vertex np.float64(-5.510910596163089e-14) np.float64(-300.0) np.float64(390.0)
+    vertex np.float64(77.64571353075608) np.float64(-289.77774788672053) np.float64(450.0)
+    vertex np.float64(-5.510910596163089e-14) np.float64(-300.0) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.38268343236508917) np.float64(-0.9238795325112868) np.float64(0.0)
+    vertex np.float64(77.64571353075608) np.float64(-289.77774788672053) np.float64(390.0)
+    vertex np.float64(149.9999999999998) np.float64(-259.8076211353317) np.float64(390.0)
+    vertex np.float64(149.9999999999998) np.float64(-259.8076211353317) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.38268343236508917) np.float64(-0.9238795325112868) np.float64(0.0)
+    vertex np.float64(77.64571353075608) np.float64(-289.77774788672053) np.float64(390.0)
+    vertex np.float64(149.9999999999998) np.float64(-259.8076211353317) np.float64(450.0)
+    vertex np.float64(77.64571353075608) np.float64(-289.77774788672053) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.6087614290087203) np.float64(-0.7933533402912354) np.float64(0.0)
+    vertex np.float64(149.9999999999998) np.float64(-259.8076211353317) np.float64(390.0)
+    vertex np.float64(212.1320343559642) np.float64(-212.1320343559643) np.float64(390.0)
+    vertex np.float64(212.1320343559642) np.float64(-212.1320343559643) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.6087614290087203) np.float64(-0.7933533402912354) np.float64(0.0)
+    vertex np.float64(149.9999999999998) np.float64(-259.8076211353317) np.float64(390.0)
+    vertex np.float64(212.1320343559642) np.float64(-212.1320343559643) np.float64(450.0)
+    vertex np.float64(149.9999999999998) np.float64(-259.8076211353317) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.793353340291235) np.float64(-0.6087614290087209) np.float64(0.0)
+    vertex np.float64(212.1320343559642) np.float64(-212.1320343559643) np.float64(390.0)
+    vertex np.float64(259.8076211353315) np.float64(-150.00000000000014) np.float64(390.0)
+    vertex np.float64(259.8076211353315) np.float64(-150.00000000000014) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.793353340291235) np.float64(-0.6087614290087209) np.float64(0.0)
+    vertex np.float64(212.1320343559642) np.float64(-212.1320343559643) np.float64(390.0)
+    vertex np.float64(259.8076211353315) np.float64(-150.00000000000014) np.float64(450.0)
+    vertex np.float64(212.1320343559642) np.float64(-212.1320343559643) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.9238795325112865) np.float64(-0.3826834323650906) np.float64(0.0)
+    vertex np.float64(259.8076211353315) np.float64(-150.00000000000014) np.float64(390.0)
+    vertex np.float64(289.7777478867204) np.float64(-77.64571353075647) np.float64(390.0)
+    vertex np.float64(289.7777478867204) np.float64(-77.64571353075647) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.9238795325112865) np.float64(-0.3826834323650906) np.float64(0.0)
+    vertex np.float64(259.8076211353315) np.float64(-150.00000000000014) np.float64(390.0)
+    vertex np.float64(289.7777478867204) np.float64(-77.64571353075647) np.float64(450.0)
+    vertex np.float64(259.8076211353315) np.float64(-150.00000000000014) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.9914448613738104) np.float64(-0.13052619222005202) np.float64(0.0)
+    vertex np.float64(289.7777478867204) np.float64(-77.64571353075647) np.float64(390.0)
+    vertex np.float64(300.0) np.float64(0.0) np.float64(390.0)
+    vertex np.float64(300.0) np.float64(0.0) np.float64(450.0)
+  endfacet
+  facet normal np.float64(0.9914448613738104) np.float64(-0.13052619222005202) np.float64(0.0)
+    vertex np.float64(289.7777478867204) np.float64(-77.64571353075647) np.float64(390.0)
+    vertex np.float64(300.0) np.float64(0.0) np.float64(450.0)
+    vertex np.float64(289.7777478867204) np.float64(-77.64571353075647) np.float64(450.0)
+  endfacet
+endsolid canopy
