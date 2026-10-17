@@ -1,0 +1,29 @@
+item_no,route,component,spec_field,value_or_form_required,acceptance_basis,gate,status
+A1,CFRP lead candidate,carbon prepreg,fiber designation,exact fiber product code (T300/T700/T800 class),not a class name - product code,T-00c,OPEN
+A2,CFRP lead candidate,carbon prepreg,fiber areal weight,g/m2 with tolerance (+/-5%),T-00b cert basis,T-00c,OPEN
+A3,CFRP lead candidate,carbon prepreg,resin system,exact epoxy product + cure temp class (120 C) + Tg,supplier datasheet,T-00c,OPEN
+A4,CFRP lead candidate,carbon prepreg,fiber volume fraction,percent with tolerance (target 40%),mass model 1.55 g/cc input,T-00c,OPEN
+A5,CFRP lead candidate,carbon prepreg,prepreg form,UD tape or twill fabric + width + tack,supplier datasheet,T-00c,OPEN
+A6,CFRP lead candidate,carbon prepreg,laminate data sheet,0/+-45/90 tensile + compressive moduli and strengths + Poisson,supplier laminate data,T-00c,OPEN
+A7,CFRP lead candidate,carbon prepreg,ILSS,short-beam value >= 45 MPa + test standard cited,02 sect 2.3 / F-6 spec,T-00c,OPEN
+A8,CFRP lead candidate,carbon prepreg,fatigue data,S-N or runout at 70% UTS class to 1e7 cycles,T-05 C-6 basis,T-00c,OPEN
+A9,CFRP lead candidate,carbon prepreg,hot/wet knockdowns,retention % at 70 C / 85 pct RH class,<= 5 pct drop target,T-00c,OPEN
+A10,CFRP lead candidate,carbon prepreg,density,cured laminate density (paper model 1.55 g/cc),mass roll-up input,T-00c,OPEN
+A11,CFRP lead candidate,carbon prepreg,cure cycle,ramp/hold/pressure/vacuum windows + press or autoclave route,process control input,T-00c,OPEN
+A12,CFRP lead candidate,carbon prepreg,storage and out-time,freezer temp + shelf life + cumulative out-time limit,process control input,T-00c,OPEN
+A13,CFRP lead candidate,carbon prepreg,traceability,batch CoA + expiry + stock ID + country of origin,lot traceability per T-00b,T-00c,OPEN
+A14,CFRP lead candidate,carbon prepreg,price and lead time,prototype qty INR/m2 + India availability,BOM cost input,T-00c,OPEN
+B1,Aluminium comparison,6061-T6 sheet,standard and temper,ASTM B209 / EN 485 cert + 0.4 mm class tolerance,blade wall basis,T-00c,OPEN
+B2,Aluminium comparison,6061-T6 sheet,lot mechanicals,yield/UTS/elongation per lot (>= 276 MPa yield basis),M-1 gate input,T-00c,OPEN
+B3,Aluminium comparison,6061-T6 sheet,surface and flatness,mill finish class + thickness variation,dent-critical wall analysis,T-00c,OPEN
+B4,Aluminium comparison,6061-T6 sheet,forming and seam route,supplier states seam method WITH joint data,seam qualification gate,T-00c,OPEN
+B5,Aluminium comparison,6061-T6 sheet,seam fatigue data,peel + fatigue + corrosion data for chosen seam,T-05 M-3/M-4/M-5 input,T-00c,OPEN
+B6,Aluminium comparison,Al-Li 2099-T83 plate,availability,prototype qty lead time + forming limits,comparison option only,T-00c,OPEN
+B7,Aluminium comparison,all lots,cert type,EN 10204 3.1 minimum,procurement standard,T-00c,OPEN
+C1,Hybrid backup,S2-glass + carbon prepreg,fields A1-A14 for both fibers,only if Route A quotes fail,fallback activation,T-00c,OPEN
+D1,Non-material,BLDC motor,datasheet match vs 03 sect 1,>= 0.62 Nm cont / 2.5 Nm peak / >= 25 W mech / L10 >= 15000 h,T-00c verbatim,OPEN
+D2,Non-material,encoders,AS5048-class absolute,resolution + interface + qualification,T-00c verbatim,OPEN
+D3,Non-material,SMPS,24 V/3.5 A + 5 V rail,inrush + leakage class II per 03 sect 3,T-00c verbatim,OPEN
+D4,Non-material,anchor hardware,M10 G-grade eye-bolt,>= 600 N working / 1500 N ultimate + test report format,T-00c verbatim,OPEN
+D5,Non-material,worm actuators,torque AND self-lock together,>= 6 Nm tilt / >= 2.5 Nm pan + self-lock at rated (risk register TO CONFIRM),T-00c verbatim,OPEN
+D6,Non-material,safety cable,dia 3 mm SS304,MBS >= 6.5 kN with certificate,T-00c verbatim,OPEN

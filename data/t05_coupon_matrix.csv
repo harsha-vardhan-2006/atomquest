@@ -1,0 +1,16 @@
+matrix_id,route,coupon_id,test,standard,specimen,layup_or_condition,n_min,condition,pass_criterion,feeds
+C,CFRP,QI-T-05-C-1,0 deg tensile,ASTM D3039,"[0]x4 unidirectional",RT dry,6,RT dry,>= A0 deg per supplier sheet (paper ref >= 1500 MPa),laminate allowable register
+C,CFRP,QI-T-05-C-2,quasi-iso tensile,ASTM D3039,[0/+-45/90]s,RT dry,6,RT dry,>= 570 MPa-class per supplier datasheet,blade design allowable
+C,CFRP,QI-T-05-C-3,quasi-iso compression,ASTM D6641,[0/+-45/90]s,RT dry,6,RT dry,>= supplier compression allowable,blade design allowable
+C,CFRP,QI-T-05-C-4,+-45 in-plane shear,ASTM D3518,[+45/-45]ns,RT dry,6,RT dry,>= supplier in-plane shear,laminate allowable register
+C,CFRP,QI-T-05-C-5,ILSS short-beam,ASTM D2344,[0]n,RT dry,6,RT dry,>= 45 MPa (F-6 spec),delamination gate
+C,CFRP,QI-T-05-C-6,fatigue runout,ASTM D7774-class,[0/+-45/90]s,RT dry,6,RT dry,1e7 cycles at 70% UTS; 5-of-6 runout passes; fibre failure before 3e6 fails,retention sizing basis
+C,CFRP,QI-T-05-C-7,hot/wet knockdown,D3039 rig,[0/+-45/90]s,70 C / 85 pct RH,6,soak >= 168 h,tensile retention >= 95% of C-2 mean,hot/wet allowable
+C,CFRP,QI-T-05-C-8,damage tolerance (T-05c),internal,[0/+-45/90]s,1 mm gouge,6,RT dry,>= 70% of C-2 mean strength; no unacceptable delam growth,F-6 criterion
+C,CFRP,QI-T-05-C-9,humidity/mass gain,internal,[0/+-45/90]s,55 C / 95 pct RH 96 h + 168 h,6,RT dry,weight gain < 1% (F-12); hot/wet retest pair vs C-7,environmental screen
+M,Aluminium,QI-T-05-M-1,parent tensile,ASTM E8,6061-T6 0.4 mm-class sheet,as-received,6,RT,>= 276 MPa yield per lot cert,parent allowable
+M,Aluminium,QI-T-05-M-2,parent fatigue runout,ASTM E466,sheet axial,as-received,6,RT,1e7 cycles at >= 2x envelope worst stress (>= 60 MPa),endurance-limit honesty record
+M,Aluminium,QI-T-05-M-3,seam fatigue,per seam spec (bonded/roll-lock per supplier),formed-half specimen with actual seam,actual method,6,RT,1e7 cycles at load from matched-mass envelope moment 1.63 Nm x 1.44; no crack initiation,seam qualification gate
+M,Aluminium,QI-T-05-M-4,seam peel or interlock,supplier method standard,seam coupon,actual method,6,RT,>= supplier qualified minimum; no opening at overspeed-equivalent load,seam qualification gate
+M,Aluminium,QI-T-05-M-5,seam corrosion,ASTM B117-class,seam coupon,actual method,6,500 h salt spray,no crevice corrosion onset,seam qualification gate
+M,Aluminium,QI-T-05-M-6,hot/wet retention,E8 rig,parent + seam,70 C,6,RT,>= 95% of M-1,parent/seam hot-wet allowable
