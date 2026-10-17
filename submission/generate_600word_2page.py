@@ -159,8 +159,8 @@ E.append(P("Track 1 Fan — combining smart-home triggers, sensor-based multi-di
            "operating point both act on.", "body"))
 E.append(P("Proposed idea/mechanism (one paragraph): a 1,400 mm-sweep ceiling fan. A local controller reads "
            "temperature/humidity to run comfort automation with manual-override precedence and defined safe fallback; "
-           "a self-locking worm pan/tilt head steers the whole airflow disc (rotor stopped before tilt; clearance ≥ 2.65 m "
-           "for ±20°); quasi-isotropic [0/±45/90]s carbon/epoxy blades run on a 24 V FOC BLDC drive, overseen by a "
+           "a self-locking worm pan/tilt head steers the whole airflow disc (rotor stopped before tilt; full ±20° needs ≥ 2.660 m ceiling, "
+           "level-only on 2.650–2.660 m); quasi-isotropic [0/±45/90]s carbon/epoxy blades run on a 24 V FOC BLDC drive, overseen by a "
            "locked-firmware supervisor MCU that can cut actuator power on any anomaly.", "body"))
 E.append(P("Baseline-vs-target, quantified: no measured baseline of ours exists. Versus a fixed-speed, fixed-direction, "
            "manual fan: steerable airflow (±20° tilt); automated response ≤ 5 s with ≥ 95 % success over 10–20 scenarios; "
@@ -245,7 +245,7 @@ tg = [
     [P("Blades", "cell"), P("[0/±45/90]s carbon/epoxy, 2 mm skin, ≈ 1.55 g/cc, ≈ 70 GPa, 165 g/blade", "cell"), P("Assumptions pending T-01/T-05 + supplier data", "cell")],
     [P("Motor", "cell"), P("≥ 0.62 N·m cont., ≥ 2.5 N·m 5 s peak, ≥ 25 W mech; O/C ≤ 20 µs; NTC 165 °C", "cell"), P("Specified on paper", "cell")],
     [P("Suspension", "cell"), P("139.9 N demand vs 600 N working / 1,500 N ultimate; cable 6.5 kN", "cell"), P("Calculated", "cell")],
-    [P("Clearance", "cell"), P("≥ 2.65 m → ±20° with 1.50 m floor clearance; below 2.60 m tilt disabled", "cell"), P("Corrected derivation", "cell")],
+    [P("Clearance", "cell"), P("Binary rule: ≥ 2.660 m → ±20° with 1.50 m floor; 2.650–2.660 m level-only; < 2.650 m not qualified", "cell"), P("Exact derivation (worst case at ~9.73° tilt)", "cell")],
 ]
 X.append(styled_table(tg, [40*mm, 78*mm, 52*mm]))
 

@@ -22,7 +22,7 @@ Automation success rate,>= 95 pct over 16 defined scenarios,data/scenarios.csv +
 Suspension anchor demand,139.9 N,Load analysis with stated assumption set,Calculated
 Anchor ratings,600 N working / 1500 N ultimate,Hardware datasheet class,To be confirmed by supplier
 Safety cable rating,6.5 kN,SS304 cable specification,To be confirmed by supplier
-Tilt range,binary rule: full ±20 deg at ceiling >= 2.660 m; level-only 2.650–2.660 m; < 2.650 m not qualified,Exact worst-case geometry (z_low peaks at theta* = 9.73 deg, 0.7102 m) — 13-cad-clearance-closure-plan,Calculated; PDF's earlier 2.65 m wording superseded (pending PDF reissue); T-00a CAD tolerance closure pending
+Tilt range,binary rule: full ±20 deg at ceiling >= 2.660 m; level-only 2.650–2.660 m; < 2.650 m not qualified,Exact worst-case geometry (z_low peaks at theta* = 9.73 deg, 0.7102 m) — 13-cad-clearance-closure-plan,Calculated; 2-page abstract + Annexure PDFs regenerated with this rule (17 Oct 2026, 598-word gate pass); 3-page PDF carries no numeric ceiling claim (verified); T-00a CAD tolerance closure pending
 Tilt interlock,level-only (cap 0 deg) for ceiling 2.650–2.660 m; not qualified below 2.650 m; 27 deg mechanical stop is backstop only,Supervisor definition aligned to binary rule — 13 doc sect 4,Definition value (supersedes 2.60 m wording)
 Worm actuator torque,>= 6 Nm tilt / >= 2.5 Nm pan,self-locking requirement,Supplier confirmation required
 Supervisor watchdog,350 ms,Supervisor definition,Definition value

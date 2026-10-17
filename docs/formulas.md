@@ -28,11 +28,11 @@ Every headline number in the submission PDF traces to exactly one block here and
 - Anchor demand **139.9 N** (load analysis with the documented assumption set — see script).
 - Ratings: anchors 600 N working / **1,500 N ultimate** ⇒ ≥ 10× ultimate factor; SS304 safety cable **6.5 kN**.
 
-## 5. Tilt clearance geometry
-`lowest_tip = H − (R + R·sin(θ))`
-- H = 2.65 m (floor clearance untilted), θ = 20° full tilt → floor clearance at full tilt = 2.65 − (0.70 + 0.70·sin20°)
-  ≈ **1.71 m ≥ 1.50 m requirement** (calculated; tilted disc is treated as dropping by R·sinθ about the disc centre).
-- Supervisor interlock: **tilt disabled below 2.60 m floor clearance**.
+## 5. Tilt clearance geometry (exact law — supersedes the older R·sin(θ) approximation)
+`z_low(θ) = R·cos(θ) + a·sin(θ)` with a = 0.12 m hub half-height; worst case at θ* = atan(a/R) ≈ 9.73°
+  → z_low* = √(R² + a²) ≈ **0.7102 m** (deeper than level 0.700 m or ±20° 0.699 m).
+- Binary ceiling rule: **≥ 2.660 m → full ±20° tilt; 2.650–2.660 m → level-only (cap 0°); < 2.650 m → not qualified**.
+- Supervisor interlock: tilt capped by this rule; mechanical 27° stop is a backstop only (13-cad-clearance-closure-plan).
 
 ## 6. Supervisor protection (definitions, not test results)
 - Plausibility gates: −10…+80 °C, rate ≤ 3 K/s; implausible input → safe default curve.

@@ -48,7 +48,7 @@ worse than full ±20° tilt (0.699 m). Consequence, printed by the script:
 - For the floor-clearance rule (≥ 1.50 m): minimum ceiling for **unlimited ±20° tilt = 0.45 + 0.7102 + 1.50 = 2.660 m** — the 04 "2.65 m passes everywhere" statement is true at 0° and 20° but is ~1 cm short near 10° tilt.
 - **The firmware rule is binary, not tiered.** Because z_low(θ) EXCEEDS the level value for every tilt in 0° < |θ| < ~19.8° (it peaks at θ* ≈ 9.73°), a ceiling that only just passes at level (budget = 0.700 m, e.g. H = 2.65 m — exactly on the boundary) cannot host *any* intermediate tilt: 1–19.7° all dip deeper. So:
   - **H ≥ 2.660 m → full ±20° tilt** (function makes the ceiling test pass for all tilts up to 20°)
-  - **H = 2.65 m → LEVEL ONLY (cap 0°)** — bound-ary case, exactly on the line
+  - **H = 2.65 m → LEVEL ONLY (cap 0°)** — boundary case, exactly on the line
   - **H < 2.65 m → not qualified for installation** (level clearance itself < 1.50 m)
   - the old tiered tables (3.20/3.00/2.60 m and any "±10° cap at some midpoint") are doubly superseded — this is a documented correction to 00-design-freeze T13b/T13c, 04 §2.2, and default D-04, alignment to be propagated in a passing doc change
 - **T-00a/T-16 therefore verify the firmware cap against this binary rule**, and the T-17 arrested-tip height check uses the same worst-case θ* geometry.
