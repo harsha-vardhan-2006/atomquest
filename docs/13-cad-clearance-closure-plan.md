@@ -60,4 +60,4 @@ worse than full ±20° tilt (0.699 m). Consequence, printed by the script:
 3. Firmware θ_cap table for the reference ceilings (from script §4 formula)
 4. Sign-off: CAD engineer + design lead dated → **T-00a closed** → gate to T-16 envelope dry run (physical) remains
 
-**Status: plan defined and script-verified; CAD models to be built on the next work block. Nothing physical starts before this sign-off.**
+**Status: plan defined and script-verified; the acceptance machinery is now executable in pre-CAD mode via `calculations/cad_clearance_scan_workflow.py` (baseline report + strict CSV ingest interface for the real model-to-model minimum-distance map, header `pair,pan_deg,tilt_deg,distance_mm`). CAD models to be built on the next work block; the harness cross-checks the blade-ceiling rows against the exact law and refuses deviating model sets. Nothing physical starts before this sign-off.**
