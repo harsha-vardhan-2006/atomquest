@@ -18,3 +18,7 @@ submission/_via_pdftotext.txt
 # submission/TECHNOMANCERS_Track1.pdf
 # submission/TECHNOMANCERS_Track1_Annexure.pdf
 # submission/generate_600word_2page.py
+
+# python bytecode caches
+__pycache__/
+*.pyc
