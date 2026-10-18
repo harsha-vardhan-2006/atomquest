@@ -10,6 +10,6 @@ Service value 8.7 m3/min/W,INDICATIVE ONLY,245 m3/min target / 28.3 W assumed in
 Electrical/EMC/BIS compliance,NOT ESTABLISHED,Accredited-lab testing pending (T-12/T-13/T-21)
 Anchor/cable ratings,TO CONFIRM,139.9 N demand vs 600 N working / 1500 N ultimate anchors; 6.5 kN cable; supplier confirmation required
 Worm self-lock at rated torque,TO CONFIRM,Off-the-shelf units may not meet torque + self-lock together (T-06)
-Costs,PLANNING ESTIMATES,No quotations obtained; BOM 26,650/fan + NRE programme estimate
+Costs,PLANNING ESTIMATES,No quotations obtained; range basis per docs/cost_basis.md - Level 1 prototype ~INR 10,000 (7,000-14,000) and full fan ~INR 25,000 (17,000-33,000) with 10% contingency; legacy fixed BOM (26,650/fan) retained in data/bom.csv; 3-fan programme figure withdrawn
 Mentor + portal registration fields,OPEN,To be supplied from official portal if required
 Competition deadlines,LIVE,Portal: registration 17 Oct 2026; Round 1 abstract 18 Oct 2026 18:29 GMT
