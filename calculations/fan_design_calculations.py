@@ -145,22 +145,51 @@ print("  response target: <= 5 s automated response ; >= 95 % success over the d
 
 
 # ---------------------------------------------------------------------------
-# 7. BOM roll-up vs stated order-of-magnitude values (no quotations)
+# 7. Cost roll-up vs the range-based cost basis (planning estimates, no quotations)
 # ---------------------------------------------------------------------------
-import csv, pathlib
-bom_path = pathlib.Path(__file__).resolve().parents[1] / "data" / "bom.csv"
-rows = list(csv.DictReader(bom_path.open(encoding="utf-8")))
-total = sum(float(r["cost_inr"]) for r in rows)
-NRE_PROGRAMME = 490_000.0  # INR, planning estimate: CFRP tooling/cure development, accredited-lab testing, fixtures, iterations (no quotations)
-three_fan = total * 3 * 1.10 + NRE_PROGRAMME  # 3 fans + 10 % BOM contingency + programme NRE
-print("\n7. BOM roll-up (planning estimates — NO quotations obtained)")
-for r in rows:
-    print(f"    {r['item']:<62} {float(r['cost_inr']):>8,.0f} INR  [flag: {r['sourcing_flag']}]")
-print(f"    {'BOM TOTAL per fan':<62} {total:>8,.0f} INR")
-print(f"    {'NRE programme (tooling, accredited testing, fixtures)':<62} {NRE_PROGRAMME:>8,.0f} INR")
-print(f"    {'3-fan programme (3x BOM + 10% conting. + NRE)':<62} {three_fan:>8,.0f} INR  (~{three_fan/1e5:.1f} lakh)")
-print("  check   : PDF quotes ~26,650 per fan and ~5.8 lakh for the 3-fan programme")
-assert abs(total - 26650) < 1, total
-assert abs(three_fan - 5.8e5) / 5.8e5 < 0.02, three_fan
+import csv, pathlib, re
+data_dir = pathlib.Path(__file__).resolve().parents[1] / "data"
+ranges = list(csv.DictReader((data_dir / "bom_ranges.csv").open(encoding="utf-8-sig")))
+
+def _lines_total(scope, col):
+    return sum(float(r[col]) for r in ranges
+               if r["scope"] == scope and not r["item"].startswith(("SUBTOTAL", "TOTAL")))
+
+def _csv_row(scope, prefix):
+    return next(r for r in ranges if r["scope"] == scope and r["item"].startswith(prefix))
+
+# scope -> (label, what the PDF quotes rounded to the nearest thousand: low, high, central)
+SCOPES = {
+    "Level1_Round2":   ("Round 2 Level 1 prototype (low-voltage control demonstrator, no rotor)", 7000, 14000, 10000),
+    "Full_single_fan": ("One full-fan prototype (CFRP rotor, 24 V BLDC + FOC, pan/tilt head)",   17000, 33000, 25000),
+}
+
+print("\n7. Cost roll-up vs the range-based cost basis (planning estimates - NO quotations obtained)")
+for scope, (label, pdf_low, pdf_high, pdf_central) in SCOPES.items():
+    low, high = _lines_total(scope, "low_inr"), _lines_total(scope, "high_inr")
+    sub, tot = _csv_row(scope, "SUBTOTAL"), _csv_row(scope, "TOTAL")
+    cont_low, cont_high = low * 1.10, high * 1.10
+    central = (cont_low + cont_high) / 2.0
+    print(f"    {label}")
+    print(f"      lines {low:,.0f}-{high:,.0f} INR | +10% contingency {cont_low:,.0f}-{cont_high:,.0f} INR | central ~{central:,.0f} INR")
+    # the CSV's own SUBTOTAL / TOTAL rows must match the line sums
+    assert abs(low - float(sub["low_inr"])) < 1 and abs(high - float(sub["high_inr"])) < 1, (scope, low, high)
+    assert abs(cont_low - float(tot["low_inr"])) < 1 and abs(cont_high - float(tot["high_inr"])) < 1, (scope, cont_low, cont_high)
+    # the submission PDF quotes these totals rounded to the nearest thousand
+    assert round(cont_low / 1000) * 1000 == pdf_low, (scope, cont_low, pdf_low)
+    assert round(cont_high / 1000) * 1000 == pdf_high, (scope, cont_high, pdf_high)
+    assert abs(pdf_central - central) / central < 0.10, (scope, pdf_central, central)
+# The earlier "3-fan programme ~5.8 lakh" line is intentionally NOT computed here: its breakdown
+# could not be reconciled with 3 x per-fan cost and it is withdrawn (see docs/cost_basis.md).
+
+# assert the canonical submission PDF quotes the new basis and not the withdrawn figures
+import pypdf
+pdf_path = pathlib.Path(__file__).resolve().parents[1] / "submission" / "TECHNOMANCERS_Track1.pdf"
+pdf_text = " ".join(pg.extract_text() or "" for pg in pypdf.PdfReader(str(pdf_path)).pages)
+flat = re.sub(r"\s+", "", pdf_text)
+assert re.search(r"INR10,000\(7,000[-\u2013\u2014]14,000\)", flat), "PDF must quote the Level 1 prototype range"
+assert re.search(r"INR25,000\(17,000[-\u2013\u2014]33,000\)", flat), "PDF must quote the full-fan range"
+assert "26,650" not in flat and "5.8lakh" not in flat and "577,945" not in flat, "withdrawn cost figures must not appear in the PDF"
+print("  check   : PDF quotes INR 10,000 (7,000-14,000) Level 1 and INR 25,000 (17,000-33,000) full fan; withdrawn figures absent")
 
 print("\nALL DESIGN CALCULATIONS CONSISTENT WITH THE SUBMISSION PDF.\n")
