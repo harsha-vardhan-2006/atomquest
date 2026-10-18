@@ -41,9 +41,17 @@ Every headline number in the submission PDF traces to exactly one block here and
 - Comfort targets: response ≤ 5 s (local mode); ≥ 95 % success over the 16 defined scenarios (`data/scenarios.csv`).
 
 ## 7. Cost model (planning estimates — **no quotations obtained**)
-- BOM per fan: sum of `data/bom.csv` = **INR 26,650** (order of magnitude only).
-- 3-fan programme: 3 × BOM + 10 % BOM contingency + NRE programme estimate (CFRP tooling/cure development,
-  accredited lab testing, fixtures, iterations ≈ INR 4,90,000) ⇒ **≈ INR 5.8 lakh**.
+- Source of truth: `docs/cost_basis.md` (added 18 Oct 2026; **replaces the earlier fixed-BOM figures**),
+  line items in `data/bom_ranges.csv`. Legacy per-item fixed BOM kept for traceability only in `data/bom.csv`.
+- Round 2 Level 1 prototype: lines **INR 6,400–13,000**; +10 % contingency ⇒ **INR 7,040–14,300**
+  (central ≈ INR 10,700; the submission PDF quotes ≈ **INR 10,000 (7,000–14,000)**, rounded to the nearest thousand).
+- Full single-fan prototype: lines **INR 15,600–29,900**; +10 % contingency ⇒ **INR 17,160–32,890**
+  (central ≈ INR 25,000; the submission PDF quotes ≈ **INR 25,000 (17,000–33,000)**).
+- The earlier "≈ INR 26,650 per fan / ≈ INR 5.8 lakh for 3 fans" figures are **withdrawn**: the programme
+  breakdown could not be reconciled with 3 × per-fan cost. The 26,650 sits inside the full-fan range, so the
+  per-fan estimate barely moved; the programme figure was removed from the abstract (see `docs/cost_basis.md`).
+- Derived check: `python calculations/fan_design_calculations.py` recomputes the line sums, contingency and
+  rounding, and asserts the submission PDF quotes the new ranges (and no withdrawn figure).
 
 ## Evidence-status tiers
 TARGET / DEFINITION / CALCULATED / ASSUMPTION / INDICATIVE / UNRECONCILED / BLOCKED — no value in this
