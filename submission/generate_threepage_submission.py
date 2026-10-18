@@ -250,11 +250,13 @@ bom_rows = [[P("Item", "head"), P("INR", "head"), P("Sourcing flag", "head")]]
 for r in bom:
     bom_rows.append([P(r["item"], "cell"), P(f"{float(r['cost_inr']):,.0f}", "cell"),
                      P(r["sourcing_flag"], "cell")])
-bom_rows.append([P("BOM total per fan (order of magnitude; no quotations — estimates only)", "cellB"),
+bom_rows.append([P("BOM total per fan (LEGACY fixed-BOM basis — superseded, kept for traceability only)", "cellB"),
                  P(f"{sum(float(r['cost_inr']) for r in bom):,.0f}", "cellB"), P("", "cell")])
 E.append(styled_table(bom_rows, [100 * mm, 18 * mm, 52 * mm]))
-E.append(P("python calculations/fan_design_calculations.py recomputes and asserts this exact roll-up. "
-           "3-fan programme ≈ INR 5.8 lakh (3 × BOM + 10 % contingency + non-recurring programme items), planning level.", "small"))
+E.append(P("Table above uses the legacy fixed BOM (data/bom.csv). The current cost basis is range-based "
+           "(docs/cost_basis.md, data/bom_ranges.csv): Round 2 Level 1 prototype  INR 10,000 (7,000-14,000); "
+           "full-fan prototype  INR 25,000 (17,000-33,000). The earlier \"3-fan programme ≈ INR 5.8 lakh\" figure "
+           "is withdrawn (breakdown unreconciled). python calculations/fan_design_calculations.py asserts the new basis.", "small"))
 E.append(P("System-level block diagram:", "h3"))
 E.append(P("Figure 1 above (drawn directly from docs/img/system-block-diagram.svg in the repository).", "body"))
 E.append(P("Component sourcing risk — custom-fabricated, imported or long-lead:", "h3"))

@@ -190,8 +190,9 @@ E.append(P("D · Execution Feasibility", "h2"))
 E.append(P("Rough components: composite rotor (custom), 24 V FOC BLDC motor + controller, supervisor + local MCU pair, "
            "temp/humidity sensors, worm actuators (custom-rated) with encoders/limit switches, 24 V SMPS, optional "
            "Wi-Fi/BLE, RF remote + override, device trigger or safe test load.", "body"))
-E.append(P("Rough cost/BOM (order of magnitude, no quotations): ≈ INR 26,650 per fan; ≈ INR 5.8 lakh (3-fan "
-           "programme). Sourcing risk: custom CFRP blades (tooling, cure, verification; no supplier datasheet yet).", "body"))
+E.append(P("Rough cost/BOM (order of magnitude, unquoted): Round 2 Level 1 prototype  INR 10,000 (7,000-14,000); "
+           "full-fan prototype  INR 25,000 (17,000-33,000). Sourcing risk: custom CFRP blades (tooling, cure, "
+           "verification; no supplier datasheet yet) and custom-rated worm actuators.", "body"))
 E.append(P("Build plan to Round 2: (1) low-voltage sensing + comfort-control demonstrator; (2) verify override "
            "precedence and sensor-disconnect/network-loss fallback; (3) device trigger on a safe test load; "
            "(4) record results against predefined acceptance tests; (5) motor/rotor integration only after "
