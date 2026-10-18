@@ -1,0 +1,23 @@
+scope,item,low_inr,high_inr,basis,evidence_status
+Level1_Round2,Supervisor + local MCU boards (STM32/ESP32-class dev boards),1000,2000,hobby/dev-board market price,planning estimate - no supplier quotation
+Level1_Round2,Temperature/humidity sensors + NTC,300,800,module-level price,planning estimate - no supplier quotation
+Level1_Round2,Worm pan/tilt demo head (self-locking worm gearmotor + bracket),2000,4000,"small worm gearmotor, bench-rated only",planning estimate - no supplier quotation
+Level1_Round2,Encoders + limit switches,600,1200,module-level price,planning estimate - no supplier quotation
+Level1_Round2,24 V SMPS + 12 V buck converter,800,1500,catalogue-class supply,planning estimate - no supplier quotation
+Level1_Round2,RF remote + receiver module,400,900,module-level price,planning estimate - no supplier quotation
+Level1_Round2,Safe test load + relay (device-trigger demo),300,600,low-voltage lamp/relay,planning estimate - no supplier quotation
+Level1_Round2,"PCB, wiring, enclosure, fasteners",1000,2000,prototype-quantity fabrication,planning estimate - no supplier quotation
+Level1_Round2,SUBTOTAL (lines),6400,13000,sum of lines,
+Level1_Round2,TOTAL incl. 10% contingency,7040,14300,central 10670,order of magnitude only
+Full_single_fan,24 V BLDC motor + sensorless-FOC controller (ceiling-fan class),3500,6000,OEM kit / small-batch; no quotation,planning estimate - no supplier quotation
+Full_single_fan,Quasi-isotropic CFRP blade set (small-batch hand layup),2500,5000,material + cure; tooling excluded; no supplier datasheet,planning estimate - no supplier quotation
+Full_single_fan,"Rotor hub, bearings, downrod, canopy (machined)",1500,3000,small-batch machining,planning estimate - no supplier quotation
+Full_single_fan,Worm pan/tilt actuator set + structure (custom-rated),3500,6500,two worm gearmotors + frame,planning estimate - no supplier quotation
+Full_single_fan,Encoders + limit switches,600,1200,module-level price,planning estimate - no supplier quotation
+Full_single_fan,Supervisor + local MCU boards,1000,2000,dev-board market price,planning estimate - no supplier quotation
+Full_single_fan,Temperature/humidity sensors + NTC,300,800,module-level price,planning estimate - no supplier quotation
+Full_single_fan,24 V SMPS + 12 V buck converter,800,1500,catalogue-class supply,planning estimate - no supplier quotation
+Full_single_fan,RF remote + receiver module,400,900,module-level price,planning estimate - no supplier quotation
+Full_single_fan,"PCB, wiring, enclosure, anchor/safety-cable hardware",1500,3000,prototype-quantity fabrication,planning estimate - no supplier quotation
+Full_single_fan,SUBTOTAL (lines),15600,29900,sum of lines,
+Full_single_fan,TOTAL incl. 10% contingency,17160,32890,central 25025,order of magnitude only
