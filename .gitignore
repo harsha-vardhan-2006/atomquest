@@ -1,0 +1,20 @@
+# submission workflow scratch dumps (not deliverables)
+submission/_abstract_dump_utf8.txt
+submission/_complete_pdf_dump_pdftotext.txt
+submission/_complete_pdf_dump_utf8.txt
+submission/_final_verify_dump.txt
+submission/_final_verify_safe.txt
+submission/_strip_p1.txt
+submission/_strip_p1_ascii.txt
+submission/_strip_p1_clean.txt
+submission/_strip_p2.txt
+submission/_strip_p2_clean.txt
+submission/_stripped_dump_utf8.txt
+submission/_stripped_safe.txt
+submission/_via_pdftext.txt
+submission/_via_pdftotext.txt
+
+# keep the canonical deliverables tracked:
+# submission/TECHNOMANCERS_Track1.pdf
+# submission/TECHNOMANCERS_Track1_Annexure.pdf
+# submission/generate_600word_2page.py
