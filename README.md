@@ -7,8 +7,8 @@ Evidence and calculation repository for the atomQUEST 2026 Round 1 (Stage 1) abs
 > swing (worm pan/tilt), and blade design for efficiency (quasi-isotropic CFRP on a 24 V sensorless-FOC BLDC drive),
 > under a locked-firmware safety supervisor MCU that can cut motor and actuator power.
 
-**Submission file:** `submission/TECHNOMANCERS_Track1.pdf` (3-page detailed abstract, A–D structure)
-**Compliant short version:** `submission/TECHNOMANCERS_Track1_600word_2page.pdf` (2 pages, ≤ 600 words — is kept in case the portal enforces the word limit strictly)
+**Submission file:** `submission/TECHNOMANCERS_Track1.pdf` — 2-page A–D abstract, ≤ 600 words — the canonical upload candidate
+**Archive:** `submission/archive/` holds older longer drafts (3-, 4-, and 5-page variants) that are **not** the upload candidate.
 
 ---
 
@@ -59,11 +59,12 @@ calculations/
   fan_design_calculations.py     ← all design calculations (runnable, self-checking)
   check_scenarios.py             ← scenario framework + deterministic controller simulation
 submission/
-  TECHNOMANCERS_Track1.pdf                 ← 3-page abstract (upload candidate)
-  TECHNOMANCERS_Track1_600word_2page.pdf   ← 2-page ≤600-word compliant alternative
-  TECHNOMANCERS_Track1_Annexure.pdf        ← annexure
-  generate_threepage_submission.py         ← generator of the 3-page PDF
-  generate_final_submission.py             ← generator of the 2-page PDF
+  TECHNOMANCERS_Track1.pdf                 ← 2-page ≤600-word abstract (upload candidate)
+  TECHNOMANCERS_Track1_Annexure.pdf        ← annexure (attach only if the portal permits extra files)
+  archive/                                  ← older longer drafts: not the upload candidate
+  generate_600word_2page.py                ← generator of the 2-page PDF
+  generate_threepage_submission.py         ← older generator of a 3-page draft (legacy; not the current upload generator)
+  generate_final_submission.py             ← older 2-page generator (legacy; not the current upload generator)
 ```
 
 ## Team
@@ -76,4 +77,6 @@ Dabbiru Rochan Kumar, Simhadri Sri Teja, Guluvindala Ganesh Manikanta, Nakka Uga
 
 Grad Partners portal: Round 1 abstract submission open until **18 October 2026, 18:29 GMT**;
 registration deadline **17 October 2026**; two–three page abstract, ≤ 600 words, PDF (see portal for the
-binding wording). Links: gradpartners.in/e/atomquest-2026-339 · atomberg.com
+binding wording). The upload candidate is the 2-page `submission/TECHNOMANCERS_Track1.pdf`, regenerated from
+`submission/generate_600word_2page.py`. Older longer drafts are in `submission/archive/` and are not the upload.
+Links: gradpartners.in/e/atomquest-2026-339 · atomberg.com

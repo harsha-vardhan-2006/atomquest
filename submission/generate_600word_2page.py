@@ -16,8 +16,10 @@ TECHNOMANCERS_Track1.pdf is 2 pages total with EVERY visible word counted
 (only the repeated running header band and page footnote are excluded as boilerplate).
 The countable gate hard-fails the build if it exceeds 600 words.
 
-Output: TECHNOMANCERS_Track1.pdf  — 2-page A/B/C/D abstract, total text <= 600 words.
-        TECHNOMANCERS_Track1_Annexure.pdf — companion detail (separate file; NEIT specified).
+Output:
+  TECHNOMANCERS_Track1.pdf      — 2-page A/B/C/D abstract, total text <= 600 words (canonical upload candidate)
+  TECHNOMANCERS_Track1_Annexure.pdf — companion detail (separate file; NEIT specified; attach only if the portal permits extra files)
+  submission/archive/           — older longer drafts; not the upload candidate
 No measured results, approvals, or certification are asserted anywhere.
 """
 from reportlab.lib.pagesizes import A4
@@ -158,9 +160,9 @@ E.append(P("Track 1 Fan — combining smart-home triggers, sensor-based multi-di
            "efficiency: one sensing-and-control system drives comfort automation and swing, while the blades set the "
            "operating point both act on.", "body"))
 E.append(P("Proposed idea/mechanism (one paragraph): a 1,400 mm-sweep ceiling fan. A local controller reads "
-           "temperature/humidity to run comfort automation with manual-override precedence and defined safe fallback; "
-           "a self-locking worm pan/tilt head steers the whole airflow disc (rotor stopped before tilt; full ±20° needs ≥ 2.660 m ceiling, "
-           "level-only on 2.650–2.660 m); quasi-isotropic [0/±45/90]s carbon/epoxy blades run on a 24 V FOC BLDC drive, overseen by a "
+           "temperature/humidity to run comfort automation, and a self-locking worm pan/tilt head steers the whole "
+           "airflow disc with rotor stopped before tilt and a supervisor-enforced ceiling-height check (full ±20° needs ≥ 2.660 m ceiling, "
+           "level-only on 2.650–2.660 m); quasi-isotropic [0/±45/90]s carbon/epoxy blades run on a 24 V FOC BLDC drive under a "
            "locked-firmware supervisor MCU that can cut actuator power on any anomaly.", "body"))
 E.append(P("Baseline-vs-target, quantified: no measured baseline of ours exists. Versus a fixed-speed, fixed-direction, "
            "manual fan: steerable airflow (±20° tilt); automated response ≤ 5 s with ≥ 95 % success over 10–20 scenarios; "
@@ -176,8 +178,7 @@ E.append(P("C · Technical Feasibility", "h2"))
 E.append(P("Sensors feed comfort automation and closed-loop FOC speed control (≤ 0.5 s). Plausibility gates "
            "(−10…+80 °C, ≤ 3 K/s) route implausible input to a safe default curve; a hardware NTC trips at 165 °C; the "
            "self-locking worm holds position on power loss, backed by encoders, limit switches and supervisor "
-           "power-cut — three independent defenses. All subsystems are standard parts; a safe demonstrator is feasible "
-           "now; rotor validation stays gated.", "body"))
+           "power-cut — three independent defenses. A safe control-only demonstrator is feasible now; rotor validation stays gated.", "body"))
 E.append(ArchDiagram())
 E.append(P("Figure 1. Priority: supervisor → local → RF → web → automation.", "small"))
 E.append(P("Key specifications (paper values): 380 RPM top, tip 27.86 m/s under the 30 m/s cap; rotor energy ≈ 89.5 J; "
@@ -188,13 +189,12 @@ E.append(P("Key specifications (paper values): 380 RPM top, tip 27.86 m/s under 
 E.append(P("D · Execution Feasibility", "h2"))
 E.append(P("Rough components: composite rotor (custom), 24 V FOC BLDC motor + controller, supervisor + local MCU pair, "
            "temp/humidity sensors, worm actuators (custom-rated) with encoders/limit switches, 24 V SMPS, optional "
-           "Wi-Fi/BLE, RF remote + override, device trigger or safe test load, instrumentation, safety cable.", "body"))
+           "Wi-Fi/BLE, RF remote + override, device trigger or safe test load.", "body"))
 E.append(P("Rough cost/BOM (order of magnitude, no quotations): ≈ INR 26,650 per fan; ≈ INR 5.8 lakh (3-fan "
-           "programme). Sourcing risk: custom CFRP blades (tooling, cure, verification; no supplier datasheet yet); worm "
-           "actuators need confirmation of self-lock at rated torque.", "body"))
+           "programme). Sourcing risk: custom CFRP blades (tooling, cure, verification; no supplier datasheet yet).", "body"))
 E.append(P("Build plan to Round 2: (1) low-voltage sensing + comfort-control demonstrator; (2) verify override "
            "precedence and sensor-disconnect/network-loss fallback; (3) device trigger on a safe test load; "
-           "(4) record results against predefined acceptance tests; (5) motor/rotor integration for Round 2 only after "
+           "(4) record results against predefined acceptance tests; (5) motor/rotor integration only after "
            "safety review and approval.", "body"))
 E.append(P("Any other technical detail: paper design only — no hardware, nothing measured. No authorization for "
            "fabrication, energization, powered-rotor testing, installation, or certification.", "body"))
@@ -208,13 +208,25 @@ print("WROTE TECHNOMANCERS_Track1.pdf")
 import pypdf, re, sys
 r = pypdf.PdfReader("TECHNOMANCERS_Track1.pdf")
 full = " ".join(pg.extract_text() for pg in r.pages)
-full = re.sub(r"atomQUEST 2026 — Stage 1 Abstract · TECHNOMANCERS · T-2026", " ", full)
-full = re.sub(r"Track 1 · Fan", " ", full)
-full = re.sub(r"TECHNOMANCERS · atomQUEST 2026 · Track 1 Fan Page \d+", " ", full)
-n = len(re.findall(r"\S+", full))
-print("TOTAL visible words (excl. running header/footer):", n)
-if n > 600:
-    sys.exit(f"FAIL: abstract {n} words exceeds the 600-word rule")
+header_band_pat = re.compile(r"atomQUEST 2026 — Stage 1 Abstract · TECHNOMANCERS · T-2026")
+footer_pat = re.compile(r"TECHNOMANCERS · atomQUEST 2026 · Track 1 Fan Page \d+")
+track_pat = re.compile(r"^Track 1 · Fan$", re.M)
+stripped = []
+for pg in r.pages:
+    t = pg.extract_text() or ""
+    lines = t.splitlines()
+    kept = [ln for ln in lines if not header_band_pat.search(ln)
+            and not footer_pat.search(ln) and not track_pat.search(ln)]
+    stripped.append(" ".join(kept))
+full = " ".join(stripped)
+
+n_all = len(re.findall(r"\S+", full))
+n_text = len([w for w in re.findall(r"\S+", full) if re.search(r"[A-Za-z0-9]", w)])
+print("TOTAL visible tokens (whitespace-split):", n_all)
+print("TOTAL visible tokens (alnum-containing):", n_text)
+print("PAGES:", len(r.pages))
+if n_all > 600 or n_text > 600:
+    sys.exit(f"FAIL: abstract exceeds the 600-word rule (all={n_all}, text={n_text})")
 if len(r.pages) > 2:
     sys.exit(f"FAIL: abstract is {len(r.pages)} pages, exceeds the two/three pager rule")
 
