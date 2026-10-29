@@ -1,0 +1,52 @@
+parameter,value,units,source_file,status,confidence_or_validation
+Sweep (rotor diameter),1400,mm,docs/00-design-freeze.md T1,specified (frozen),Frozen design commit; IS 374 preferred size
+Rotor radius R,0.700,m,docs/00-design-freeze.md T1,calculated,Derived from sweep
+Blade count,3,count,docs/00-design-freeze.md T2,specified (frozen),Agreed concept; 120 deg spacing
+Blade spacing,120,deg,docs/00-design-freeze.md T2,specified (frozen),Agreed concept
+Top design speed,380,RPM,docs/00-design-freeze.md T3,specified (frozen),Selected under 30 m/s tip cap; NOT measured
+Absolute legal max speed,409.3,RPM,docs/00-design-freeze.md sec 3,calculated,N=60*30/(2*pi*0.7); not an operating target
+Hazard speed (never operate),456,RPM,data/design_targets.csv,calculated (hazard case),Exceeds 30 m/s cap; 128.8 J vs 130 J containment basis BLOCKED
+Tip speed at 380 RPM,27.86,m/s,docs/00-design-freeze.md C-01,calculated,v=2*pi*R*N/60; 7.1% margin under 30 m/s
+Blade-tip speed cap,30,m/s,docs/00-design-freeze.md (IS 374 clause 14.4.1),standard requirement,IS 374:2019+Amd.1 Table 1
+Blade root radius (hub radius),150,mm,calculations/parametric_fan_model.py R_HUB,calculated / assumed,Preliminary; used by legacy mesh model
+Blade tip radius,700,mm,calculations/parametric_fan_model.py R_MM,calculated,Matches sweep
+Blade root chord,160,mm,calculations/parametric_fan_model.py CHORD_ROOT,assumed,Preliminary planform input
+Blade tip chord,120,mm,calculations/parametric_fan_model.py CHORD_TIP,assumed,Preliminary planform input
+Blade root thickness (depth),10,mm,calculations/parametric_fan_model.py DEPTH_ROOT,assumed,Preliminary rectangular-section proxy (no airfoil in source)
+Blade tip thickness (depth),6,mm,calculations/parametric_fan_model.py DEPTH_TIP,assumed,Preliminary rectangular-section proxy
+Blade root twist,38,deg,calculations/parametric_fan_model.py TWIST_R,assumed,Reference axis / sign convention NOT defined in source
+Blade tip twist,12,deg,calculations/parametric_fan_model.py TWIST_T,assumed,Reference axis / sign convention NOT defined in source
+Blade mass target,165,g/blade,docs/assumptions-register.md A-02,assumption (target),Pending T-01/T-05 coupon verification
+Blade CoM radius,0.451,m,docs/assumptions-register.md A-03,assumption,Derived planform integral; pending T-05
+Blade material,CFRP quasi-isotropic [0/+/-45/90]s carbon/epoxy,material,data/design_targets.csv,assumption,~1.55 g/cc ~70 GPa typical class; supplier datasheet required (T-00c)
+Rotor spin inertia,0.113,kg*m^2,data/design_targets.csv,assumption,Blades 0.1007 + hub/rotor 0.0123; pending CAD mass sign-off
+Rotor energy at 380 RPM,89.5,J,docs/assumptions-register.md C-04,calculated,E=0.5*I*omega^2
+Rotor energy at 456 RPM,128.8,J,data/design_targets.csv,calculated (hazard),vs 130 J containment basis = THIN MARGIN (BLOCKED)
+Centrifugal load per blade at 380 RPM,117.5,N,docs/assumptions-register.md C-02,calculated,"F=m*r_cm*omega^2; note: script prints 117.84 N (discrepancy logged)"
+Centrifugal load per blade at 456 RPM,169.2,N,docs/assumptions-register.md C-02,calculated,Over-speed 120% hazard case
+Moving-assembly mass target,6.8,kg,docs/00-design-freeze.md T16,specified (UNRECONCILED),vs 7.00 kg component sum in 03 sec 6; both retained
+Moving-assembly component sum,7.00,kg,docs/00-design-freeze.md source note,calculated (UNRECONCILED),Recorded in MASTER_MASS_RECONCILIATION.md reference
+Model 1 preliminary moving mass (Round 2 estimate),9.03,kg,COMMON_ENGINEERING_REFERENCE/load_analysis_gimbal_servos.py,assumption,Exceeds 6.8 kg target - open conflict
+Model 2 preliminary moving mass (Round 2 estimate),9.83,kg,COMMON_ENGINEERING_REFERENCE/load_analysis_gimbal_servos.py,assumption,Exceeds 6.8 kg target - open conflict
+Downrod length (ceiling-to-hub drop),450,mm,docs/00-design-freeze.md T12 / A-13,assumption (selected),Fixed
+Ceiling height rule: full +/-20 deg,2.660,m,docs/13-cad-clearance-closure-plan.md C-12,calculated,Tolerance closure T-00a pending
+Ceiling height rule: level only,2.650,m,docs/13-cad-clearance-closure-plan.md C-12,calculated,Boundary; below = not qualified
+Tilt working range,+/-20,deg,docs/00-design-freeze.md T9,specified (frozen),Firmware-limited by ceiling rule
+Tilt mechanical backstop,27,deg,docs/00-design-freeze.md T9,specified (frozen),Backstop only; never a working limit
+Tilt rate limit,10,deg/s,docs/00-design-freeze.md T10,specified (frozen),Accel <= 10 deg/s^2
+Pan travel,-170..+170 (stops +/-175),deg,docs/00-design-freeze.md T11,specified (frozen),Not re-verified for Round 2
+Motor continuous torque,0.62,N*m,data/design_targets.csv,specified (on paper),Pending motor datasheet
+Motor peak torque (5 s),2.5,N*m,data/design_targets.csv,specified (on paper),Pending motor datasheet
+Motor mechanical power,25,W,data/design_targets.csv,specified (on paper),Pending motor datasheet
+Shaft power at top speed,20.8,W,docs/assumptions-register.md A-06,calculated,8.65 W ideal / eta_prop 0.42 (corrected derivation)
+Input power at top speed,28.3,W,docs/assumptions-register.md A-07,calculated,20.8/(0.80*0.92)
+Air delivery target,>=245,m3/min,docs/00-design-freeze.md T5,standard requirement,IS 374:2019+Amd.1 Table 1
+Service value requirement,>=4.1,m3/min/W,docs/00-design-freeze.md sec 1,standard requirement,IS 374 Table 1
+Ceiling anchor demand,139.9,N,docs/assumptions-register.md C-11,calculated,W*2 + thrust 6.52 N; pending supplier confirmation
+Anchor ratings,600 working / 1500 ultimate,N,data/design_targets.csv,assumption (datasheet class),To be confirmed by supplier
+Safety cable,SS304 3 mm dia 6.5 kN rating,N,COMMON_ENGINEERING_REFERENCE/README.md,assumption (supply spec),BLOCKED pending certificate (REQ-34)
+Tilt actuator torque requirement,>=6,N*m,docs/assumptions-register.md C-09,calculated (on paper),Must be recalculated for the 4-servo gimbal (REQ-35)
+Servo count,4,count,COMMON_ENGINEERING_REFERENCE/REQUIREMENTS_REGISTER.csv REQ-20,required (Round 2 prompt),2 per tilt axis; model not selected
+Tilt-axis gravity torque Model 1,5.77,N*m,COMMON_ENGINEERING_REFERENCE/load_analysis_gimbal_servos.py,calculated,Preliminary; based on estimated masses
+Tilt-axis gravity torque Model 2,4.07,N*m,COMMON_ENGINEERING_REFERENCE/load_analysis_gimbal_servos.py,calculated,Preliminary; based on estimated masses
+Floor clearance requirement,1.50,m,docs/00-design-freeze.md T13,safety requirement,At all allowed tilt positions

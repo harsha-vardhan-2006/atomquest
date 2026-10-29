@@ -1,0 +1,43 @@
+requirement_id,requirement_description,source,units,status,verification_method,responsible_subsystem,round2_model_coverage
+REQ-01,Rotor sweep diameter = 1400 mm (R=0.7 m),IS 374 preferred size / design freeze,T1,TARGET,frozen design commit,both blade/hub,Model 1 and Model 2
+REQ-02,Three blades at 120-degree spacing,agreed concept,T2,TARGET,design commit,both blade/hub,Model 1 and Model 2
+REQ-03,Top design speed = 380 RPM (tip 27.86 m/s, 7.1% under 30 m/s cap),IS 374 30 m/s cap / design freeze,T3,CALCULATED,calculated v_tip vs cap,both blade/hub,Model 1 and Model 2
+REQ-04,409.3 RPM absolute legal maximum (NOT a certified operating target),IS 374 30 m/s cap,derived,CALCULATED,N_max=60*30/(2*pi*0.7),both blade/hub,Model 1 and Model 2
+REQ-05,456 RPM is a hazard case only (33.4 m/s tip, NEVER an operating target),exceeds 30 m/s cap,derived,CALCULATED,flagged hazard,hazard case,Model 1 and Model 2
+REQ-06,Blade mass 165 g per blade (CFRP quasi-isotropic),design target A-02,g,ASSUMPTION,T-01/T-05 coupons pending,both blade/hub,Model 1 and Model 2
+REQ-07,Blade CoM radius 0.451 m,derived planform integral A-03,m,ASSUMPTION,T-05 verification pending,both blade/hub,Model 1 and Model 2
+REQ-08,Blade material: CFRP quasi-isotropic [0/+/-45/90]s carbon/epoxy,provisional lead candidate,material-downselection,PROVISIONAL,T-00c supplier datasheet required,both blade/hub,Model 1 and Model 2
+REQ-09,Controller: ESP32 (or STM32-class),README / design baseline,component,PLAN,Documentation + prototype,controls,Model 1 and Model 2
+REQ-10,Control interface: mobile/web dashboard or remote,README / design baseline,requirement,TARGET,Documentation + prototype,controls,Model 1 and Model 2
+REQ-11,Rotor stopped before commanded tilt (initial prototype),safety default D-01,requirement,TARGET,firmware interlock,controls + mechanical,Model 1 and Model 2
+REQ-12,Maximum tilt range: +/-20 degrees (firmware-limited per ceiling height),design freeze T9/T14,degrees,TARGET,firmware binary rule + mechanical 27 deg backstop,tilt mechanism,Model 1 and Model 2
+REQ-13,Mechanical hard stop at 27 degrees (backstop only, NOT working limit),design freeze T9,degrees,TARGET,mechanical stops + firmware cap,tilt mechanism,Model 1 and Model 2
+REQ-14,Minimum ceiling for full +/-20 deg tilt = 2.660 m (binary rule),exact geometric derivation C-12/C-14,m,calculated,firmware measure + T-00a CAD closure,tilt mechanism + ceiling,Model 1 and Model 2
+REQ-15,Level-only ceiling band: 2.650 to 2.660 m (cap 0 deg),exact geometric derivation,derived,CALCULATED,firmware rule,tilt mechanism + ceiling,Model 1 and Model 2
+REQ-16,Ceiling below 2.650 m not qualified (level clearance < 1.50 m),floor clearance rule >= 1.50 m,m,calculated,firmware rule,tilt mechanism + ceiling,Model 1 and Model 2
+REQ-17,Floor clearance >= 1.50 m at all allowed tilt positions,safety requirement,m,requirement,T-00a clearance scan + firmware,tilt mechanism + ceiling,Model 1 and Model 2
+REQ-18,Fan configured for ceiling mounting with fixed Z-axis (downrod),design baseline (fixed Z),m,requirement,design commit,ceiling mount,Model 1 and Model 2
+REQ-19,Controlled tilt axes: X and Y (two-axis gimbal),design baseline / Round 2 spec,requirement,TARGET,CAD assembly mate check,gimbal mechanism,Model 1 and Model 2
+REQ-20,Four servos total: X1+X2 for one axis, Y1+Y2 for perpendicular axis,Round 2 prompt,component,REQUIRED,Reqister servo model + torque calc,gimbal + servo drive,Model 1 and Model 2
+REQ-21,X and Y axes must be mechanically identifiable and approximately perpendicular,Round 2 prompt,requirement,TARGET,CAD mate geometry check,gimbal mechanism,Model 1 and Model 2
+REQ-22,Axis intersection positioned near moving assembly CoG to reduce gravity torque,Round 2 prompt + good design practice,requirement,TARGET,CAD CoG analysis,gimbal mechanism,Model 1 and Model 2
+REQ-23,Structural support must carry fan independently of servo holding torque,Round 2 prompt (implied safety),requirement,TARGET,structural calc + FEA,gimbal structure,Model 1 and Model 2
+REQ-24,Blade-tip speed cap <= 30 m/s,IS 374,requirement,STANDARD,calculated v_tip vs cap,both blade/hub,Model 1 and Model 2
+REQ-25,Service value >= 4.1 m3/min/W,IS 374 requirement,requirement,STANDARD,measurement at test,blade/hub/aero,Model 1 and Model 2
+REQ-26,Air delivery target >= 245 m3/min,IS 374 Table 1,requirement,TARGET,measurement at test,blade/hub/aero,Model 1 and Model 2
+REQ-27,Motor torque >= 0.62 Nm continuous; >= 2.5 Nm 5 s peak,design targets D1,mN m,SPECIFIED,pending motor datasheet,motor drive,both models (motor shared)
+REQ-28,Motor power >= 25 W mechanical,design targets D1,W,SPECIFIED,pending motor datasheet,motor drive,both models (motor shared)
+REQ-29,Moving assembly mass target <= 6.8 kg (UNRECONCILED vs 7.00 kg sum),design freeze T16 / assumptions A-09,kg,UNRECONCILED,mass roll-up reconciliation,gimbal + fan,Model 1 and Model 2
+REQ-30,Centrifugal force per blade at 380 RPM = 117.5 N; at 456 RPM = 169.2 N,calc C-02,N,calculated,F= m*r_cm*omega^2,both blade/hub,Model 1 and Model 2
+REQ-31,Rotor stored energy 89.5 J at 380 RPM; 128.8 J at 456 RPM,calc C-04/C-04b,J,calculated,E = 0.5*I*omega^2,containment,Model 1 and Model 2
+REQ-32,Blade containment rating basis = 130 J (BLOCKED, thin margin),speculative rating basis,J,BLOCKED,T-06 spin-proof + authorization pending,containment,Model 1 and Model 2
+REQ-33,Anchor demand 139.9 N vs 600 N working / 1500 N ultimate (factor 10.7x ultimate),calc C-11 / A-14,N,CALCULATED,load analysis + supplier confirmation,ceiling mount,Model 1 and Model 2
+REQ-34,SS304 safety cable 6.5 kN rating,supply spec D6,N,BLOCKED,supplier confirmation + certificate,ceiling mount + secondary retention,Model 1 and Model 2
+REQ-35,Tilt actuator torque >= 6 Nm (worm originally); recalculate for 4-servo gimbal,design baseline + Round 2 prompt,N m,REQUIRED,torque calculation for specific gimbal,gimbal + servo drive,Model 1 and Model 2 (recalculate)
+REQ-36,Worm self-lock at rated torque: TO CONFIRM (original design),risk register,requirement,TO CONFIRM,T-06 test,gimbal + servo drive,Model 1 and Model 2 (servo approach differs)
+REQ-37,Comfort response <= 5 s local mode; >= 95% success over 16 scenarios,control target,requirement,TARGET,check_scenarios.py + hardware test,controls,Model 1 and Model 2
+REQ-38,Supervisor plausibility gates: -10..+80 C, rate <= 3 K/s,supervisor definition,requirement,TARGET,firmware test,controls,Model 1 and Model 2
+REQ-39,Supervisor watchdog 350 ms,supervisor definition,ms,TARGET,firmware test,controls,Model 1 and Model 2
+REQ-40,Motor NTC trip at 165 C,supervisor definition,C,TARGET,firmware + hardware,controls + motor,both models
+REQ-41,Downrod length 0.45 m fixed,assumptions A-13,m,ASSUMPTION,design commit,ceiling mount,Model 1 and Model 2
+REQ-42,Blade containment margin 128.8 J vs 130 J rating basis = THIN,computed,analysis,BLOCKED,T-06 rig authorized pending,containment,Model 1 and Model 2

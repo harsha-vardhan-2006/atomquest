@@ -1,0 +1,84 @@
+relative_path,extension,size_bytes,file_class
+README.md,.md,6424,md
+cad_models/blade_0.stl,.stl,84651,stl
+cad_models/blade_1.stl,.stl,85818,stl
+cad_models/blade_2.stl,.stl,86428,stl
+cad_models/canopy.stl,.stl,18101,stl
+cad_models/downrod.stl,.stl,8876,stl
+cad_models/hub_bell.stl,.stl,3346,stl
+cad_models/t00a_cad_map.csv,.csv,7120532,csv
+cad_models/t00a_candidate_report.txt,.txt,2260,txt
+cad_models/wire_loft.stl,.stl,8842,stl
+calculations/blade_material_screening_full.py,.py,18671,py
+calculations/cad_clearance_grid_plan.py,.py,5893,py
+calculations/cad_clearance_scan_workflow.py,.py,8611,py
+calculations/check_scenarios.py,.py,3576,py
+calculations/compare_cfrp_vs_aluminium.py,.py,7168,py
+calculations/fan_design_calculations.py,.py,11344,py
+calculations/parametric_fan_model.py,.py,14883,py
+competition/atomQUEST2026/round2/COMMON_ENGINEERING_REFERENCE/README.md,.md,4328,md
+competition/atomQUEST2026/round2/COMMON_ENGINEERING_REFERENCE/REQUIREMENTS_REGISTER.csv,.csv,6920,csv
+competition/atomQUEST2026/round2/COMMON_ENGINEERING_REFERENCE/load_analysis_gimbal_servos.py,.py,18161,py
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/M1_CeilingPlate.SLDPRT,.sldprt,36949,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/M1_FanCarrier.SLDPRT,.sldprt,36793,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/M1_HubCone.SLDPRT,.sldprt,36085,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/M1_InnerRing.SLDPRT,.sldprt,47137,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/M1_MotorInterface.SLDPRT,.sldprt,40059,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/M1_OuterRing.SLDPRT,.sldprt,47314,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/M1_ServoMount.SLDPRT,.sldprt,38922,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/M1_SupportHousing.SLDPRT,.sldprt,36508,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/~$M1_CeilingPlate.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/~$M1_FanCarrier.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/~$M1_HubCone.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/~$M1_InnerRing.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/~$M1_MotorInterface.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/~$M1_OuterRing.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/~$M1_ServoMount.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/01_CAD_PARTS/~$M1_SupportHousing.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_1_DUAL_RING_GIMBAL/README.md,.md,6210,md
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/M2_CeilingPlate.SLDPRT,.sldprt,36784,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/M2_FanCarrier.SLDPRT,.sldprt,36779,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/M2_HubCone.SLDPRT,.sldprt,36878,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/M2_InnerGimbalRing.SLDPRT,.sldprt,46951,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/M2_MotorInterface.SLDPRT,.sldprt,39947,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/M2_SphericalHousing.SLDPRT,.sldprt,45908,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/M2_SupportUpper.SLDPRT,.sldprt,36294,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/M2_XPivotHub.SLDPRT,.sldprt,40147,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/M2_YPivotHub.SLDPRT,.sldprt,40073,native CAD / neutral CAD
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/~$M2_CeilingPlate.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/~$M2_FanCarrier.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/~$M2_HubCone.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/~$M2_InnerGimbalRing.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/~$M2_MotorInterface.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/~$M2_SphericalHousing.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/~$M2_SupportUpper.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/~$M2_XPivotHub.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/01_CAD_PARTS/~$M2_YPivotHub.SLDPRT,.sldprt,6,SolidWorks lock file (excluded)
+competition/atomQUEST2026/round2/MODEL_2_SPHERICAL_GIMBAL/README.md,.md,8408,md
+competition/atomQUEST2026/round2/cad_tools/swutil.py,.py,11597,py
+competition/atomQUEST2026/round2/create_cad_models.py,.py,15635,py
+competition/atomQUEST2026/round2/test_enums.py,.py,1440,py
+competition/atomQUEST2026/round2/test_invoke.py,.py,4449,py
+data/bom.csv,.csv,1468,csv
+data/bom_ranges.csv,.csv,2805,csv
+data/design_targets.csv,.csv,3271,csv
+data/risk_register.csv,.csv,1646,csv
+data/scenarios.csv,.csv,1102,csv
+data/t00c_supplier_spec_checklist.csv,.csv,3749,csv
+data/t05_coupon_matrix.csv,.csv,2486,csv
+data/validation_gates.csv,.csv,2516,csv
+docs/00-design-freeze.md,.md,7903,md
+docs/04-clearance.md,.md,6221,md
+docs/11-supplier-datasheet-checklist.md,.md,4286,md
+docs/12-t05-coupon-test-matrix.md,.md,4607,md
+docs/13-cad-clearance-closure-plan.md,.md,5806,md
+docs/assumptions-register.md,.md,6975,md
+docs/cost_basis.md,.md,1737,md
+docs/formulas.md,.md,4066,md
+docs/img/system-block-diagram.svg,.svg,9043,svg
+docs/material-downselection-cfrp-vs-aluminium.md,.md,5577,md
+submission/TECHNOMANCERS_Track1.pdf,.pdf,51761,pdf
+submission/TECHNOMANCERS_Track1_600word_2page.pdf,.pdf,8849,pdf
+submission/TECHNOMANCERS_Track1_Annexure.pdf,.pdf,5332,pdf
+submission/generate_600word_2page.py,.py,19406,py
+submission/generate_threepage_submission.py,.py,21255,py

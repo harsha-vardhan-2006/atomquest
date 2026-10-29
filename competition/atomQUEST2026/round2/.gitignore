@@ -1,0 +1,4 @@
+# Ignore SolidWorks temporary files (open-document locks / ~$ prefix)
+~$*.SLDPRT
+~$*.SLDASM
+~$*.SLDDRW
