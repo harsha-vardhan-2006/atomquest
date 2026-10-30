@@ -1,68 +1,86 @@
 {
   "FD_ROTOR": [
     {
-      "name": "blade_root_to_pad_0",
-      "mate_type": 0,
-      "intent": "coincident: blade root underside to hub pad top"
+      "name": "blade1_root_face",
+      "kind": "coincident",
+      "a": "FD_Blade-1",
+      "b": "FD_BladeHub-1"
     },
     {
-      "name": "blade_bolt_concentric_0",
-      "mate_type": 3,
-      "intent": "concentric: blade root bore to hub pad bolt bore (Z axis)"
+      "name": "blade2_root_face",
+      "kind": "coincident",
+      "a": "FD_Blade-2",
+      "b": "FD_BladeHub-1"
     },
     {
-      "name": "hub_flange_to_rotor",
-      "mate_type": 3,
-      "intent": "concentric: hub clamp bore to original rotor flange (measured)"
+      "name": "blade3_root_face",
+      "kind": "coincident",
+      "a": "FD_Blade-3",
+      "b": "FD_BladeHub-1"
+    },
+    {
+      "name": "blade1_root_bore",
+      "kind": "concentric",
+      "a": "FD_Blade-1",
+      "b": "FD_BladeHub-1"
+    },
+    {
+      "name": "blade2_root_bore",
+      "kind": "concentric",
+      "a": "FD_Blade-2",
+      "b": "FD_BladeHub-1"
+    },
+    {
+      "name": "blade3_root_bore",
+      "kind": "concentric",
+      "a": "FD_Blade-3",
+      "b": "FD_BladeHub-1"
     }
   ],
   "FD_TILT": [
     {
       "name": "outer_axis_concentric",
-      "mate_type": 3,
-      "intent": "concentric: yoke arm bore to outer ring trunnion (X axis)"
-    },
-    {
-      "name": "outer_axis_face",
-      "mate_type": 0,
-      "intent": "coincident: trunnion shoulder to yoke arm inner face"
+      "kind": "concentric",
+      "a": "FD_SupportYoke-1",
+      "b": "FD_OuterTiltRing-1"
     },
     {
       "name": "inner_axis_concentric",
-      "mate_type": 3,
-      "intent": "concentric: outer ring Y bore to inner cradle pin (Y axis)"
+      "kind": "concentric",
+      "a": "FD_OuterTiltRing-1",
+      "b": "FD_InnerCradle-1"
     },
     {
-      "name": "inner_axis_face",
-      "mate_type": 0,
-      "intent": "coincident: cradle pin shoulder to ring bore face"
+      "name": "adapter_to_cradle",
+      "kind": "coincident",
+      "a": "FD_MotorAdapter-1",
+      "b": "FD_InnerCradle-1"
     },
     {
-      "name": "adapter_platform",
-      "mate_type": 0,
-      "intent": "coincident: motor adapter underside to cradle platform"
+      "name": "cover_to_adapter",
+      "kind": "coincident",
+      "a": "FD_MotorCover-1",
+      "b": "FD_MotorAdapter-1"
+    },
+    {
+      "name": "bracket_x_to_yoke",
+      "kind": "coincident",
+      "a": "FD_ServoBracketX-1",
+      "b": "FD_SupportYoke-1"
     }
   ],
   "FD_SMART_FAN_ASSEMBLY": [
     {
-      "name": "downrod_to_plate",
-      "mate_type": 3,
-      "intent": "concentric: downrod OD to ceiling plate bore"
+      "name": "downrod_concentric",
+      "kind": "concentric",
+      "a": "FD_Downrod-1",
+      "b": "FD_CeilingPlate-1"
     },
     {
       "name": "downrod_shoulder",
-      "mate_type": 0,
-      "intent": "coincident: downrod shoulder to plate underside"
-    },
-    {
-      "name": "tilt_to_downrod",
-      "mate_type": 3,
-      "intent": "concentric: yoke boss bore to downrod OD (fixed joint)"
-    },
-    {
-      "name": "rotor_to_adapter",
-      "mate_type": 3,
-      "intent": "concentric: rotor hub bore to motor adapter spigot"
+      "kind": "coincident",
+      "a": "FD_Downrod-1",
+      "b": "FD_CeilingPlate-1"
     }
   ]
 }

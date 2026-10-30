@@ -1,0 +1,3 @@
+axis,moving_mass_kg,cg_offset_mm,gravity_torque_Nm,dynamic_torque_Nm,friction_torque_Nm,required_with_1p5_margin_Nm,assumed_servo_stall_Nm,assumed_servo_duty_Nm,verdict,evidence
+X (outer ring),8.653,9.3,0.786,0.119,0.032,1.405,2.0,0.8,NO SERVO SELECTED can be confirmed,A/U
+Y (inner cradle),8.653,9.6,0.815,0.119,0.032,1.449,2.0,0.8,NO SERVO SELECTED can be confirmed,A/U

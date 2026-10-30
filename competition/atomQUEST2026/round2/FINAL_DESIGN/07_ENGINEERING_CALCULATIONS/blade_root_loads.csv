@@ -1,0 +1,2 @@
+blade_mass_kg,cg_radius_mm,centrifugal_force_N,root_bending_moment_Nm,bolts_per_root,force_per_bolt_N,bolt_tension_MPa_gross,thrust_per_blade_N,evidence
+0.3304,362.5,189.6,0.36,2,94.8,6.7,2.17,A

@@ -55,10 +55,25 @@ DENSITY = {
     "steel": 8000.0,
 }
 
-BLADE_STATIONS = [(260, 160, 26.0, 0.14), (330, 152, 22.0, 0.13),
+# (span radius mm, chord mm, twist deg, thickness ratio)
+#
+# The root station starts at 200 mm so the blade root sits ON the hub pads, which
+# run from 60 to 215 mm; the previous 260 mm first station left a 45 mm gap
+# between the blade and the hub, so the blades were visibly detached.
+BLADE_STATIONS = [(200, 160, 26.0, 0.14), (310, 152, 22.0, 0.13),
                   (420, 142, 18.0, 0.12), (510, 133, 15.0, 0.11),
                   (610, 125, 13.0, 0.10), (700, 120, 12.0, 0.09)]
-BLADE_ROOT_Z = 36.0
+# Hub pad bolting face is at z = 30. Lifting the root by the 2.4 mm that the
+# twisted loft dips below its own section envelope makes the lowest point of the
+# root sit exactly on the pad (measured blade z_min was 27.6 at offset 30.0), so
+# the joint is contact rather than a 2.4 mm penetration.
+BLADE_ROOT_Z = 32.4
+
+# Skin thickness of the hollow blade. 1.2 mm is three 0.4 mm perimeters, the
+# thinnest wall that survives FDM handling; it is the binding constraint that
+# keeps the blade above the historical 165 g target (see BLADE_ENGINEERING_REPORT).
+BLADE_SKIN_MM = 1.2
+BLADE_TE_MM = 4.0
 
 
 def mm(v):
@@ -201,6 +216,44 @@ class Builder:
                        False, False, False, False, 0, False)
         md.EditRebuild3()
 
+    def section_sketch(self, md, x_mm, pts, name_hint=""):
+        """Closed section polygon normal to the span axis at x (RIGHT-plane offset)."""
+        plane = self._start_plane(md, RIGHT, x_mm)
+        if not self._sel(md, plane):
+            raise RuntimeError("cannot select section plane at x=%s" % x_mm)
+        md.SketchManager.InsertSketch(True)
+        # The section arrives as (chord, thickness) pairs. RIGHT-plane
+        # calibration is u->Z (thickness, sign -1) and v->Y (chord), so passing
+        # (thickness, chord) puts the chord tangent to the rotor plane: the
+        # measured part box is 151 mm in Y and 84 mm in Z, which is a 160/152/142
+        # chord schedule carrying 26->12 deg of twist.
+        uv = [self._sk_uv(RIGHT, z, y) for y, z in pts]
+        for i in range(len(uv)):
+            (u1, v1), (u2, v2) = uv[i], uv[(i + 1) % len(uv)]
+            md.SketchManager.CreateLine(u1, v1, 0.0, u2, v2, 0.0)
+        md.SketchManager.InsertSketch(True)
+        return name_hint
+
+    def body_volume(self, md):
+        """Total solid volume in mm3 (GetMassProperties(density) returns mass)."""
+        bodies = IPartDoc(md).GetBodies2(0, True)
+        if not bodies:
+            return 0.0
+        return sum(float(IBody2(b).GetMassProperties(1000.0)[5]) for b in bodies) * 1e9
+
+    def cut_loft(self, md, names):
+        """Remove the volume lofted through the given closed sections."""
+        if not self._sel(md, names[0], "SKETCH"):
+            raise RuntimeError("cannot select %s" % names[0])
+        for n in names[1:]:
+            if not md.Extension.SelectByID2(n, "SKETCH", 0.0, 0.0, 0.0, True, 0, None, 0):
+                raise RuntimeError("cannot append section %s" % n)
+        f = md.FeatureManager.InsertCutBlend(
+            False, True, True, 0.01, 0, 0, False, 0.0, 0.0, 0, True, True)
+        if f is None:
+            raise RuntimeError("cut loft failed")
+        md.EditRebuild3()
+
     def loft(self, md, names):
         if not self._sel(md, names[0], "SKETCH"):
             raise RuntimeError("cannot select %s" % names[0])
@@ -215,7 +268,7 @@ class Builder:
         md.EditRebuild3()
 
 
-def naca_section(chord_mm, thick_pct, twist_deg, n=4):
+def naca_section(chord_mm, thick_pct, twist_deg, n=4, te_mm=0.0):
     """Closed section in (chord, thickness) mm, twisted about the span axis.
 
     Provisional symmetric NACA-4 style thickness distribution with n points per
@@ -248,6 +301,11 @@ def naca_section(chord_mm, thick_pct, twist_deg, n=4):
     out = []
     for xc, yt in dedup:
         c = xc - 0.40 * chord_mm  # quarter-chord at 40 % for this preliminary layout
+        # Blunt trailing edge: a knife-edge section cannot be shelled (the inner
+        # offset self-intersects) and is not a real blade edge either. The added
+        # half-thickness ramps in as s^4, so the leading edge is unchanged.
+        if te_mm > 0.0:
+            yt += math.copysign(max(0.0, te_mm / 2.0 - abs(yt)), yt) * (xc / chord_mm) ** 4
         out.append((c * ca - yt * sa, c * sa + yt * ca))
     return out
 
@@ -273,20 +331,29 @@ def build_parts(B):
     part("FD_Downrod.SLDPRT", "aluminium", downrod, False, "25 x 19 tube, 232 mm")
 
     def yoke(md):
-        B.cyl(md, FRONT, 0, 0, 75, 40, start_mm=190)
-        B.rect(md, FRONT, -241, -58, 241, 58, 16, start_mm=182)
+        # Solid slabs here made the yoke 1998 cm3 (5.4 kg in aluminium), which was
+        # most of the mass overshoot against the 6.80 kg moving-mass budget. The
+        # load still runs downrod boss -> two webs -> two arm plates, but the boss
+        # is now a tube and the web is two rails instead of a solid 482x116 slab.
+        B.cyl(md, FRONT, 0, 0, 60, 40, start_mm=190)
+        B.rect(md, FRONT, -241, 41, 241, 57, 12, start_mm=182)
+        B.rect(md, FRONT, -241, -57, 241, -41, 12, start_mm=182)
         for x0 in (225, -241):
-            B.rect(md, RIGHT, 40, -58, 187, 58, 16, start_mm=x0)
+            B.rect(md, RIGHT, 40, -58, 187, 58, 10, start_mm=x0)
 
     def yoke_bores(md):
+        B.cut(md, FRONT, 0, 0, 27)          # bore the boss for the downrod
         B.cut(md, RIGHT, 157, 0, 8)
     part("FD_SupportYoke.SLDPRT", "aluminium", yoke, False,
          "stationary yoke: downrod boss, web, two arm plates with X pivot bores",
          yoke_bores)
 
     def ring(md):
-        B.cyl(md, FRONT, 0, 0, 210, 34, start_mm=140)
-        B.cut(md, FRONT, 0, 0, 190, hit=(200, 0))
+        # 20 mm wall x 34 mm tall was 854 cm3 (2.3 kg). The cradle needs r = 95 mm
+        # in X and 85 mm in Y, so a 198 mm bore and a 26 mm height keep every
+        # interface (X trunnion and the z = 157 mm Y pivot line) and halve the mass.
+        B.cyl(md, FRONT, 0, 0, 210, 26, start_mm=140)
+        B.cut(md, FRONT, 0, 0, 198, hit=(204, 0))
         B.cyl(md, RIGHT, 157, 0, 7.9, 482, start_mm=-241)
 
     def ring_bores(md):
@@ -323,7 +390,9 @@ def build_parts(B):
     def shroud(md):
         B.cyl(md, FRONT, 0, 0, 250, 40, start_mm=174)
         B.cut(md, FRONT, 0, 0, 246, hit=(248, 0))
-        B.cyl(md, FRONT, 0, 0, 250, 5, start_mm=214)
+        # 3 mm cap instead of 5 mm: the cap disc alone was 981 cm3 of the bold
+        # 1231 cm3 shroud, and it carries no interface.
+        B.cyl(md, FRONT, 0, 0, 250, 3, start_mm=214)
     part("FD_TopShroud.SLDPRT", "printed_body", shroud, True,
          "stationary shroud enclosing the tilt mechanism")
 
@@ -347,40 +416,57 @@ def build_parts(B):
          "generic servo horn; no servo model selected yet")
 
     def hub(md):
-        B.cyl(md, FRONT, 0, 0, 85, 12)
+        # Hub disc is 20 mm tall so the 10 mm bolting flange on top (z = 20..30)
+        # meets the blade root pad underside at z = 30 without the old 22 mm solid
+        # pad blocks, which alone weighed 891 cm3.
+        B.cyl(md, FRONT, 0, 0, 85, 20)
         B.cut(md, FRONT, 0, 0, 75.2, hit=(80, 0))
         for i in range(3):
             ang = math.radians(120 * i)
             ca, sa = math.cos(ang), math.sin(ang)
             poly = [(x * ca - y * sa, x * sa + y * ca)
-                    for x, y in ((60, -45), (210, -45), (210, 45), (60, 45))]
-            B.poly(md, FRONT, poly, 16, start_mm=8)
+                    for x, y in ((60, -45), (215, -45), (215, 45), (60, 45))]
+            B.poly(md, FRONT, poly, 10, start_mm=20)
             for py in (-32, 32):
                 B.cut(md, FRONT, 180 * ca - py * sa, 180 * sa + py * ca, 3)
     part("FD_BladeHub.SLDPRT", "aluminium", hub, False,
          "clamp hub over the ORIGINAL rotor flange with 3 blade pads")
 
     def blade(md):
-        names = []
+        """Hollow lofted blade: outer skin loft, then a cut-loft cavitates it.
+
+        The cavity sections are the outer sections offset inward by BLADE_SKIN_MM
+        (chord reduced by 2t, thickness reduced by 2t, same twist and centre), so
+        the skin is a constant thickness and no offset self-intersects at the
+        trailing edge. The first and last sections cap the cavity, leaving a
+        solid root block at x <= 260 mm for the hub bolts.
+        """
+        outer = []
         for idx, (x, chord, twist, th) in enumerate(BLADE_STATIONS):
-            pts = naca_section(chord, th, twist)
-            zmin = min(z for _, z in pts)
-            pts = [(y, z - zmin + BLADE_ROOT_Z) for y, z in pts]
-            plane = B._start_plane(md, RIGHT, x)
-            B._sel(md, plane)
-            md.SketchManager.InsertSketch(True)
-            uv = [B._sk_uv(RIGHT, z, y) for y, z in pts]
-            for i in range(len(uv)):
-                (u1, v1), (u2, v2) = uv[i], uv[(i + 1) % len(uv)]
-                md.SketchManager.CreateLine(u1, v1, 0.0, u2, v2, 0.0)
-            md.SketchManager.InsertSketch(True)
-            names.append("Sketch%d" % (idx + 1))
-        B.loft(md, names)
-        B.rect(md, FRONT, 145, -85, 265, 85, 16, start_mm=24)
+            po = naca_section(chord, th, twist, te_mm=BLADE_TE_MM)
+            zmin_o = min(z for _, z in po)
+            po = [(y, z - zmin_o + BLADE_ROOT_Z) for y, z in po]
+            B.section_sketch(md, x, po)
+            outer.append("Sketch%d" % (idx + 1))
+
+        B.loft(md, outer)
+        # Hollow the airfoil to a constant skin. The legacy whole-body shell
+        # (IModelDoc2.InsertFeatureShell, no faces removed) returns None but does
+        # create the feature; the result is verified by body count and volume below.
+        v_before = B.body_volume(md)
+        md.InsertFeatureShell(mm(BLADE_SKIN_MM), False)
+        md.EditRebuild3()
+        v_after = B.body_volume(md)
+        if not (0.02 < v_after / v_before < 0.75):
+            raise RuntimeError("blade shell did not hollow (%.1f -> %.1f mm3)"
+                               % (v_before, v_after))
+        # Slim root pad: just enough for the two M4 root bolts plus the transition
+        # into the airfoil. Was a 120 x 170 x 16 solid block (326 cm3, 440 g).
+        B.rect(md, FRONT, 165, -40, 268, 40, 10, start_mm=30)
         for b in (-32, 32):
             B.cut(md, FRONT, 180, b, 3)
     part("FD_Blade.SLDPRT", "printed_blade", blade, True,
-         "lofted twisted blade with flat-bottom root; aerodynamics NOT validated")
+         "hollow lofted twisted blade, 1.2 mm skin; aerodynamics NOT validated")
 
     def bushx(md):
         B.cyl(md, RIGHT, 157, 0, 8, 20, start_mm=221)
@@ -419,6 +505,9 @@ def build_parts(B):
 
 
 def main():
+    only = None
+    if "--only" in sys.argv:
+        only = {a.strip() for a in sys.argv[sys.argv.index("--only") + 1].split(",") if a.strip()}
     for d in (PARTS_DIR, STEP_DIR, STL_DIR, CALC_DIR):
         if not os.path.isdir(d):
             os.makedirs(d)
@@ -434,6 +523,8 @@ def main():
             json.dump(calib, fh, indent=2)
         for spec in build_parts(B):
             fn = spec["file"]
+            if only and fn not in only:
+                continue
             path = os.path.join(PARTS_DIR, fn)
             try:
                 md = IModelDoc2(sw.NewDocument(TPL_PART, 0, 0.0, 0.0))
@@ -491,6 +582,9 @@ def main():
                         "z_max_mm": round(box[5] * 1000, 2),
                         "volume_cm3": round(vol * 1e6, 2),
                         "mass_kg": round(vol * dens, 4),
+                        "com_x_mm": round(props[0] * 1000.0, 2),
+                        "com_y_mm": round(props[1] * 1000.0, 2),
+                        "com_z_mm": round(props[2] * 1000.0, 2),
                         "features": len(feats),
                         "feature_types": "|".join(sorted(set(feats))),
                         "rebuild": "PASS" if ok else "FAIL",
@@ -509,14 +603,27 @@ def main():
                 failures.append({"part": fn, "error": str(exc)})
                 print("FAIL %-28s %s" % (fn, exc), flush=True)
             finally:
-                with open(os.path.join(CALC_DIR, "part_measurements.csv"), "w",
-                          newline="", encoding="utf-8") as fh:
-                    if records:
-                        w = csv.DictWriter(fh, fieldnames=list(records[0].keys()))
+                # merge into the existing measurement table so a partial
+                # (--only) run does not drop the parts it did not rebuild
+                csv_path = os.path.join(CALC_DIR, "part_measurements.csv")
+                merged = {}
+                if os.path.isfile(csv_path):
+                    with open(csv_path, newline="", encoding="utf-8") as fh:
+                        for row in csv.DictReader(fh):
+                            merged[row["part"]] = row
+                for row in records:
+                    merged[row["part"]] = row
+                if merged:
+                    fields = list(next(iter(merged.values())).keys())
+                    with open(csv_path, "w", newline="", encoding="utf-8") as fh:
+                        w = csv.DictWriter(fh, fieldnames=fields)
                         w.writeheader()
-                        w.writerows(records)
+                        for key in sorted(merged):
+                            w.writerow({k: merged[key].get(k, "") for k in fields})
     finally:
-        sw.ExitApp()
+        import swutil
+        print("closed %d open documents" % len(swutil.open_titles()), flush=True)
+        swutil.shutdown(sw)
         print("SOLIDWORKS closed after part build", flush=True)
     with open(os.path.join(CALC_DIR, "part_build_failures.json"), "w", encoding="utf-8") as fh:
         json.dump(failures, fh, indent=2)

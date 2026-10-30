@@ -22,5 +22,5 @@ Maximum tilt that keeps 40 mm of ceiling clearance: **25 deg**.
 
 ## Not verified
 
-- Interference at intermediate tilt positions was not checked by a motion study because assembly mates could not be created in this environment; the envelope table above is a worst-case static bound.
+- Interference at intermediate tilt positions was not checked by a motion study: the mates exist but the axes were not driven through their travel; the envelope table above is a worst-case static bound.
 - Cable routing envelope, servo-horn sweep and pinch points are unverified until the servo is selected.

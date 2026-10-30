@@ -1,0 +1,19 @@
+step,opens,solid_bodies_import,volume_cm3_import,bbox_import_mm,solid_bodies_native,bbox_native_mm,bbox_import_dims_mm,bbox_delta_mm,tolerance_used,volume_native_cm3,verdict
+FD_Blade.STEP,True,1,244721.14,465.00..241.51 / 30.00..1000.03 / 385.67..103.60,1,541.72 x 144.19 x 74.86,535.03 x 144.16 x 73.60,6.694,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",244.72,FAIL
+FD_BladeHub.STEP,True,1,513506.46,153.53..91.75 / 0.00..515.00 / 508.70..30.00,1,361.47 x 416.95 x 30.00,361.47 x 416.95 x 30.00,0.001,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",513.51,PASS
+FD_CableCollar.STEP,True,1,32089.42,268.00..268.00 / 300.00..332.00 / 332.00..308.00,1,64.00 x 64.00 x 8.00,64.00 x 64.00 x 8.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",32.09,PASS
+FD_CeilingPlate.STEP,True,1,325984.22,185.00..185.00 / 462.00..415.00 / 415.00..470.00,1,230.00 x 230.00 x 8.00,230.00 x 230.00 x 8.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",325.98,PASS
+FD_Downrod.STEP,True,1,48104.07,287.50..287.50 / 230.00..312.50 / 312.50..462.00,1,25.00 x 25.00 x 232.00,25.00 x 25.00 x 232.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",48.1,PASS
+FD_InnerCradle.STEP,True,1,612380.74,205.00..110.00 / 123.00..395.00 / 490.00..182.00,1,190.00 x 380.00 x 59.00,190.00 x 380.00 x 59.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",612.38,PASS
+FD_MotorAdapter.STEP,True,1,168035.94,225.00..225.00 / 113.00..375.00 / 375.00..123.00,1,150.00 x 150.00 x 10.00,150.00 x 150.00 x 10.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",168.04,PASS
+FD_MotorCover.STEP,True,1,272225.29,210.00..210.00 / 30.00..390.00 / 390.00..113.00,1,180.00 x 180.00 x 83.00,180.00 x 180.00 x 83.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",272.23,PASS
+FD_OuterTiltRing.STEP,True,1,489708.8,59.00..90.00 / 140.00..541.00 / 510.00..166.00,1,482.00 x 420.00 x 26.00,482.00 x 420.00 x 26.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",489.71,PASS
+FD_PivotBushingX.STEP,True,1,1759.29,521.00..292.00 / 149.00..541.00 / 308.00..165.00,1,20.00 x 16.00 x 16.00,20.00 x 16.00 x 16.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",1.76,PASS
+FD_PivotBushingY.STEP,True,1,1205.74,294.00..470.00 / 151.00..306.00 / 490.00..163.00,1,12.00 x 20.00 x 12.00,12.00 x 20.00 x 12.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",1.21,PASS
+FD_REF_MotorEnvelope.STEP,True,1,889245.08,225.00..225.00 / 0.00..375.00 / 375.00..113.00,1,150.00 x 150.00 x 113.00,150.00 x 150.00 x 113.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",889.25,PASS
+FD_ServoBracketX.STEP,True,1,31438.41,513.00..270.00 / 130.00..525.00 / 330.00..180.00,1,12.00 x 60.00 x 50.00,12.00 x 60.00 x 50.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",31.44,PASS
+FD_ServoBracketY.STEP,True,1,29678.14,275.00..478.00 / 130.00..325.00 / 492.00..180.00,1,50.00 x 14.00 x 50.00,50.00 x 14.00 x 50.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",29.68,PASS
+FD_ServoHorn.STEP,True,1,1720.84,290.00..290.00 / 0.00..310.00 / 326.00..4.00,1,20.00 x 36.00 x 4.00,20.00 x 36.00 x 4.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",1.72,PASS
+FD_SupportYoke.STEP,True,1,871086.18,59.00..240.00 / 40.00..541.00 / 360.00..230.00,1,482.00 x 120.00 x 190.00,482.00 x 120.00 x 190.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",871.09,PASS
+FD_TopShroud.STEP,True,1,838365.42,50.00..50.00 / 174.00..550.00 / 550.00..217.00,1,500.00 x 500.00 x 43.00,500.00 x 500.00 x 43.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",838.37,PASS
+FD_TravelStop.STEP,True,1,15360.0,180.00..490.00 / 148.00..420.00 / 498.00..156.00,1,240.00 x 8.00 x 8.00,240.00 x 8.00 x 8.00,0.0,"scale-aware (0.5 mm or 1.5 %, whichever is larger)",15.36,PASS

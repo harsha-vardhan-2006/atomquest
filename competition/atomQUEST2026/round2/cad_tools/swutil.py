@@ -143,6 +143,94 @@ def close_document(doc, path=None):
         pass
 
 
+def open_titles():
+    """Titles of every document currently open in the SOLIDWORKS session."""
+    sw = connect()
+    docs = sw.GetDocuments
+    if callable(docs):
+        docs = docs()
+    out = []
+    for d in (docs or []):
+        try:
+            t = d.GetTitle
+            out.append(t() if callable(t) else t)
+        except Exception:
+            pass
+    return out
+
+
+def close_all(save=False):
+    """Close every open document so no window is left behind between tasks.
+
+    A headless build run that opens 20 parts and leaves them open floods the
+    desktop with document windows and keeps the previous task's session alive;
+    every build task ends with this call followed by :func:`quit_app`.
+    """
+    sw = connect()
+    closed = []
+    for title in open_titles():
+        try:
+            sw.CloseDoc(title)
+            closed.append(title)
+        except Exception:
+            pass
+    return closed
+
+
+def quit_app(hard=True):
+    """Close the SOLIDWORKS window itself once a task is finished."""
+    global _SW
+    try:
+        sw = connect()
+        shutdown(sw, hard=hard)
+    except Exception:
+        if hard:
+            os.system('taskkill /F /IM SLDWORKS.exe >NUL 2>&1')
+    _SW = None
+    return not running()
+
+
+def shutdown(sw, hard=True):
+    """End a build task: close every document, then close the application.
+
+    ExitApp() alone leaves SLDWORKS.exe resident on this machine (measured: the
+    process survived after every document had been closed), so the task ends
+    with a process kill once all work is saved.
+    """
+    docs = None
+    try:
+        docs = sw.GetDocuments
+        if callable(docs):
+            docs = docs()
+    except Exception:
+        docs = None
+    for d in (docs or []):
+        try:
+            t = d.GetTitle
+            sw.CloseDoc(t() if callable(t) else t)
+        except Exception:
+            pass
+    try:
+        sw.ExitApp()
+    except Exception:
+        pass
+    if not hard:
+        return not running()
+    for _ in range(20):
+        if not running():
+            return True
+        time.sleep(1.0)
+    os.system('taskkill /F /IM SLDWORKS.exe >NUL 2>&1')
+    time.sleep(3.0)
+    return not running()
+
+
+def running():
+    """True when a SLDWORKS.exe process exists."""
+    out = os.popen('tasklist /FI "IMAGENAME eq SLDWORKS.exe" /NH').read()
+    return "SLDWORKS.exe" in out
+
+
 def save(doc, path=None):
     p = path or doc.GetPathName()
     if not p:

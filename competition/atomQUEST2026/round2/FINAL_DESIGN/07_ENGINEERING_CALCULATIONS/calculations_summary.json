@@ -1,0 +1,50 @@
+{
+  "source_of_geometry": "competition\\atomQUEST2026\\round2\\FINAL_DESIGN\\07_ENGINEERING_CALCULATIONS\\part_measurements.csv",
+  "mass_kg": {
+    "rotating": 1.717,
+    "tilting": 8.653,
+    "stationary": 2.116
+  },
+  "mass_total_kg": 12.486,
+  "mass_moving_kg": 10.37,
+  "moving_mass_budget_kg": 6.8,
+  "moving_mass_over_budget_kg": 3.57,
+  "rotor_inertia_kgm2": 0.08724,
+  "rotor_energy_J": 69.1,
+  "containment_basis_J": 130.0,
+  "tip_speed_m_s": 27.86,
+  "tilt_gravity_torque_Nm": {
+    "X": 0.786,
+    "Y": 0.815
+  },
+  "servo_required_Nm": {
+    "X (outer ring)": 1.405,
+    "Y (inner cradle)": 1.449
+  },
+  "blade_loads": [
+    {
+      "blade_mass_kg": 0.3304,
+      "cg_radius_mm": 362.5,
+      "centrifugal_force_N": 189.6,
+      "root_bending_moment_Nm": 0.36,
+      "bolts_per_root": 2,
+      "force_per_bolt_N": 94.8,
+      "bolt_tension_MPa_gross": 6.7,
+      "thrust_per_blade_N": 2.17,
+      "evidence": "A"
+    }
+  ],
+  "ceiling_load_static_N": 122.4,
+  "evidence_legend": {
+    "M": "measured",
+    "S": "manufacturer-specified",
+    "C": "CAD-derived",
+    "A": "analytically estimated",
+    "U": "unverified assumption"
+  },
+  "limitations": [
+    "Original motor, rotor, shaft, magnets and bearings are not modelled in mass or inertia; all totals are lower bounds.",
+    "No servo model is selected, so servo figures are sizing targets.",
+    "Blade strength, containment and fatigue are NOT established."
+  ]
+}

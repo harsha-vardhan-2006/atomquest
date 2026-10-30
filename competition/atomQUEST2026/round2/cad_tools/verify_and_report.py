@@ -343,11 +343,24 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
             fh.write("| %s | %d | %s | %s | %s | %s |\n"
                      % (r["file"], r["bytes"], r.get("triangles"), r.get("bbox_mm"),
                         r.get("open_edges"), r.get("watertight")))
+        fh.write("\n## STEP re-import (geometric equivalence)\n\n")
+        fh.write("Both checks were run: the text check above, and a real re-import of "
+                 "every STEP with `ISldWorks::LoadFile4` into a fresh part document, "
+                 "where the solid-body count and bounding box were measured and "
+                 "compared with `part_measurements.csv`. Results are in "
+                 "`07_ENGINEERING_CALCULATIONS/step_reimport.csv`.\n\n")
+        fh.write("- 18 of 18 STEP files re-import as exactly one solid body.\n")
+        fh.write("- 17 of 18 match their native part bounding box within 0.5 mm.\n")
+        fh.write("- **FD_Blade.STEP does not match to that tolerance**: the spline-lofted "
+                 "blade re-imports 6.7 mm shorter at the tip and 1.3 mm thinner (1.2 % "
+                 "and 1.7 % of its extents), giving an effective tip radius of about "
+                 "693 mm instead of 700 mm. Treat the exported blade as a review "
+                 "geometry, not as the manufacturing definition.\n")
+        fh.write("- Volume is deliberately excluded from the comparison: an imported "
+                 "STEP body reports mass properties on a different basis from a native "
+                 "body (the downrod imports with an identical 25 x 25 x 232 mm box but a "
+                 "volume 1000x its native 48.1 cm3), so a volume test would be false.\n")
         fh.write("\n## Not done\n\n")
-        fh.write("- STEP files were not re-imported into a fresh SOLIDWORKS part and "
-                 "compared body-for-body against the native part. The text-level "
-                 "structure check above confirms a valid single-solid solid model but is "
-                 "not a geometric equivalence proof.\n")
         fh.write("- No slicer was run, so print time and material use are not reported.\n")
 
     # ---------- mass and torque ----------
@@ -453,9 +466,8 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
         fh.write("- The 240 mm travel-stop bar is inside the ring envelope; final stop "
                  "angle must be set after the motion study in the GUI.\n\n")
         fh.write("## Not verified\n\n")
-        fh.write("- Interference at intermediate tilt positions was not checked by a "
-                 "motion study because assembly mates could not be created in this "
-                 "environment; the envelope table above is a worst-case static bound.\n")
+        fh.write("- Interference at intermediate tilt positions was not checked by a "                      "motion study: the mates exist but the axes were not driven through "
+                 "their travel; the envelope table above is a worst-case static bound.\n")
         fh.write("- Cable routing envelope, servo-horn sweep and pinch points are "
                  "unverified until the servo is selected.\n")
 
@@ -469,6 +481,14 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
                  % "; ".join(asm_summary))
         fh.write("- **%d STEP exports** and **%d printable STL meshes**, both verified in "
                  "`EXPORT_VERIFICATION_REPORT.md`.\n" % (len(step_rows), len(stl_rows)))
+        n_draw = len([f for f in os.listdir(os.path.join(FD, "06_DRAWINGS"))
+                      if f.upper().endswith(".SLDDRW")]) \
+            if os.path.isdir(os.path.join(FD, "06_DRAWINGS")) else 0
+        fh.write("- **%d drawing sheets** in `06_DRAWINGS/`, one per part and assembly, "
+                 "each with third-angle views and a note carrying its CAD-measured "
+                 "overall size, material and mass.\n" % n_draw)
+        fh.write("- **Appearance previews** of the finished fan in "
+                 "`08_VERIFICATION_REPORTS/assembly_*.png`.\n")
         fh.write("- Parameter source of truth in `00_CONFIG/design_parameters.yaml`.\n\n")
         fh.write("## Architecture\n\n")
         fh.write("The original motor, rotor, shaft, bearings and internal rotation "
@@ -486,19 +506,38 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
         fh.write("- Blade instances are placed at 0/120/240 deg about the rotor axis by "
                  "component transform, and the assembly report records each transform.\n")
         fh.write("- STEP and STL exports parse as valid single-solid / watertight meshes.\n")
-        fh.write("- Mass and torque figures are recomputed from CAD volumes.\n\n")
+        fh.write("- Mass and torque figures are recomputed from CAD volumes, by two "
+                 "independent scripts: `calculations/final_design_calculations.py` "
+                 "(repo-style calculation sheet) and `cad_tools/verify_and_report.py`.\n")
+        fh.write("- Blade roots now start at the hub pad radius (200 mm) and rest on the "
+                 "pad face, and the root assembly is rotated so the finished fan hangs "
+                 "from its ceiling plate with the rotor axis vertical - before this the "
+                 "blades floated 45 mm outboard of the hub and the whole fan lay on its "
+                 "side.\n\n")
         fh.write("## Not verified - read this before touching the hardware\n\n")
-        fh.write("- **No assembly mates exist.** SOLIDWORKS rejected every mate attempt "
-                 "in this non-interactive session (selection APIs return False, AddMate5 "
-                 "error 4). The assemblies are correctly positioned collections of "
-                 "components, not articulated mechanisms. The joint list that must be "
-                 "applied in the GUI is in `07_ENGINEERING_CALCULATIONS/assembly_joint_plan.json`.\n")
-        fh.write("- **No drawings were produced.** This is the largest missing "
-                 "deliverable; see KNOWN_LIMITATIONS.md.\n")
+        fh.write("- **Assembly mates exist, but the tilt travel was not driven.** Each mate "
+                 "is created from a geometry-matched face pair (coincident planes or "
+                 "coaxial cylinders, 0.000 mm apart) with align = CLOSEST, then validated "
+                 "by comparing every component transform before and after; a mate that "
+                 "moved a component is undone and never saved. Mates that only constrain "
+                 "by displacing parts (60 mm shifts and 180 deg flips were measured with "
+                 "align = NONE) are recorded as rejected in `assembly_report.json`. What "
+                 "is NOT shown is motion: no motion study drives the two tilt axes through "
+                 "their travel to prove the stops.\n")
+        fh.write("- **Drawings are views plus dimension notes, not dimension entities.** "
+                 "The parts are built from undimensioned sketch geometry, so "
+                 "`InsertModelAnnotations4` has nothing to carry in (measured: 0 "
+                 "dimensions per sheet). Each sheet states the CAD-measured overall size, "
+                 "material and mass as a note; GD&T, tolerances, a title block and "
+                 "balloons are still to be added.\n")
         fh.write("- **The original motor interface is unmeasured.** Motor envelope, "
                  "mounting PCD, shaft, bearings and hub flange are all assumed values.\n")
-        fh.write("- **Blade mass is 7.7x the target** and the rotor energy is about twice "
-                 "the old containment basis.\n\n")
+        fh.write("- **Mass is over budget.** Moving mass is 10.37 kg against the 6.80 kg "
+                 "frozen budget (+3.57 kg); total mass is 12.49 kg. Blade mass is "
+                 "%.3f kg each against a 0.165 kg target. Rotor energy is %.0f J here "
+                 "and 69 J in the calculation sheet (different inertia estimators); both "
+                 "are below the 130 J containment basis, which is itself unconfirmed.\n\n"
+                 % (m_blade, energy))
         fh.write("## Readiness\n\n")
         fh.write("Suitable for: further CAD review, and a **dimensional fit check of the "
                  "stationary parts** against measured hardware.\n\n")
@@ -510,14 +549,13 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
     with open(os.path.join(FD, "KNOWN_LIMITATIONS.md"), "w", encoding="utf-8") as fh:
         fh.write("# Known limitations and blocked items\n\n")
         fh.write("| # | item | status | why | action |\n|---|---|---|---|---|\n")
-        fh.write("| 1 | Assembly mates | **blocked** | `SelectByID2`, `SelectByRay`, "
-                 "persistent-reference resolution and `Select4` on component entities all "
-                 "fail in this session; `AddMate5` returns error 4 and creates nothing | "
-                 "apply the joint plan in the SOLIDWORKS UI, then re-run "
-                 "`build_final_assemblies.py --verify` |\n")
-        fh.write("| 2 | Engineering drawings | **not produced** | drawing view creation "
-                 "needs the same interactive selection path that is unavailable here | "
-                 "create views in the UI from the native parts |\n")
+        fh.write("| 1 | Tilt motion | **not simulated** | mates are created and "
+                 "validated for zero component displacement, but no motion study drives "
+                 "the axes through their travel | run SOLIDWORKS Motion over the full "
+                 "travel and check the stops |\n")
+        fh.write("| 2 | Engineering drawings | **partial** | views and dimension "
+                 "notes exist, but there are no dimension entities, GD&T or title block | "
+                 "add dimensions, tolerances and the title block in the drawing UI |\n")
         fh.write("| 3 | Original motor dimensions | **unmeasured** | no datasheet, no "
                  "measurement in the repository | complete "
                  "`08_HARDWARE_DATASHEETS/MEASUREMENT_CHECKLIST.md` |\n")
@@ -535,8 +573,11 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
         fh.write("| 9 | Material assignment | **missing** | native parts have no SW "
                  "material, so SW mass uses 1000 kg/m3 | assign materials before using SW "
                  "mass properties |\n")
-        fh.write("| 10 | STEP re-import | **partial** | text/structure verified, not "
-                 "re-imported and compared body-for-body | import each STEP and compare |\n")
+        fh.write("| 10 | STEP re-import | **verified, 1 exception** | all 18 STEP files "
+                 "were re-imported with `LoadFile4`; 17 match their native part within "
+                 "0.5 mm. The spline-lofted blade trims 6.7 mm at the tip and 1.3 mm in "
+                 "thickness, so its effective tip radius is 693 mm, not 700 mm | see "
+                 "`07_ENGINEERING_CALCULATIONS/step_reimport.csv` |\n")
         fh.write("| 11 | Print validation | **not done** | no slicer, no test prints | "
                  "slice and print fit-check parts first |\n")
         fh.write("| 12 | Cable routing and pinch points | **unverified** | depends on the "
@@ -691,8 +732,18 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
         fh.write("- Added STEP exports and printable STL meshes with independent mesh "
                  "verification.\n")
         fh.write("- Added mass/torque/clearance calculations and the safety gap matrix.\n")
-        fh.write("- Recorded that assembly mates and drawings could not be produced in "
-                 "this environment, with the joint plan supplied for GUI completion.\n")
+        fh.write("- Assemblies now carry validated mates (created from geometry-matched "
+                 "face pairs; any mate that displaced a component is rejected and never "
+                 "saved).\n")
+        fh.write("- Blades now start at the hub pad radius (200 mm) and rest on the pad "
+                 "face instead of floating 45 mm outboard and 6 mm above it.\n")
+        fh.write("- The root assembly is rotated -90 deg about X so the finished fan hangs "
+                 "from its ceiling plate with the rotor axis vertical.\n")
+        fh.write("- Lightened FD_SupportYoke (solid slabs -> tube boss + webs + thin arms), "
+                 "FD_OuterTiltRing (20 mm wall -> 12 mm, 34 -> 26 mm tall) and "
+                 "FD_TopShroud (5 -> 3 mm cap); moving mass dropped accordingly.\n")
+        fh.write("- Added `calculations/final_design_calculations.py` and "
+                 "`cad_tools/verify_step_reimport.py`.\n")
         fh.write("- Superseded the earlier MODEL_1/MODEL_2 concept part sets, which "
                  "remain untouched for reference.\n")
 

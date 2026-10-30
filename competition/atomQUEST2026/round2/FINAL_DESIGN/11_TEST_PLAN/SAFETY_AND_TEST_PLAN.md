@@ -28,4 +28,4 @@
 8. Thermal and endurance testing.
 9. Formal compliance assessment.
 
-**Powered operation is not approved.** A printed blade set has not been qualified at any speed, the rotor stores roughly 272 J at 380 RPM against a 130 J containment basis, and no containment structure exists. Do not run this fan until steps 1-6 are complete.
+**Powered operation is not approved.** A printed blade set has not been qualified at any speed, the rotor stores roughly 77 J at 380 RPM against a 130 J containment basis, and no containment structure exists. Do not run this fan until steps 1-6 are complete.

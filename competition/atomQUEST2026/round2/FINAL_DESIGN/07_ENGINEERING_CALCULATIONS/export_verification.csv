@@ -1,26 +1,26 @@
 type,file,bytes,detail,ok
-STL,FD_Blade.STL,42384,"triangles=846 bbox=[555.0, 170.85, 83.27] open_edges=0",True
+STL,FD_Blade.STL,66584,"triangles=1330 bbox=[535.0, 143.47, 73.6] open_edges=0",True
 STL,FD_CableCollar.STL,23784,"triangles=474 bbox=[64.0, 64.0, 8.0] open_edges=0",True
 STL,FD_MotorCover.STL,23484,"triangles=468 bbox=[180.0, 179.94, 83.0] open_edges=0",True
 STL,FD_ServoBracketX.STL,8484,"triangles=168 bbox=[12.0, 60.0, 50.0] open_edges=0",True
 STL,FD_ServoBracketY.STL,8884,"triangles=176 bbox=[50.0, 14.0, 50.0] open_edges=0",True
-STL,FD_TopShroud.STL,24484,"triangles=488 bbox=[500.0, 499.83, 45.0] open_edges=0",True
+STL,FD_TopShroud.STL,24484,"triangles=488 bbox=[500.0, 499.83, 43.0] open_edges=0",True
 STL,FD_TravelStop.STL,684,"triangles=12 bbox=[240.0, 8.0, 8.0] open_edges=0",True
-STEP,FD_Blade.STEP,70618,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_BladeHub.STEP,100775,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_CableCollar.STEP,31592,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_CeilingPlate.STEP,38054,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_Downrod.STEP,17221,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_InnerCradle.STEP,36303,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_MotorAdapter.STEP,38071,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_MotorCover.STEP,17222,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_OuterTiltRing.STEP,77491,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_PivotBushingX.STEP,17241,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_PivotBushingY.STEP,17245,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_REF_MotorEnvelope.STEP,65193,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_Blade.STEP,270859,iso10303=True solid_breps=0 shells=3,False
+STEP,FD_BladeHub.STEP,93023,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_CableCollar.STEP,31587,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_CeilingPlate.STEP,38062,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_Downrod.STEP,17226,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_InnerCradle.STEP,36297,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_MotorAdapter.STEP,38086,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_MotorCover.STEP,17212,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_OuterTiltRing.STEP,77502,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_PivotBushingX.STEP,17271,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_PivotBushingY.STEP,17231,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_REF_MotorEnvelope.STEP,65205,iso10303=True solid_breps=1 shells=1,True
 STEP,FD_ServoBracketX.STEP,21170,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_ServoBracketY.STEP,21180,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_ServoHorn.STEP,26232,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_SupportYoke.STEP,49872,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_TopShroud.STEP,17681,iso10303=True solid_breps=1 shells=1,True
-STEP,FD_TravelStop.STEP,15968,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_ServoBracketY.STEP,21171,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_ServoHorn.STEP,26237,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_SupportYoke.STEP,108514,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_TopShroud.STEP,17696,iso10303=True solid_breps=1 shells=1,True
+STEP,FD_TravelStop.STEP,15937,iso10303=True solid_breps=1 shells=1,True

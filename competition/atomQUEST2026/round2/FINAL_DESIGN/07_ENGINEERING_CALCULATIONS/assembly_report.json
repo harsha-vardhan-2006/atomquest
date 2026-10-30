@@ -2,32 +2,81 @@
   "solidworks_revision": "<bound method 'RevisionNumber'>",
   "FD_ROTOR": {
     "file": "04_ASSEMBLIES/FD_ROTOR.SLDASM",
-    "bytes": 78517,
+    "bytes": 114483,
     "components": {
       "component_count": 4,
-      "mass_kg": 3.5036,
-      "com_mm": [
-        41.0,
-        160.4,
-        21.4
-      ]
+      "sw_mass_kg_at_1000kgm3": 1.2477
     },
-    "mate_features_created": 0,
-    "mate_attempts": [
+    "trial_mate_features": 4,
+    "mate_features_created": 4,
+    "mates_accepted": [
       {
-        "joint": "blade_root_to_pad_0",
-        "created": false,
-        "error_code": 4
+        "name": "blade1_root_face",
+        "kind": "coincident",
+        "between": [
+          "FD_Blade-1",
+          "FD_BladeHub-1"
+        ],
+        "matched": "parallel planes 0.000 mm apart, face ids 0.00818345133223538/0.013893585145941368",
+        "component_shift_mm": 0.0,
+        "component_rotation_deg": 0.0,
+        "status": "created"
       },
       {
-        "joint": "blade_bolt_concentric_0",
-        "created": false,
-        "error_code": 4
+        "name": "blade2_root_face",
+        "kind": "coincident",
+        "between": [
+          "FD_Blade-2",
+          "FD_BladeHub-1"
+        ],
+        "matched": "parallel planes 0.000 mm apart, face ids 0.00818345133223538/0.013893585145941368",
+        "component_shift_mm": 0.0,
+        "component_rotation_deg": 0.0,
+        "status": "created"
       },
       {
-        "joint": "hub_flange_to_rotor",
-        "created": false,
-        "error_code": 4
+        "name": "blade3_root_face",
+        "kind": "coincident",
+        "between": [
+          "FD_Blade-3",
+          "FD_BladeHub-1"
+        ],
+        "matched": "parallel planes 0.000 mm apart, face ids 0.00818345133223538/0.013893585145941368",
+        "component_shift_mm": 0.0,
+        "component_rotation_deg": 0.0,
+        "status": "created"
+      },
+      {
+        "name": "blade1_root_bore",
+        "kind": "concentric",
+        "between": [
+          "FD_Blade-1",
+          "FD_BladeHub-1"
+        ],
+        "matched": "coaxial cylinders, axes 0.000 mm apart, R 3.000/3.000 mm",
+        "component_shift_mm": 0.0,
+        "component_rotation_deg": 0.0,
+        "status": "created"
+      }
+    ],
+    "mates_rejected": [
+      {
+        "name": "blade2_root_bore",
+        "kind": "concentric",
+        "between": [
+          "FD_Blade-2",
+          "FD_BladeHub-1"
+        ],
+        "status": "no matching concentric face pair on the two components"
+      },
+      {
+        "name": "blade3_root_bore",
+        "kind": "concentric",
+        "between": [
+          "FD_Blade-3",
+          "FD_BladeHub-1"
+        ],
+        "status": "no matching concentric face pair on the two components"
       }
     ],
     "parts": [
@@ -35,112 +84,190 @@
         "component": "FD_BladeHub-1",
         "source": "FD_BladeHub.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.6924,
-        "com_component_mm": [
-          300.1,
-          300.0,
-          15.2
+        "sw_mass_kg_at_1000kgm3": 0.5135,
+        "volume_m3": 0.000513506,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "com_assembly_mm": [
-          -32.9,
-          -0.0,
-          3.2
-        ],
-        "volume_m3": 0.000692393
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_Blade-1",
         "source": "FD_Blade.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.9371,
-        "com_component_mm": [
-          659.0,
-          303.2,
-          47.7
+        "sw_mass_kg_at_1000kgm3": 0.2447,
+        "volume_m3": 0.000244719,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "com_assembly_mm": [
-          -63.5,
-          2.8,
-          -17.9
-        ],
-        "volume_m3": 0.000937057
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_Blade-2",
         "source": "FD_Blade.SLDPRT",
         "angle_deg": 120.0,
         "rotated": true,
-        "mass_kg": 0.9371,
-        "com_component_mm": [
-          659.0,
-          303.2,
-          47.7
+        "rotation_applied_deg": -120.0,
+        "applied_translation_mm": [
+          709.8,
+          190.2,
+          0.0
         ],
-        "com_assembly_mm": [
-          117.7,
-          609.3,
-          47.7
+        "sw_mass_kg_at_1000kgm3": 0.2447,
+        "volume_m3": 0.000244719,
+        "transform": [
+          -0.5,
+          0.866025,
+          0.0,
+          -0.866025,
+          -0.5,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.709808,
+          0.190192,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "volume_m3": 0.000937057
+        "placement_angle_deg": -120.0
       },
       {
         "component": "FD_Blade-3",
         "source": "FD_Blade.SLDPRT",
         "angle_deg": 240.0,
         "rotated": true,
-        "mass_kg": 0.9371,
-        "com_component_mm": [
-          659.0,
-          303.2,
-          47.7
+        "rotation_applied_deg": 120.0,
+        "applied_translation_mm": [
+          190.2,
+          709.8,
+          0.0
         ],
-        "com_assembly_mm": [
-          123.3,
-          -12.5,
-          47.7
+        "sw_mass_kg_at_1000kgm3": 0.2447,
+        "volume_m3": 0.000244719,
+        "transform": [
+          -0.5,
+          -0.866025,
+          0.0,
+          0.866025,
+          -0.5,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.190192,
+          0.709808,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "volume_m3": 0.000937057
+        "placement_angle_deg": 120.0
       }
     ]
   },
   "FD_TILT": {
     "file": "04_ASSEMBLIES/FD_TILT.SLDASM",
-    "bytes": 120992,
+    "bytes": 142696,
     "components": {
       "component_count": 11,
-      "mass_kg": 4.0734,
-      "com_mm": [
-        -0.0,
-        -0.0,
-        18.2
-      ]
+      "sw_mass_kg_at_1000kgm3": 2.4946
     },
-    "mate_features_created": 0,
-    "mate_attempts": [
+    "trial_mate_features": 4,
+    "mate_features_created": 4,
+    "mates_accepted": [
       {
-        "joint": "outer_axis_concentric",
-        "created": false,
-        "error_code": 4
+        "name": "outer_axis_concentric",
+        "kind": "concentric",
+        "between": [
+          "FD_SupportYoke-1",
+          "FD_OuterTiltRing-1"
+        ],
+        "matched": "coaxial cylinders, axes 0.000 mm apart, R 8.000/7.900 mm",
+        "component_shift_mm": 0.0,
+        "component_rotation_deg": 0.0,
+        "status": "created"
       },
       {
-        "joint": "outer_axis_face",
-        "created": false,
-        "error_code": 4
+        "name": "adapter_to_cradle",
+        "kind": "coincident",
+        "between": [
+          "FD_MotorAdapter-1",
+          "FD_InnerCradle-1"
+        ],
+        "matched": "parallel planes 0.000 mm apart, face ids 0.016803593705888416/0.036860000000000004",
+        "component_shift_mm": 0.0,
+        "component_rotation_deg": 0.0,
+        "status": "created"
       },
       {
-        "joint": "inner_axis_concentric",
-        "created": false,
-        "error_code": 4
+        "name": "cover_to_adapter",
+        "kind": "coincident",
+        "between": [
+          "FD_MotorCover-1",
+          "FD_MotorAdapter-1"
+        ],
+        "matched": "parallel planes 0.000 mm apart, face ids 0.00327982273034777/0.016803593705888416",
+        "component_shift_mm": 0.0,
+        "component_rotation_deg": 0.0,
+        "status": "created"
       },
       {
-        "joint": "inner_axis_face",
-        "created": false,
-        "error_code": 4
-      },
+        "name": "bracket_x_to_yoke",
+        "kind": "coincident",
+        "between": [
+          "FD_ServoBracketX-1",
+          "FD_SupportYoke-1"
+        ],
+        "matched": "parallel planes 0.000 mm apart, face ids 0.0026198672889156337/0.01669093807017025",
+        "component_shift_mm": 0.0,
+        "component_rotation_deg": 0.0,
+        "status": "created"
+      }
+    ],
+    "mates_rejected": [
       {
-        "joint": "adapter_platform",
-        "created": false,
-        "error_code": 4
+        "name": "inner_axis_concentric",
+        "kind": "concentric",
+        "between": [
+          "FD_OuterTiltRing-1",
+          "FD_InnerCradle-1"
+        ],
+        "status": "no matching concentric face pair on the two components"
       }
     ],
     "parts": [
@@ -148,345 +275,515 @@
         "component": "FD_SupportYoke-1",
         "source": "FD_SupportYoke.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 1.9984,
-        "com_component_mm": [
-          300.0,
-          300.0,
-          176.1
-        ],
-        "com_assembly_mm": [
+        "sw_mass_kg_at_1000kgm3": 0.8711,
+        "volume_m3": 0.000871086,
+        "transform": [
+          1.0,
           0.0,
           0.0,
-          41.1
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "volume_m3": 0.001998427
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_OuterTiltRing-1",
         "source": "FD_OuterTiltRing.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.9412,
-        "com_component_mm": [
-          300.0,
-          300.0,
-          157.0
+        "sw_mass_kg_at_1000kgm3": 0.4897,
+        "volume_m3": 0.00048971,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "com_assembly_mm": [
-          -0.0,
-          -0.0,
-          -0.0
-        ],
-        "volume_m3": 0.000941173
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_InnerCradle-1",
         "source": "FD_InnerCradle.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.6124,
-        "com_component_mm": [
-          300.0,
-          300.0,
-          139.7
-        ],
-        "com_assembly_mm": [
-          -0.0,
+        "sw_mass_kg_at_1000kgm3": 0.6124,
+        "volume_m3": 0.000612381,
+        "transform": [
+          1.0,
           0.0,
-          -12.8
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "volume_m3": 0.000612381
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_MotorAdapter-1",
         "source": "FD_MotorAdapter.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.168,
-        "com_component_mm": [
-          300.0,
-          300.0,
-          118.0
-        ],
-        "com_assembly_mm": [
+        "sw_mass_kg_at_1000kgm3": 0.168,
+        "volume_m3": 0.000168036,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
           0.0,
           0.0,
           0.0
         ],
-        "volume_m3": 0.000168036
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_MotorCover-1",
         "source": "FD_MotorCover.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.2722,
-        "com_component_mm": [
-          300.0,
-          300.0,
-          71.5
+        "sw_mass_kg_at_1000kgm3": 0.2722,
+        "volume_m3": 0.000272225,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "com_assembly_mm": [
-          -0.0,
-          -0.0,
-          -0.0
-        ],
-        "volume_m3": 0.000272225
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_PivotBushingX-1",
         "source": "FD_PivotBushingX.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.0018,
-        "com_component_mm": [
-          531.0,
-          300.0,
-          157.0
-        ],
-        "com_assembly_mm": [
+        "sw_mass_kg_at_1000kgm3": 0.0018,
+        "volume_m3": 1.759e-06,
+        "transform": [
+          1.0,
           0.0,
-          -0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
           0.0
         ],
-        "volume_m3": 1.759e-06
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_PivotBushingY-1",
         "source": "FD_PivotBushingY.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.0012,
-        "com_component_mm": [
-          300.0,
-          480.0,
-          157.0
-        ],
-        "com_assembly_mm": [
+        "sw_mass_kg_at_1000kgm3": 0.0012,
+        "volume_m3": 1.206e-06,
+        "transform": [
+          1.0,
           0.0,
-          -0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
           0.0
         ],
-        "volume_m3": 1.206e-06
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_ServoBracketX-1",
         "source": "FD_ServoBracketX.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.0314,
-        "com_component_mm": [
-          519.0,
-          300.0,
-          154.7
-        ],
-        "com_assembly_mm": [
+        "sw_mass_kg_at_1000kgm3": 0.0314,
+        "volume_m3": 3.1438e-05,
+        "transform": [
+          1.0,
           0.0,
           0.0,
-          -0.3
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "volume_m3": 3.1438e-05
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_ServoBracketY-1",
         "source": "FD_ServoBracketY.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.0297,
-        "com_component_mm": [
-          300.0,
-          485.0,
-          154.6
-        ],
-        "com_assembly_mm": [
+        "sw_mass_kg_at_1000kgm3": 0.0297,
+        "volume_m3": 2.9678e-05,
+        "transform": [
+          1.0,
           0.0,
           0.0,
-          -0.4
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "volume_m3": 2.9678e-05
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_TravelStop-1",
         "source": "FD_TravelStop.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.0154,
-        "com_component_mm": [
-          300.0,
-          494.0,
-          152.0
+        "sw_mass_kg_at_1000kgm3": 0.0154,
+        "volume_m3": 1.536e-05,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "com_assembly_mm": [
-          -0.0,
-          -0.0,
-          -0.0
-        ],
-        "volume_m3": 1.536e-05
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_ServoHorn-1",
         "source": "FD_ServoHorn.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.0017,
-        "com_component_mm": [
-          300.0,
-          305.4,
-          2.0
-        ],
-        "com_assembly_mm": [
+        "sw_mass_kg_at_1000kgm3": 0.0017,
+        "volume_m3": 1.721e-06,
+        "transform": [
+          1.0,
           0.0,
-          -2.6,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
           0.0
         ],
-        "volume_m3": 1.721e-06
+        "placement_angle_deg": 0.0
       }
     ]
   },
   "FD_SMART_FAN_ASSEMBLY": {
     "file": "04_ASSEMBLIES/FD_SMART_FAN_ASSEMBLY.SLDASM",
-    "bytes": 163028,
+    "bytes": 199727,
     "components": {
       "component_count": 7,
-      "mass_kg": 10.1035,
-      "com_mm": [
-        -16.6,
-        -48.4,
-        6.3
-      ]
+      "sw_mass_kg_at_1000kgm3": 5.8761
     },
-    "mate_features_created": 0,
-    "mate_attempts": [
+    "trial_mate_features": 2,
+    "mate_features_created": 2,
+    "mates_accepted": [
       {
-        "joint": "downrod_to_plate",
-        "created": false,
-        "error_code": 4
+        "name": "downrod_concentric",
+        "kind": "concentric",
+        "between": [
+          "FD_Downrod-1",
+          "FD_CeilingPlate-1"
+        ],
+        "matched": "coaxial cylinders, axes 0.000 mm apart, R 12.500/13.500 mm",
+        "component_shift_mm": 0.0,
+        "component_rotation_deg": 0.0,
+        "status": "created"
       },
       {
-        "joint": "downrod_shoulder",
-        "created": false,
-        "error_code": 4
-      },
-      {
-        "joint": "tilt_to_downrod",
-        "created": false,
-        "error_code": 4
-      },
-      {
-        "joint": "rotor_to_adapter",
-        "created": false,
-        "error_code": 4
+        "name": "downrod_shoulder",
+        "kind": "coincident",
+        "between": [
+          "FD_Downrod-1",
+          "FD_CeilingPlate-1"
+        ],
+        "matched": "parallel planes 0.000 mm apart, face ids 0.00020734511513692625/0.040748027513386395",
+        "component_shift_mm": 0.0,
+        "component_rotation_deg": 0.0,
+        "status": "created"
       }
     ],
+    "mates_rejected": [],
     "parts": [
       {
         "component": "FD_CeilingPlate-1",
         "source": "FD_CeilingPlate.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.326,
-        "com_component_mm": [
-          300.0,
-          300.0,
-          466.0
-        ],
-        "com_assembly_mm": [
+        "oriented_upright_deg_x": -90.0,
+        "sw_mass_kg_at_1000kgm3": 0.326,
+        "volume_m3": 0.000325984,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
           0.0,
           0.0,
           0.0
         ],
-        "volume_m3": 0.000325984
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_Downrod-1",
         "source": "FD_Downrod.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.0481,
-        "com_component_mm": [
-          300.0,
-          300.0,
-          346.0
-        ],
-        "com_assembly_mm": [
+        "oriented_upright_deg_x": -90.0,
+        "sw_mass_kg_at_1000kgm3": 0.0481,
+        "volume_m3": 4.8104e-05,
+        "transform": [
+          1.0,
           0.0,
           0.0,
-          -0.0
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "volume_m3": 4.8104e-05
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_TopShroud-1",
         "source": "FD_TopShroud.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 1.2311,
-        "com_component_mm": [
-          300.0,
-          300.0,
-          211.9
-        ],
-        "com_assembly_mm": [
+        "oriented_upright_deg_x": -90.0,
+        "sw_mass_kg_at_1000kgm3": 0.8384,
+        "volume_m3": 0.000838365,
+        "transform": [
+          1.0,
           0.0,
           0.0,
-          15.4
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "volume_m3": 0.001231064
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_CableCollar-1",
         "source": "FD_CableCollar.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.0321,
-        "com_component_mm": [
-          300.0,
-          300.0,
-          304.0
-        ],
-        "com_assembly_mm": [
-          -0.0,
+        "oriented_upright_deg_x": -90.0,
+        "sw_mass_kg_at_1000kgm3": 0.0321,
+        "volume_m3": 3.2089e-05,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
           0.0,
           0.0
         ],
-        "volume_m3": 3.2089e-05
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_REF_MotorEnvelope-1",
         "source": "FD_REF_MotorEnvelope.SLDPRT",
         "angle_deg": null,
-        "mass_kg": 0.8892,
-        "com_component_mm": [
-          300.0,
-          300.0,
-          68.1
-        ],
-        "com_assembly_mm": [
+        "oriented_upright_deg_x": -90.0,
+        "sw_mass_kg_at_1000kgm3": 0.8892,
+        "volume_m3": 0.000889245,
+        "transform": [
+          1.0,
           0.0,
           0.0,
-          11.6
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "volume_m3": 0.000889245
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_TILT-1",
         "source": "FD_TILT.SLDASM",
         "angle_deg": null,
-        "mass_kg": 4.0734,
-        "com_component_mm": [
-          -0.0,
-          -0.0,
-          18.2
+        "oriented_upright_deg_x": -90.0,
+        "sw_mass_kg_at_1000kgm3": 2.4946,
+        "volume_m3": 0.0024946,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "com_assembly_mm": [
-          -0.0,
-          -0.0,
-          18.2
-        ],
-        "volume_m3": 0.004073404
+        "placement_angle_deg": 0.0
       },
       {
         "component": "FD_ROTOR-1",
         "source": "FD_ROTOR.SLDASM",
         "angle_deg": null,
-        "mass_kg": 3.5036,
-        "com_component_mm": [
-          41.0,
-          160.4,
-          21.4
+        "oriented_upright_deg_x": -90.0,
+        "sw_mass_kg_at_1000kgm3": 1.2477,
+        "volume_m3": 0.001247663,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
         ],
-        "com_assembly_mm": [
-          -47.8,
-          -139.4,
-          -11.4
-        ],
-        "volume_m3": 0.003503565
+        "placement_angle_deg": 0.0
       }
     ]
   }
