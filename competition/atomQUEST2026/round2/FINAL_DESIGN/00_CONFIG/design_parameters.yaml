@@ -1,0 +1,102 @@
+# AtomQuest Smart BLDC Ceiling Fan - Round 2 final design parameter register
+# Every value carries an evidence class:
+#   FROZEN      - inherited Round-1 frozen design input (docs/00-design-freeze.md)
+#   CAD         - driving value of the final CAD (this design)
+#   ASSUMPTION  - engineering assumption, NOT verified
+#   MEASURE     - must be measured from the user's original hardware
+#   PLACEHOLDER - provisional envelope used only to keep CAD parametric
+# Units are SI (m, kg, rad) except where the item name states mm.
+
+meta:
+  document: design_parameters.yaml
+  revision: "R2-FINAL-01"
+  status: PRELIMINARY - NOT FIT-VERIFIED, NOT OPERATION-APPROVED
+  generated_by: cad_tools/fd_spec.py + cad_tools/build_final_parts.py
+  coordinate_system:
+    origin: rotor axis at the blade mid-plane
+    z: +Z points toward the ceiling mounting plate
+    x: first (outer) tilt axis
+    y: second (inner) tilt axis
+
+rotor:
+  blade_count: {value: 3, class: FROZEN}
+  overall_sweep_mm: {value: 1400, class: FROZEN, note: tip-to-tip diameter}
+  tip_radius_mm: {value: 700, class: FROZEN}
+  root_radius_mm: {value: 150, class: FROZEN}
+  radial_span_mm: {value: 550, class: FROZEN}
+  root_chord_mm: {value: 160, class: FROZEN}
+  tip_chord_mm: {value: 120, class: FROZEN}
+  twist_root_deg: {value: 38, class: FROZEN}
+  twist_tip_deg: {value: 12, class: FROZEN}
+  thickness_root_pct: {value: 0.14, class: ASSUMPTION, note: provisional NACA-style section}
+  thickness_tip_pct: {value: 0.09, class: ASSUMPTION}
+  blade_design_mass_target_kg: {value: 0.165, class: FROZEN, note: Round-1 target, not achieved verification}
+  nominal_speed_rpm: {value: 380, class: FROZEN}
+  overspeed_rpm: {value: 456, class: FROZEN, note: 1.2x, hazard case}
+
+hub_and_original_hardware:
+  # The original motor, rotor, shaft, bearings and rotor hub are RETAINED.
+  # None of the following could be identified from the repository or any
+  # manufacturer document, so they remain placeholders until measured.
+  motor_body_diameter_mm: {value: 125, class: PLACEHOLDER}
+  motor_body_length_mm: {value: 70, class: PLACEHOLDER}
+  motor_mounting_pcd_mm: {value: 90, class: PLACEHOLDER}
+  motor_mounting_hole_diameter_mm: {value: 4.5, class: PLACEHOLDER}
+  shaft_diameter_mm: {value: 12, class: PLACEHOLDER}
+  shaft_usable_length_mm: {value: 60, class: PLACEHOLDER}
+  shaft_end_feature: {value: "unknown - thread/flat/key not recorded", class: MEASURE}
+  bearing_outer_diameter_mm: {value: 28, class: PLACEHOLDER}
+  bearing_width_mm: {value: 8, class: PLACEHOLDER}
+  hub_bore_clearance_mm: {value: 0.2, class: ASSUMPTION}
+  rotor_clearance_mm: {value: 3.0, class: ASSUMPTION, note: minimum running clearance used in clearance check}
+  motor_rated_voltage_v: {value: 24, class: PLACEHOLDER}
+  motor_rated_power_w: {value: 25, class: FROZEN}
+  motor_continuous_torque_nm: {value: 0.62, class: FROZEN, note: on-paper target, pending datasheet}
+
+tilt_mechanism:
+  architecture: {value: dual_ring_gimbal, class: CAD, note: selected over spherical housing; see ARCHITECTURE_DECISION.md}
+  outer_axis: {value: x, class: CAD}
+  inner_axis: {value: y, class: CAD}
+  pivot_height_mm: {value: 120, class: CAD, note: above blade plane}
+  outer_pivot_diameter_mm: {value: 16, class: CAD}
+  inner_pivot_diameter_mm: {value: 12, class: CAD}
+  tilt_limit_x_deg: {value: 20, class: ASSUMPTION, note: enforced by travel stops and firmware}
+  tilt_limit_y_deg: {value: 15, class: ASSUMPTION}
+  stop_margin_deg: {value: 2, class: ASSUMPTION, note: hard stop beyond software limit}
+  ring_outer_diameter_mm: {value: 420, class: CAD}
+  ring_inner_diameter_mm: {value: 380, class: CAD}
+  ring_height_mm: {value: 34, class: CAD}
+  servo_mount: {value: "two standard 20x40 mm micro servos on the stationary yoke web", class: CAD}
+  servo_torque_required_nm: {value: null, class: CAD, note: computed by verify_and_calculate.py from measured CAD mass properties}
+  servo_selected: {value: null, class: MEASURE, note: no servo may be named until torque and duty are computed and a datasheet is cited}
+
+body:
+  shroud_outer_diameter_mm: {value: 470, class: CAD}
+  shroud_height_mm: {value: 40, class: CAD}
+  shroud_wall_mm: {value: 4, class: CAD}
+  bottom_cover_diameter_mm: {value: 400, class: CAD}
+  ceiling_plate_diameter_mm: {value: 230, class: CAD}
+  ceiling_plate_thickness_mm: {value: 8, class: CAD}
+  ceiling_anchor_pcd_mm: {value: 170, class: CAD}
+  downrod_od_mm: {value: 25, class: CAD}
+  downrod_id_mm: {value: 19, class: CAD}
+  downrod_length_mm: {value: 120, class: CAD}
+  print_wall_min_mm: {value: 2.4, class: ASSUMPTION, note: 3 perimeters at 0.8 mm nozzle-equivalent}
+  fastener_m3_clearance_mm: {value: 3.4, class: ASSUMPTION}
+  fastener_m3_insert_pilot_mm: {value: 4.0, class: ASSUMPTION}
+  print_tolerance_mm: {value: 0.25, class: ASSUMPTION, note: FDM, must be calibrated per printer}
+
+materials:
+  printed_body: {value: PETG, density_kg_m3: 1270, class: ASSUMPTION, note: not qualified for structural ceiling duty}
+  printed_blade: {value: "CF-PETG (chopped fibre)", density_kg_m3: 1350, class: ASSUMPTION, note: NOT equivalent to continuous-fibre composite}
+  structural_plate: {value: "6061-T6 aluminium", density_kg_m3: 2700, class: ASSUMPTION}
+  pivot_pin: {value: "stainless 316", density_kg_m3: 8000, class: ASSUMPTION}
+
+mass_budget:
+  target_total_kg: {value: 6.8, class: FROZEN}
+  cad_mass_report: {value: "07_ENGINEERING_CALCULATIONS/MASS_AND_TORQUE_REPORT.md", class: CAD}
+
+validation:
+  powered_operation: {value: BLOCKED, class: CAD, note: rotating-system containment, blade qualification, anchor qualification and balance are unproven}
+  fit_check_printing: {value: CONDITIONAL, class: CAD, note: only after original hardware is measured}
+  cad_review: {value: READY, class: CAD}

@@ -1,0 +1,19 @@
+item,part_file,description,material,density_kg_m3,qty,mass_kg_each,group,printable,note
+1,FD_Blade.SLDPRT,lofted twisted blade with flat-bottom root; aerodynamics NOT validated,printed_blade,1350.0,3,1.265,rotating,yes,density is a design assumption; no SW material assigned
+2,FD_BladeHub.SLDPRT,clamp hub over the ORIGINAL rotor flange with 3 blade pads,aluminium,2700.0,1,1.8695,rotating,no,density is a design assumption; no SW material assigned
+3,FD_CableCollar.SLDPRT,downrod cable strain-relief collar,printed_body,1270.0,1,0.0408,stationary,yes,density is a design assumption; no SW material assigned
+4,FD_CeilingPlate.SLDPRT,ceiling interface plate; 4 x 8.5 mm anchors on 170 PCD (provisional),aluminium,2700.0,1,0.8802,stationary,no,density is a design assumption; no SW material assigned
+5,FD_Downrod.SLDPRT,"25 x 19 tube, 232 mm",aluminium,2700.0,1,0.1299,stationary,no,density is a design assumption; no SW material assigned
+6,FD_InnerCradle.SLDPRT,"inner cradle: platform, two fins, Y pivot pins",aluminium,2700.0,1,1.6534,tilting,no,density is a design assumption; no SW material assigned
+7,FD_MotorAdapter.SLDPRT,adapter plate; PLACEHOLDER 4 x 4.5 mm on 90 PCD must be measured,aluminium,2700.0,1,0.4537,tilting,no,density is a design assumption; no SW material assigned
+8,FD_MotorCover.SLDPRT,ventilated motor cover over the retained original motor,printed_body,1270.0,1,0.3457,tilting,yes,density is a design assumption; no SW material assigned
+9,FD_OuterTiltRing.SLDPRT,outer tilt ring: X trunnions and Y pivot bores,aluminium,2700.0,1,2.5412,tilting,no,density is a design assumption; no SW material assigned
+10,FD_PivotBushingX.SLDPRT,"outer tilt bushing; provisional, replace with a rated bearing",steel,8000.0,1,0.0141,tilting,no,density is a design assumption; no SW material assigned
+11,FD_PivotBushingY.SLDPRT,inner tilt bushing; provisional,steel,8000.0,1,0.0096,tilting,no,density is a design assumption; no SW material assigned
+12,FD_REF_MotorEnvelope.SLDPRT,REFERENCE ONLY placeholder for the retained original motor,aluminium,2700.0,1,2.401,reference,no,density is a design assumption; no SW material assigned
+13,FD_ServoBracketX.SLDPRT,X-axis servo mount on the +X yoke arm,printed_body,1270.0,1,0.0399,tilting,yes,density is a design assumption; no SW material assigned
+14,FD_ServoBracketY.SLDPRT,Y-axis servo mount carried on the outer ring,printed_body,1270.0,1,0.0377,tilting,yes,density is a design assumption; no SW material assigned
+15,FD_ServoHorn.SLDPRT,generic servo horn; no servo model selected yet,aluminium,2700.0,1,0.0046,tilting,no,density is a design assumption; no SW material assigned
+16,FD_SupportYoke.SLDPRT,"stationary yoke: downrod boss, web, two arm plates with X pivot bores",aluminium,2700.0,1,5.3958,stationary,no,density is a design assumption; no SW material assigned
+17,FD_TopShroud.SLDPRT,stationary shroud enclosing the tilt mechanism,printed_body,1270.0,1,1.5635,stationary,yes,density is a design assumption; no SW material assigned
+18,FD_TravelStop.SLDPRT,outer-axis hard stop bar; final angle set after motion verification,printed_body,1270.0,1,0.0195,tilting,yes,density is a design assumption; no SW material assigned

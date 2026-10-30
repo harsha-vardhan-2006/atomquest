@@ -1,0 +1,68 @@
+category,path,bytes,evidence
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_Blade.SLDPRT,169623,solid_bodies=1 rebuild=PASS bbox=555.0x170.85x83.27 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_BladeHub.SLDPRT,117896,solid_bodies=1 rebuild=PASS bbox=353.97x408.67x24.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_CableCollar.SLDPRT,67689,solid_bodies=1 rebuild=PASS bbox=64.0x64.0x8.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_CeilingPlate.SLDPRT,79960,solid_bodies=1 rebuild=PASS bbox=230.0x230.0x8.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_Downrod.SLDPRT,66737,solid_bodies=1 rebuild=PASS bbox=25.0x25.0x232.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_InnerCradle.SLDPRT,92987,solid_bodies=1 rebuild=PASS bbox=190.0x380.0x59.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_MotorAdapter.SLDPRT,80838,solid_bodies=1 rebuild=PASS bbox=150.0x150.0x10.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_MotorCover.SLDPRT,84054,solid_bodies=1 rebuild=PASS bbox=180.0x180.0x83.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_OuterTiltRing.SLDPRT,94959,solid_bodies=1 rebuild=PASS bbox=482.0x420.0x34.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_PivotBushingX.SLDPRT,75586,solid_bodies=1 rebuild=PASS bbox=20.0x16.0x16.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_PivotBushingY.SLDPRT,60104,solid_bodies=1 rebuild=PASS bbox=12.0x20.0x12.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_REF_MotorEnvelope.SLDPRT,94946,solid_bodies=1 rebuild=PASS bbox=150.0x150.0x113.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_ServoBracketX.SLDPRT,63265,solid_bodies=1 rebuild=PASS bbox=12.0x60.0x50.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_ServoBracketY.SLDPRT,73851,solid_bodies=1 rebuild=PASS bbox=50.0x14.0x50.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_ServoHorn.SLDPRT,65770,solid_bodies=1 rebuild=PASS bbox=20.0x36.0x4.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_SupportYoke.SLDPRT,113011,solid_bodies=1 rebuild=PASS bbox=482.0x150.0x190.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_TopShroud.SLDPRT,74590,solid_bodies=1 rebuild=PASS bbox=500.0x500.0x45.0 mm
+native_part,FINAL_DESIGN/01_NATIVE_PARTS/FD_TravelStop.SLDPRT,51954,solid_bodies=1 rebuild=PASS bbox=240.0x8.0x8.0 mm
+native_assembly,FINAL_DESIGN/04_ASSEMBLIES/FD_ROTOR.SLDASM,78517,components=4 mates=0
+native_assembly,FINAL_DESIGN/04_ASSEMBLIES/FD_SMART_FAN_ASSEMBLY.SLDASM,163028,components=7 mates=0
+native_assembly,FINAL_DESIGN/04_ASSEMBLIES/FD_TILT.SLDASM,120992,components=11 mates=0
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_Blade.STEP,71617,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_BladeHub.STEP,102228,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_CableCollar.STEP,32071,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_CeilingPlate.STEP,38619,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_Downrod.STEP,17490,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_InnerCradle.STEP,36852,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_MotorAdapter.STEP,38636,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_MotorCover.STEP,17491,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_OuterTiltRing.STEP,78374,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_PivotBushingX.STEP,17510,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_PivotBushingY.STEP,17514,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_REF_MotorEnvelope.STEP,66140,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_ServoBracketX.STEP,21501,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_ServoBracketY.STEP,21511,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_ServoHorn.STEP,26633,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_SupportYoke.STEP,50615,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_TopShroud.STEP,17956,see export_verification.csv
+step_export,FINAL_DESIGN/02_STEP_EXPORTS/FD_TravelStop.STEP,16225,see export_verification.csv
+stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_Blade.STL,42384,see export_verification.csv
+stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_CableCollar.STL,23784,see export_verification.csv
+stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_MotorCover.STL,23484,see export_verification.csv
+stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_ServoBracketX.STL,8484,see export_verification.csv
+stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_ServoBracketY.STL,8884,see export_verification.csv
+stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_TopShroud.STL,24484,see export_verification.csv
+stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_TravelStop.STL,684,see export_verification.csv
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_BladeHub_VIEWS.SLDDRW,49911,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_Blade_VIEWS.SLDDRW,52460,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_CableCollar_VIEWS.SLDDRW,31893,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_CeilingPlate_VIEWS.SLDDRW,41020,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_Downrod_VIEWS.SLDDRW,28561,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_InnerCradle_VIEWS.SLDDRW,30519,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_MotorAdapter_VIEWS.SLDDRW,40626,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_MotorCover_VIEWS.SLDDRW,36003,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_OuterTiltRing_VIEWS.SLDDRW,46732,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_PivotBushingX_VIEWS.SLDDRW,34214,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_PivotBushingY_VIEWS.SLDDRW,34113,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_REF_MotorEnvelope_VIEWS.SLDDRW,47270,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_ROTOR_VIEWS.SLDDRW,89214,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_SMART_FAN_ASSEMBLY_VIEWS.SLDDRW,195446,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_ServoBracketX_VIEWS.SLDDRW,30646,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_ServoBracketY_VIEWS.SLDDRW,31101,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_ServoHorn_VIEWS.SLDDRW,31342,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_SupportYoke_VIEWS.SLDDRW,36865,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_TILT_VIEWS.SLDDRW,96280,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_TopShroud_VIEWS.SLDDRW,34505,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_TravelStop_VIEWS.SLDDRW,24821,third-angle model views; dimensioning pending

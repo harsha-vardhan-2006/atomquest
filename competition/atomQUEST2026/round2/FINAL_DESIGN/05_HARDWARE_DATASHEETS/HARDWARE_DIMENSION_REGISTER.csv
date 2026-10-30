@@ -1,0 +1,16 @@
+parameter,value,unit,status,source
+MOTOR_BODY_DIAMETER,150,mm,ASSUMED,"placeholder envelope, no datasheet"
+MOTOR_BODY_LENGTH,113,mm,ASSUMED,placeholder envelope
+MOUNTING_PCD,90,mm,ASSUMED,placeholder adapter pattern
+MOUNTING_HOLE_DIAMETER,4.5,mm,ASSUMED,placeholder
+SHAFT_DIAMETER,10,mm,ASSUMED,not measured
+SHAFT_USABLE_LENGTH,40,mm,ASSUMED,not measured
+BEARING_OUTER_DIAMETER,22,mm,ASSUMED,not measured
+BEARING_WIDTH,7,mm,ASSUMED,not measured
+HUB_MOUNTING_PATTERN,6,bolts,ASSUMED,clamp hub provisional
+ROTOR_FLANGE_DIAMETER,90,mm,ASSUMED,clamp bore provisional
+ROTOR_CLEARANCE,3,mm,ASSUMED,minimum designed gap
+CONNECTOR_CLEARANCE,10,mm,ASSUMED,cable collar passage
+RATED_VOLTAGE,,V,UNKNOWN,no nameplate data
+RATED_SPEED,380,rpm,HISTORICAL,"preliminary design input, unverified"
+RATED_POWER,,W,UNKNOWN,no nameplate data

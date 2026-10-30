@@ -1,0 +1,15 @@
+quantity,value,unit,provenance
+stationary_mass,8.01,kg,CAD-derived volume x stated density
+tilting_body_mass,5.119,kg,CAD-derived
+rotating_mass,5.664,kg,CAD-derived
+original_motor_mass,UNKNOWN,kg,must be measured
+tilt_axis_torque_from_body,2.644,N.m,analytical estimate
+servo_torque_required_X,7.052,N.m,"analytical with 2.0 margin, 0.85 efficiency"
+servo_torque_required_Y,6.221,N.m,analytical
+servo_continuous_limit_assumed,0.675,N.m,assumption: 30% of 1.5 N.m class stall
+blade_centrifugal_root_load,588.9,N,analytical
+blade_root_bending_moment,0.56,N.m,"analytical, 1 N placeholder thrust"
+rotor_inertia,0.3432,kg.m2,analytical from CAD mass
+rotor_energy_at_380rpm,271.7,J,analytical
+blade_tip_speed,27.9,m/s,analytical
+max_tilt_with_40mm_margin,25,deg,geometric envelope check

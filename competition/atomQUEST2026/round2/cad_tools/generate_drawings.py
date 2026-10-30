@@ -1,59 +1,82 @@
 #!/usr/bin/env python3
-"""Create preliminary concept assembly drawings and PDFs, one SW session each."""
+"""Create drawing sheets for every native part and assembly.
+
+Uses IDrawingDoc::Create3rdAngleViews2, which builds the standard view set from a
+document path without any interactive picking. Each drawing is opened, saved and
+closed before the next one is created.
+
+The resulting sheets carry model views, not fully dimensioned manufacturing
+drawings: model-annotation insertion and manual dimensioning need the selection
+path that is unavailable in this session.
+"""
+import json
 import os
 import sys
-import clr
 
 RED = r"E:\SOLIDWORKS Downloads\SOLIDWORKS\api\redist"
 sys.path.insert(0, RED)
+import clr
 clr.AddReference(os.path.join(RED, "SolidWorks.Interop.sldworks.dll"))
+clr.AddReference(os.path.join(RED, "SolidWorks.Interop.swconst.dll"))
 from System import Activator, Type
-from SolidWorks.Interop.sldworks import ISldWorks, IModelDoc2, IDrawingDoc, IView
+from SolidWorks.Interop.sldworks import ISldWorks, IModelDoc2, IDrawingDoc
+from SolidWorks.Interop.swconst import swDocumentTypes_e, swOpenDocOptions_e
 
-R2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE = r"C:\ProgramData\SolidWorks\SOLIDWORKS 2026\Templates\Drawing.DRWDOT"
-DRAWINGS = [
-    ("MODEL_1_DUAL_RING_GIMBAL", "M1_DualRingGimbal_Assembly.SLDASM", "M1_DualRingGimbal_Overview"),
-    ("MODEL_2_SPHERICAL_GIMBAL", "M2_SphericalGimbal_Assembly.SLDASM", "M2_SphericalGimbal_Overview"),
-]
+FD = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "FINAL_DESIGN")
+PARTS = os.path.join(FD, "01_NATIVE_PARTS")
+ASM = os.path.join(FD, "04_ASSEMBLIES")
+OUT = os.path.join(FD, "06_DRAWINGS")
+CALC = os.path.join(FD, "07_ENGINEERING_CALCULATIONS")
+TPL = r"C:\ProgramData\SolidWorks\SOLIDWORKS 2026\Templates\Drawing.DRWDOT"
 
 
 def main():
-    for model, assembly, stem in DRAWINGS:
-        sw = ISldWorks(Activator.CreateInstance(Type.GetTypeFromProgID("SldWorks.Application")))
-        sw.Visible = True
-        doc = None
-        outdir = os.path.join(R2, model, "03_DRAWINGS")
-        source = os.path.abspath(os.path.join(R2, model, "02_CAD_ASSEMBLIES", assembly))
-        drawing_path = os.path.join(outdir, stem + ".SLDDRW")
-        pdf_path = os.path.join(outdir, stem + ".pdf")
+    os.makedirs(OUT, exist_ok=True)
+    sw = ISldWorks(Activator.CreateInstance(Type.GetTypeFromProgID("SldWorks.Application")))
+    sw.Visible = True
+    report = {}
+    sources = [(os.path.join(PARTS, f), swDocumentTypes_e.swDocPART)
+               for f in sorted(os.listdir(PARTS)) if f.upper().endswith(".SLDPRT")]
+    sources += [(os.path.join(ASM, f), swDocumentTypes_e.swDocASSEMBLY)
+                for f in sorted(os.listdir(ASM)) if f.upper().endswith(".SLDASM")]
+
+    for path, kind in sources:
+        name = os.path.splitext(os.path.basename(path))[0]
+        target = os.path.join(OUT, "%s_VIEWS.SLDDRW" % name)
+        entry = {"source": os.path.basename(path)}
         try:
-            os.makedirs(outdir, exist_ok=True)
-            raw = sw.NewDocument(TEMPLATE, 0, 0.0, 0.0)
-            doc = IModelDoc2(raw[0] if isinstance(raw, tuple) else raw)
-            drawing = IDrawingDoc(doc)
-            view = drawing.CreateDrawViewFromModelView3(source, "*Isometric", 0.22, 0.15, 0.0)
-            if view is None:
-                raise RuntimeError("Could not create assembly isometric view: %s" % source)
-            print("created view %s (%s)" % (IView(view).Name, IView(view).GetOrientationName()), flush=True)
-            if not doc.EditRebuild3():
-                raise RuntimeError("Drawing rebuild failed: %s" % stem)
-            result = doc.Extension.SaveAs(drawing_path, 0, 1, None, 0, 0)
-            if not result[0] or not os.path.isfile(drawing_path) or os.path.getsize(drawing_path) < 1000:
-                raise RuntimeError("Native drawing save failed: %s (%s)" % (drawing_path, result))
-            pdf = doc.Extension.SaveAs(pdf_path, 0, 1, None, 0, 0)
-            if not pdf[0] or not os.path.isfile(pdf_path) or os.path.getsize(pdf_path) < 1000:
-                raise RuntimeError("PDF drawing export failed: %s (%s)" % (pdf_path, pdf))
-            with open(pdf_path, "rb") as fh:
-                if not fh.read(8).startswith(b"%PDF-"):
-                    raise RuntimeError("Invalid PDF signature: %s" % pdf_path)
-            print("PASS %s saved (%d bytes) and PDF (%d bytes)" %
-                  (stem, os.path.getsize(drawing_path), os.path.getsize(pdf_path)), flush=True)
-        finally:
-            if doc is not None:
-                sw.CloseDoc(doc.GetTitle())
-            sw.ExitApp()
-            print("CLOSED SOLIDWORKS after %s" % stem, flush=True)
+            r = sw.OpenDoc6(path, int(kind),
+                            int(swOpenDocOptions_e.swOpenDocOptions_Silent), "", 0, 0)
+            src = r[0] if isinstance(r, tuple) else r
+            if src is None:
+                raise RuntimeError("cannot open source %s" % path)
+            doc = sw.NewDocument(TPL, 0, 0.0, 0.0)
+            if doc is None:
+                raise RuntimeError("cannot create drawing from template")
+            draw = IDrawingDoc(IModelDoc2(doc))
+            ok = draw.Create3rdAngleViews2(path)
+            entry["views_created"] = bool(ok)
+            if not ok:
+                ok2 = draw.CreateDrawViewFromModelView3(path, "*Front",
+                                                         0.06, 0.06, 0.0)
+                entry["front_view_created"] = ok2 is not None
+                ok = bool(ok2)
+            md = IModelDoc2(doc)
+            md.EditRebuild3()
+            saved = md.Extension.SaveAs(target, 0, 1, None, 0, 0)
+            saved_ok = saved[0] if isinstance(saved, tuple) else saved
+            entry["saved"] = bool(saved_ok) and os.path.isfile(target)
+            entry["bytes"] = os.path.getsize(target) if os.path.isfile(target) else 0
+            sw.CloseDoc(os.path.basename(target) if entry["saved"] else md.GetTitle())
+            sw.CloseDoc(os.path.basename(path))
+        except Exception as exc:  # noqa: BLE001
+            entry["error"] = repr(exc)
+        report[name] = entry
+        print(entry, flush=True)
+
+    with open(os.path.join(CALC, "drawing_report.json"), "w", encoding="utf-8") as fh:
+        json.dump(report, fh, indent=2)
+    sw.ExitApp()
 
 
 if __name__ == "__main__":

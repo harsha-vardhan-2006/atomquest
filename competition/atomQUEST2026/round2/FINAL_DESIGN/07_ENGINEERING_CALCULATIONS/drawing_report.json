@@ -1,0 +1,128 @@
+{
+  "FD_Blade": {
+    "source": "FD_Blade.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 52460
+  },
+  "FD_BladeHub": {
+    "source": "FD_BladeHub.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 49911
+  },
+  "FD_CableCollar": {
+    "source": "FD_CableCollar.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 31893
+  },
+  "FD_CeilingPlate": {
+    "source": "FD_CeilingPlate.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 41020
+  },
+  "FD_Downrod": {
+    "source": "FD_Downrod.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 28561
+  },
+  "FD_InnerCradle": {
+    "source": "FD_InnerCradle.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 30519
+  },
+  "FD_MotorAdapter": {
+    "source": "FD_MotorAdapter.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 40626
+  },
+  "FD_MotorCover": {
+    "source": "FD_MotorCover.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 36003
+  },
+  "FD_OuterTiltRing": {
+    "source": "FD_OuterTiltRing.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 46732
+  },
+  "FD_PivotBushingX": {
+    "source": "FD_PivotBushingX.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 34214
+  },
+  "FD_PivotBushingY": {
+    "source": "FD_PivotBushingY.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 34113
+  },
+  "FD_REF_MotorEnvelope": {
+    "source": "FD_REF_MotorEnvelope.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 47270
+  },
+  "FD_ServoBracketX": {
+    "source": "FD_ServoBracketX.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 30646
+  },
+  "FD_ServoBracketY": {
+    "source": "FD_ServoBracketY.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 31101
+  },
+  "FD_ServoHorn": {
+    "source": "FD_ServoHorn.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 31342
+  },
+  "FD_SupportYoke": {
+    "source": "FD_SupportYoke.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 36865
+  },
+  "FD_TopShroud": {
+    "source": "FD_TopShroud.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 34505
+  },
+  "FD_TravelStop": {
+    "source": "FD_TravelStop.SLDPRT",
+    "views_created": true,
+    "saved": true,
+    "bytes": 24821
+  },
+  "FD_ROTOR": {
+    "source": "FD_ROTOR.SLDASM",
+    "views_created": true,
+    "saved": true,
+    "bytes": 89214
+  },
+  "FD_SMART_FAN_ASSEMBLY": {
+    "source": "FD_SMART_FAN_ASSEMBLY.SLDASM",
+    "views_created": true,
+    "saved": true,
+    "bytes": 195446
+  },
+  "FD_TILT": {
+    "source": "FD_TILT.SLDASM",
+    "views_created": true,
+    "saved": true,
+    "bytes": 96280
+  }
+}

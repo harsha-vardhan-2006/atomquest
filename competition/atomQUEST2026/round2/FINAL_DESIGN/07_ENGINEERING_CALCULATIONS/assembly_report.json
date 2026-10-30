@@ -1,0 +1,493 @@
+{
+  "solidworks_revision": "<bound method 'RevisionNumber'>",
+  "FD_ROTOR": {
+    "file": "04_ASSEMBLIES/FD_ROTOR.SLDASM",
+    "bytes": 78517,
+    "components": {
+      "component_count": 4,
+      "mass_kg": 3.5036,
+      "com_mm": [
+        41.0,
+        160.4,
+        21.4
+      ]
+    },
+    "mate_features_created": 0,
+    "mate_attempts": [
+      {
+        "joint": "blade_root_to_pad_0",
+        "created": false,
+        "error_code": 4
+      },
+      {
+        "joint": "blade_bolt_concentric_0",
+        "created": false,
+        "error_code": 4
+      },
+      {
+        "joint": "hub_flange_to_rotor",
+        "created": false,
+        "error_code": 4
+      }
+    ],
+    "parts": [
+      {
+        "component": "FD_BladeHub-1",
+        "source": "FD_BladeHub.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.6924,
+        "com_component_mm": [
+          300.1,
+          300.0,
+          15.2
+        ],
+        "com_assembly_mm": [
+          -32.9,
+          -0.0,
+          3.2
+        ],
+        "volume_m3": 0.000692393
+      },
+      {
+        "component": "FD_Blade-1",
+        "source": "FD_Blade.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.9371,
+        "com_component_mm": [
+          659.0,
+          303.2,
+          47.7
+        ],
+        "com_assembly_mm": [
+          -63.5,
+          2.8,
+          -17.9
+        ],
+        "volume_m3": 0.000937057
+      },
+      {
+        "component": "FD_Blade-2",
+        "source": "FD_Blade.SLDPRT",
+        "angle_deg": 120.0,
+        "rotated": true,
+        "mass_kg": 0.9371,
+        "com_component_mm": [
+          659.0,
+          303.2,
+          47.7
+        ],
+        "com_assembly_mm": [
+          117.7,
+          609.3,
+          47.7
+        ],
+        "volume_m3": 0.000937057
+      },
+      {
+        "component": "FD_Blade-3",
+        "source": "FD_Blade.SLDPRT",
+        "angle_deg": 240.0,
+        "rotated": true,
+        "mass_kg": 0.9371,
+        "com_component_mm": [
+          659.0,
+          303.2,
+          47.7
+        ],
+        "com_assembly_mm": [
+          123.3,
+          -12.5,
+          47.7
+        ],
+        "volume_m3": 0.000937057
+      }
+    ]
+  },
+  "FD_TILT": {
+    "file": "04_ASSEMBLIES/FD_TILT.SLDASM",
+    "bytes": 120992,
+    "components": {
+      "component_count": 11,
+      "mass_kg": 4.0734,
+      "com_mm": [
+        -0.0,
+        -0.0,
+        18.2
+      ]
+    },
+    "mate_features_created": 0,
+    "mate_attempts": [
+      {
+        "joint": "outer_axis_concentric",
+        "created": false,
+        "error_code": 4
+      },
+      {
+        "joint": "outer_axis_face",
+        "created": false,
+        "error_code": 4
+      },
+      {
+        "joint": "inner_axis_concentric",
+        "created": false,
+        "error_code": 4
+      },
+      {
+        "joint": "inner_axis_face",
+        "created": false,
+        "error_code": 4
+      },
+      {
+        "joint": "adapter_platform",
+        "created": false,
+        "error_code": 4
+      }
+    ],
+    "parts": [
+      {
+        "component": "FD_SupportYoke-1",
+        "source": "FD_SupportYoke.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 1.9984,
+        "com_component_mm": [
+          300.0,
+          300.0,
+          176.1
+        ],
+        "com_assembly_mm": [
+          0.0,
+          0.0,
+          41.1
+        ],
+        "volume_m3": 0.001998427
+      },
+      {
+        "component": "FD_OuterTiltRing-1",
+        "source": "FD_OuterTiltRing.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.9412,
+        "com_component_mm": [
+          300.0,
+          300.0,
+          157.0
+        ],
+        "com_assembly_mm": [
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "volume_m3": 0.000941173
+      },
+      {
+        "component": "FD_InnerCradle-1",
+        "source": "FD_InnerCradle.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.6124,
+        "com_component_mm": [
+          300.0,
+          300.0,
+          139.7
+        ],
+        "com_assembly_mm": [
+          -0.0,
+          0.0,
+          -12.8
+        ],
+        "volume_m3": 0.000612381
+      },
+      {
+        "component": "FD_MotorAdapter-1",
+        "source": "FD_MotorAdapter.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.168,
+        "com_component_mm": [
+          300.0,
+          300.0,
+          118.0
+        ],
+        "com_assembly_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "volume_m3": 0.000168036
+      },
+      {
+        "component": "FD_MotorCover-1",
+        "source": "FD_MotorCover.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.2722,
+        "com_component_mm": [
+          300.0,
+          300.0,
+          71.5
+        ],
+        "com_assembly_mm": [
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "volume_m3": 0.000272225
+      },
+      {
+        "component": "FD_PivotBushingX-1",
+        "source": "FD_PivotBushingX.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.0018,
+        "com_component_mm": [
+          531.0,
+          300.0,
+          157.0
+        ],
+        "com_assembly_mm": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "volume_m3": 1.759e-06
+      },
+      {
+        "component": "FD_PivotBushingY-1",
+        "source": "FD_PivotBushingY.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.0012,
+        "com_component_mm": [
+          300.0,
+          480.0,
+          157.0
+        ],
+        "com_assembly_mm": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "volume_m3": 1.206e-06
+      },
+      {
+        "component": "FD_ServoBracketX-1",
+        "source": "FD_ServoBracketX.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.0314,
+        "com_component_mm": [
+          519.0,
+          300.0,
+          154.7
+        ],
+        "com_assembly_mm": [
+          0.0,
+          0.0,
+          -0.3
+        ],
+        "volume_m3": 3.1438e-05
+      },
+      {
+        "component": "FD_ServoBracketY-1",
+        "source": "FD_ServoBracketY.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.0297,
+        "com_component_mm": [
+          300.0,
+          485.0,
+          154.6
+        ],
+        "com_assembly_mm": [
+          0.0,
+          0.0,
+          -0.4
+        ],
+        "volume_m3": 2.9678e-05
+      },
+      {
+        "component": "FD_TravelStop-1",
+        "source": "FD_TravelStop.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.0154,
+        "com_component_mm": [
+          300.0,
+          494.0,
+          152.0
+        ],
+        "com_assembly_mm": [
+          -0.0,
+          -0.0,
+          -0.0
+        ],
+        "volume_m3": 1.536e-05
+      },
+      {
+        "component": "FD_ServoHorn-1",
+        "source": "FD_ServoHorn.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.0017,
+        "com_component_mm": [
+          300.0,
+          305.4,
+          2.0
+        ],
+        "com_assembly_mm": [
+          0.0,
+          -2.6,
+          0.0
+        ],
+        "volume_m3": 1.721e-06
+      }
+    ]
+  },
+  "FD_SMART_FAN_ASSEMBLY": {
+    "file": "04_ASSEMBLIES/FD_SMART_FAN_ASSEMBLY.SLDASM",
+    "bytes": 163028,
+    "components": {
+      "component_count": 7,
+      "mass_kg": 10.1035,
+      "com_mm": [
+        -16.6,
+        -48.4,
+        6.3
+      ]
+    },
+    "mate_features_created": 0,
+    "mate_attempts": [
+      {
+        "joint": "downrod_to_plate",
+        "created": false,
+        "error_code": 4
+      },
+      {
+        "joint": "downrod_shoulder",
+        "created": false,
+        "error_code": 4
+      },
+      {
+        "joint": "tilt_to_downrod",
+        "created": false,
+        "error_code": 4
+      },
+      {
+        "joint": "rotor_to_adapter",
+        "created": false,
+        "error_code": 4
+      }
+    ],
+    "parts": [
+      {
+        "component": "FD_CeilingPlate-1",
+        "source": "FD_CeilingPlate.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.326,
+        "com_component_mm": [
+          300.0,
+          300.0,
+          466.0
+        ],
+        "com_assembly_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "volume_m3": 0.000325984
+      },
+      {
+        "component": "FD_Downrod-1",
+        "source": "FD_Downrod.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.0481,
+        "com_component_mm": [
+          300.0,
+          300.0,
+          346.0
+        ],
+        "com_assembly_mm": [
+          0.0,
+          0.0,
+          -0.0
+        ],
+        "volume_m3": 4.8104e-05
+      },
+      {
+        "component": "FD_TopShroud-1",
+        "source": "FD_TopShroud.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 1.2311,
+        "com_component_mm": [
+          300.0,
+          300.0,
+          211.9
+        ],
+        "com_assembly_mm": [
+          0.0,
+          0.0,
+          15.4
+        ],
+        "volume_m3": 0.001231064
+      },
+      {
+        "component": "FD_CableCollar-1",
+        "source": "FD_CableCollar.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.0321,
+        "com_component_mm": [
+          300.0,
+          300.0,
+          304.0
+        ],
+        "com_assembly_mm": [
+          -0.0,
+          0.0,
+          0.0
+        ],
+        "volume_m3": 3.2089e-05
+      },
+      {
+        "component": "FD_REF_MotorEnvelope-1",
+        "source": "FD_REF_MotorEnvelope.SLDPRT",
+        "angle_deg": null,
+        "mass_kg": 0.8892,
+        "com_component_mm": [
+          300.0,
+          300.0,
+          68.1
+        ],
+        "com_assembly_mm": [
+          0.0,
+          0.0,
+          11.6
+        ],
+        "volume_m3": 0.000889245
+      },
+      {
+        "component": "FD_TILT-1",
+        "source": "FD_TILT.SLDASM",
+        "angle_deg": null,
+        "mass_kg": 4.0734,
+        "com_component_mm": [
+          -0.0,
+          -0.0,
+          18.2
+        ],
+        "com_assembly_mm": [
+          -0.0,
+          -0.0,
+          18.2
+        ],
+        "volume_m3": 0.004073404
+      },
+      {
+        "component": "FD_ROTOR-1",
+        "source": "FD_ROTOR.SLDASM",
+        "angle_deg": null,
+        "mass_kg": 3.5036,
+        "com_component_mm": [
+          41.0,
+          160.4,
+          21.4
+        ],
+        "com_assembly_mm": [
+          -47.8,
+          -139.4,
+          -11.4
+        ],
+        "volume_m3": 0.003503565
+      }
+    ]
+  }
+}
