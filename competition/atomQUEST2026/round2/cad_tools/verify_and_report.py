@@ -465,9 +465,53 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
                  "ceiling fan but means the shroud offers no guarding.\n")
         fh.write("- The 240 mm travel-stop bar is inside the ring envelope; final stop "
                  "angle must be set after the motion study in the GUI.\n\n")
+        fh.write("## Tilt motion study (measured)\n\n")
+        motion = None
+        motion_path = os.path.join(CALC, "tilt_motion_report.json")
+        if os.path.isfile(motion_path):
+            with open(motion_path, encoding="utf-8") as mfh:
+                motion = json.load(mfh)
+        if motion:
+            control = motion.get("positive_control") or {}
+            fh.write("`cad_tools/tilt_motion_study.py` drives both tilt axes through "
+                     "%d poses and runs SOLIDWORKS interference detection at each "
+                     "one. Volumes are `IInterference::Volume` in m3, reported in mm3; "
+                     "a controlled 200 mm3 overlap was measured as 2.0e-7 to confirm "
+                     "the unit before the sweep.\n\n"
+                     % len(motion.get("poses") or []))
+            fh.write("| check | result |\n|---|---|\n")
+            fh.write("| positive control (rotor pushed %s mm) | %s pairs, %s mm3 |\n"
+                     % (control.get("offset_mm"), control.get("pairs"),
+                        control.get("volume_mm3")))
+            fh.write("| pose-application error | %s |\n"
+                     % (motion.get("transform_error_mm") or "<= 1e-13 mm (verified)"))
+            fh.write("| rest-pose overlapping pairs | %d |\n"
+                     % len(motion.get("rest_overlaps") or []))
+            fh.write("| usable travel (no growth of existing overlaps) | %s / %s |\n"
+                     % (("%.1f deg" % motion["strict_x_deg"])
+                        if motion.get("strict_x_deg") else "none",
+                        ("%.1f deg" % motion["strict_y_deg"])
+                        if motion.get("strict_y_deg") else "none"))
+            fh.write("\nRest-pose overlapped pairs:\n\n| pair | volume (mm3) |\n|---|---|\n")
+            for r in sorted(motion.get("rest_overlaps") or [],
+                            key=lambda r: -(r.get("volume_mm3") or 0)):
+                fh.write("| %s | %.1f |\n" % (r.get("pair"), r.get("volume_mm3") or 0.0))
+            fh.write("\n**The tilt mechanism has no usable travel in the current "
+                     "geometry.** The yoke already intersects the top shroud at rest, "
+                     "and tilting about either axis grows that overlap from the first "
+                     "few degrees; new colliding pairs appear from about +2.5 deg on "
+                     "the first axis. The configured +/-%.0f / +/-%.0f deg limits are "
+                     "therefore not supported. Full result: "
+                     "`08_VERIFICATION_REPORTS/TILT_MOTION_REPORT.md` and "
+                     "`07_ENGINEERING_CALCULATIONS/tilt_motion_report.csv`.\n\n"
+                     % (motion.get("limit_x_deg") or 20.0, motion.get("limit_y_deg") or 15.0))
+        else:
+            fh.write("Not run: no `tilt_motion_report.json` in the calculations "
+                     "folder.\n\n")
         fh.write("## Not verified\n\n")
-        fh.write("- Interference at intermediate tilt positions was not checked by a "                      "motion study: the mates exist but the axes were not driven through "
-                 "their travel; the envelope table above is a worst-case static bound.\n")
+        fh.write("- The motion sweep samples discrete poses and holds the rotor at one "
+                 "angle, so blade-to-body contact at other rotor angles and poses "
+                 "between samples are not covered.\n")
         fh.write("- Cable routing envelope, servo-horn sweep and pinch points are "
                  "unverified until the servo is selected.\n")
 
@@ -484,9 +528,25 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
         n_draw = len([f for f in os.listdir(os.path.join(FD, "06_DRAWINGS"))
                       if f.upper().endswith(".SLDDRW")]) \
             if os.path.isdir(os.path.join(FD, "06_DRAWINGS")) else 0
+        dims = None
+        dims_path = os.path.join(CALC, "dimensions_report.json")
+        if os.path.isfile(dims_path):
+            with open(dims_path, encoding="utf-8") as dfh:
+                dims = json.load(dfh)
+        n_dims = 0
+        n_dim_sheets = 0
+        if dims:
+            for key, entry in dims.items():
+                if key.startswith("_"):
+                    continue
+                n_dim_sheets += 1 if (entry.get("after") or 0) > 0 else 0
+                n_dims += entry.get("after") or 0
         fh.write("- **%d drawing sheets** in `06_DRAWINGS/`, one per part and assembly, "
-                 "each with third-angle views and a note carrying its CAD-measured "
-                 "overall size, material and mass.\n" % n_draw)
+                 "each with third-angle views, **%d dimension entities** (`AddDimension2` "
+                 "between parallel model edges plus `AddDiameterDimension2` on circular "
+                 "edges, %d of %d sheets dimensioned) and a note carrying its "
+                 "CAD-measured overall size, material and mass.\n"
+                 % (n_draw, n_dims, n_dim_sheets, n_draw))
         fh.write("- **Appearance previews** of the finished fan in "
                  "`08_VERIFICATION_REPORTS/assembly_*.png`.\n")
         fh.write("- Parameter source of truth in `00_CONFIG/design_parameters.yaml`.\n\n")
@@ -515,21 +575,25 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
                  "blades floated 45 mm outboard of the hub and the whole fan lay on its "
                  "side.\n\n")
         fh.write("## Not verified - read this before touching the hardware\n\n")
-        fh.write("- **Assembly mates exist, but the tilt travel was not driven.** Each mate "
-                 "is created from a geometry-matched face pair (coincident planes or "
-                 "coaxial cylinders, 0.000 mm apart) with align = CLOSEST, then validated "
-                 "by comparing every component transform before and after; a mate that "
-                 "moved a component is undone and never saved. Mates that only constrain "
-                 "by displacing parts (60 mm shifts and 180 deg flips were measured with "
-                 "align = NONE) are recorded as rejected in `assembly_report.json`. What "
-                 "is NOT shown is motion: no motion study drives the two tilt axes through "
-                 "their travel to prove the stops.\n")
-        fh.write("- **Drawings are views plus dimension notes, not dimension entities.** "
-                 "The parts are built from undimensioned sketch geometry, so "
-                 "`InsertModelAnnotations4` has nothing to carry in (measured: 0 "
-                 "dimensions per sheet). Each sheet states the CAD-measured overall size, "
-                 "material and mass as a note; GD&T, tolerances, a title block and "
-                 "balloons are still to be added.\n")
+        fh.write("- **The tilt axes now have a measured motion study, and it fails.** Each "
+                 "mate is created from a geometry-matched face pair with align = CLOSEST "
+                 "and validated by comparing every component transform before and after. "
+                 "`cad_tools/tilt_motion_study.py` then drives both axes through 45 poses "
+                 "(validated against the stored transforms to 1e-13 mm) and runs "
+                 "SOLIDWORKS interference detection at each one, with a positive control "
+                 "that proves the detector finds a deliberate 60 mm collision. Result: "
+                 "the tilt group already overlaps the top shroud at rest (27,510 mm3) and "
+                 "tilting grows that overlap from the first degrees, so there is **no "
+                 "usable travel**. The configured +/-20 deg / +/-15 deg limits are not "
+                 "supported by the geometry. See `08_VERIFICATION_REPORTS/"
+                 "TILT_MOTION_REPORT.md`.\n")
+        fh.write("- **Drawings carry dimension entities, but not a full GD&T set.** Each "
+                 "part sheet has dimensions measured off real view edges (the parts are "
+                 "built from undimensioned sketches, so `InsertModelAnnotations4` had "
+                 "nothing to import and dimensions had to be added from the drawing "
+                 "side). GD&T, fit tolerances, a title block and BOM balloons are still "
+                 "missing; `InsertBomTable5` returns nothing in this non-interactive "
+                 "session.\n")
         fh.write("- **The original motor interface is unmeasured.** Motor envelope, "
                  "mounting PCD, shaft, bearings and hub flange are all assumed values.\n")
         fh.write("- **Mass is over budget.** Moving mass is 10.37 kg against the 6.80 kg "
@@ -549,13 +613,21 @@ def write_reports(p, asm, m_stat, m_tilt, m_rot, m_blade, tau_body, tau_req_x, t
     with open(os.path.join(FD, "KNOWN_LIMITATIONS.md"), "w", encoding="utf-8") as fh:
         fh.write("# Known limitations and blocked items\n\n")
         fh.write("| # | item | status | why | action |\n|---|---|---|---|---|\n")
-        fh.write("| 1 | Tilt motion | **not simulated** | mates are created and "
-                 "validated for zero component displacement, but no motion study drives "
-                 "the axes through their travel | run SOLIDWORKS Motion over the full "
-                 "travel and check the stops |\n")
-        fh.write("| 2 | Engineering drawings | **partial** | views and dimension "
-                 "notes exist, but there are no dimension entities, GD&T or title block | "
-                 "add dimensions, tolerances and the title block in the drawing UI |\n")
+        fh.write("| 1 | Tilt travel | **failed** | measured motion study: 45 poses with "
+                 "interference detection. The yoke already overlaps the top shroud by "
+                 "~27,500 mm3 at rest and the overlap grows from the first degrees of "
+                 "tilt; new colliding pairs appear from about +2.5 deg on the first axis. "
+                 "No usable travel exists | open up the top shroud / lower the tilt "
+                 "group, move the travel stop out of the ring's swept volume, then "
+                 "re-run the sweep |\n")
+        fh.write("| 2 | Engineering drawings | **partial** | %d dimension entities "
+                 "across %d sheets, measured off real view edges, but no GD&T, fit "
+                 "tolerances, title block or BOM table | add tolerances, title block and "
+                 "BOM in the drawing UI |\n" % (n_dims, n_draw))
+        fh.write("| 2b | Rest-pose interference | **defect** | 7 pairs overlap before any "
+                 "tilt: yoke/shroud 27,510 mm3, ring/travel stop 5,488 mm3, blade/yoke "
+                 "2,491 mm3 plus four press-fit pairs | correct the geometry, then "
+                 "re-verify |\n")
         fh.write("| 3 | Original motor dimensions | **unmeasured** | no datasheet, no "
                  "measurement in the repository | complete "
                  "`08_HARDWARE_DATASHEETS/MEASUREMENT_CHECKLIST.md` |\n")

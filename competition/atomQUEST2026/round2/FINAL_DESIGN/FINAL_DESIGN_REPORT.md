@@ -5,7 +5,7 @@
 - **18 native SOLIDWORKS parts** in `01_NATIVE_PARTS/`, each one solid body, rebuilt and inspected through the API.
 - **3 native assemblies** in `04_ASSEMBLIES/`: FD_ROTOR: 4 components, 4 mate features; FD_TILT: 11 components, 4 mate features; FD_SMART_FAN_ASSEMBLY: 7 components, 2 mate features.
 - **18 STEP exports** and **7 printable STL meshes**, both verified in `EXPORT_VERIFICATION_REPORT.md`.
-- **21 drawing sheets** in `06_DRAWINGS/`, one per part and assembly, each with third-angle views and a note carrying its CAD-measured overall size, material and mass.
+- **21 drawing sheets** in `06_DRAWINGS/`, one per part and assembly, each with third-angle views, **172 dimension entities** (`AddDimension2` between parallel model edges plus `AddDiameterDimension2` on circular edges, 21 of 21 sheets dimensioned) and a note carrying its CAD-measured overall size, material and mass.
 - **Appearance previews** of the finished fan in `08_VERIFICATION_REPORTS/assembly_*.png`.
 - Parameter source of truth in `00_CONFIG/design_parameters.yaml`.
 
@@ -23,8 +23,8 @@ The original motor, rotor, shaft, bearings and internal rotation mechanism are r
 
 ## Not verified - read this before touching the hardware
 
-- **Assembly mates exist, but the tilt travel was not driven.** Each mate is created from a geometry-matched face pair (coincident planes or coaxial cylinders, 0.000 mm apart) with align = CLOSEST, then validated by comparing every component transform before and after; a mate that moved a component is undone and never saved. Mates that only constrain by displacing parts (60 mm shifts and 180 deg flips were measured with align = NONE) are recorded as rejected in `assembly_report.json`. What is NOT shown is motion: no motion study drives the two tilt axes through their travel to prove the stops.
-- **Drawings are views plus dimension notes, not dimension entities.** The parts are built from undimensioned sketch geometry, so `InsertModelAnnotations4` has nothing to carry in (measured: 0 dimensions per sheet). Each sheet states the CAD-measured overall size, material and mass as a note; GD&T, tolerances, a title block and balloons are still to be added.
+- **The tilt axes now have a measured motion study, and it fails.** Each mate is created from a geometry-matched face pair with align = CLOSEST and validated by comparing every component transform before and after. `cad_tools/tilt_motion_study.py` then drives both axes through 45 poses (validated against the stored transforms to 1e-13 mm) and runs SOLIDWORKS interference detection at each one, with a positive control that proves the detector finds a deliberate 60 mm collision. Result: the tilt group already overlaps the top shroud at rest (27,510 mm3) and tilting grows that overlap from the first degrees, so there is **no usable travel**. The configured +/-20 deg / +/-15 deg limits are not supported by the geometry. See `08_VERIFICATION_REPORTS/TILT_MOTION_REPORT.md`.
+- **Drawings carry dimension entities, but not a full GD&T set.** Each part sheet has dimensions measured off real view edges (the parts are built from undimensioned sketches, so `InsertModelAnnotations4` had nothing to import and dimensions had to be added from the drawing side). GD&T, fit tolerances, a title block and BOM balloons are still missing; `InsertBomTable5` returns nothing in this non-interactive session.
 - **The original motor interface is unmeasured.** Motor envelope, mounting PCD, shaft, bearings and hub flange are all assumed values.
 - **Mass is over budget.** Moving mass is 10.37 kg against the 6.80 kg frozen budget (+3.57 kg); total mass is 12.49 kg. Blade mass is 0.330 kg each against a 0.165 kg target. Rotor energy is 77 J here and 69 J in the calculation sheet (different inertia estimators); both are below the 130 J containment basis, which is itself unconfirmed.
 

@@ -1,0 +1,916 @@
+{
+  "axis_x_point_m": [
+    0.0,
+    0.15700000000000003,
+    -0.3
+  ],
+  "axis_x_dir": [
+    1.0,
+    0.0,
+    0.0
+  ],
+  "axis_y_point_m": [
+    0.3,
+    0.15700000000000003,
+    0.0
+  ],
+  "axis_y_dir": [
+    0.0,
+    0.0,
+    1.0
+  ],
+  "tilt_group_rest_centre_m": [
+    0.3,
+    0.11975,
+    -0.3
+  ],
+  "limit_x_deg": 20.0,
+  "limit_y_deg": 15.0,
+  "min_volume_mm3": 0.5,
+  "positive_control": {
+    "offset_mm": 60.0,
+    "pairs": 12,
+    "volume_mm3": 78410.5
+  },
+  "rest_repeat_check": {
+    "new_pairs": 0,
+    "diff_mm3": 0.0
+  },
+  "clear_x_deg": 20.0,
+  "clear_y_deg": 15.0,
+  "strict_x_deg": 0.0,
+  "strict_y_deg": 0.0,
+  "rest_overlaps": [
+    {
+      "volume_mm3": 27510.38,
+      "components": [
+        "FD_TopShroud-1",
+        "FD_TILT-1/FD_SupportYoke-1"
+      ],
+      "pair": "FD_TILT-1/FD_SupportYoke-1 | FD_TopShroud-1"
+    },
+    {
+      "volume_mm3": 5488.0,
+      "components": [
+        "FD_TILT-1/FD_OuterTiltRing-1",
+        "FD_TILT-1/FD_TravelStop-1"
+      ],
+      "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TILT-1/FD_TravelStop-1"
+    },
+    {
+      "volume_mm3": 1659.39,
+      "components": [
+        "FD_TILT-1/FD_OuterTiltRing-1",
+        "FD_TILT-1/FD_PivotBushingX-1"
+      ],
+      "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TILT-1/FD_PivotBushingX-1"
+    },
+    {
+      "volume_mm3": 1577.19,
+      "components": [
+        "FD_Downrod-1",
+        "FD_CableCollar-1"
+      ],
+      "pair": "FD_CableCollar-1 | FD_Downrod-1"
+    },
+    {
+      "volume_mm3": 2490.61,
+      "components": [
+        "FD_TILT-1/FD_SupportYoke-1",
+        "FD_ROTOR-1/FD_Blade-1"
+      ],
+      "pair": "FD_ROTOR-1/FD_Blade-1 | FD_TILT-1/FD_SupportYoke-1"
+    },
+    {
+      "volume_mm3": 1130.97,
+      "components": [
+        "FD_TILT-1/FD_InnerCradle-1",
+        "FD_TILT-1/FD_PivotBushingY-1"
+      ],
+      "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TILT-1/FD_PivotBushingY-1"
+    },
+    {
+      "volume_mm3": 498.2,
+      "components": [
+        "FD_TILT-1/FD_ServoBracketY-1",
+        "FD_TILT-1/FD_TravelStop-1"
+      ],
+      "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TILT-1/FD_TravelStop-1"
+    }
+  ],
+  "poses": [
+    {
+      "theta_x_deg": -20.0,
+      "theta_y_deg": -15.0,
+      "transform_delta_mm": 0.0,
+      "transform_delta_matrix": 0.0,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -20.0,
+      "theta_y_deg": -7.5,
+      "transform_delta_mm": 2.6020852139652106e-15,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -20.0,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 1.3877787807814457e-14,
+      "transform_delta_matrix": 7.459310946700269e-17,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -20.0,
+      "theta_y_deg": 7.5,
+      "transform_delta_mm": 1.3877787807814457e-14,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -20.0,
+      "theta_y_deg": 15.0,
+      "transform_delta_mm": 6.938893903907228e-15,
+      "transform_delta_matrix": 3.3306690738754696e-16,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -10.0,
+      "theta_y_deg": -15.0,
+      "transform_delta_mm": 3.469446951953614e-15,
+      "transform_delta_matrix": 1.6653345369377348e-16,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -10.0,
+      "theta_y_deg": -7.5,
+      "transform_delta_mm": 1.0408340855860843e-14,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -10.0,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 1.0408340855860843e-14,
+      "transform_delta_matrix": 3.3306690738754696e-16,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -10.0,
+      "theta_y_deg": 7.5,
+      "transform_delta_mm": 6.938893903907228e-15,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -10.0,
+      "theta_y_deg": 15.0,
+      "transform_delta_mm": 3.469446951953614e-15,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": -15.0,
+      "transform_delta_mm": 2.7755575615628914e-14,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 1115.72,
+      "max_volume_mm3": 28626.1
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": -7.5,
+      "transform_delta_mm": 6.938893903907228e-15,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 5668.78,
+      "max_volume_mm3": 33179.16
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 0.0,
+      "transform_delta_matrix": 4.440892098500626e-16,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 27510.38
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": 7.5,
+      "transform_delta_mm": 1.1555579666323415e-30,
+      "transform_delta_matrix": 2.465190328815662e-32,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 1190.44,
+      "max_volume_mm3": 28700.82
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": 15.0,
+      "transform_delta_mm": 1.3877787807814457e-14,
+      "transform_delta_matrix": 1.3122438524613645e-33,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 1115.72,
+      "max_volume_mm3": 28626.1
+    },
+    {
+      "theta_x_deg": 10.0,
+      "theta_y_deg": -15.0,
+      "transform_delta_mm": 1.3877787807814457e-14,
+      "transform_delta_matrix": 2.7755575615628914e-17,
+      "pairs": 10,
+      "new_pairs": 3,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 8836.49
+        },
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 3035.22
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 1575.82
+        }
+      ],
+      "growth_mm3": 19706.21,
+      "max_volume_mm3": 47216.59
+    },
+    {
+      "theta_x_deg": 10.0,
+      "theta_y_deg": -7.5,
+      "transform_delta_mm": 6.938893903907228e-15,
+      "transform_delta_matrix": 3.3306690738754696e-16,
+      "pairs": 11,
+      "new_pairs": 4,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 7867.8
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketX-1 | FD_TopShroud-1",
+          "volume_mm3": 3091.44
+        },
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 3035.22
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 1575.82
+        }
+      ],
+      "growth_mm3": 26503.5,
+      "max_volume_mm3": 54013.88
+    },
+    {
+      "theta_x_deg": 10.0,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 1.3877787807814457e-14,
+      "transform_delta_matrix": 3.3306690738754696e-16,
+      "pairs": 12,
+      "new_pairs": 5,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 7736.18
+        },
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 3035.22
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 1575.82
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketX-1 | FD_TopShroud-1",
+          "volume_mm3": 797.35
+        },
+        {
+          "pair": "FD_TILT-1/FD_PivotBushingX-1 | FD_TopShroud-1",
+          "volume_mm3": 201.46
+        }
+      ],
+      "growth_mm3": 28505.99,
+      "max_volume_mm3": 56016.37
+    },
+    {
+      "theta_x_deg": 10.0,
+      "theta_y_deg": 7.5,
+      "transform_delta_mm": 2.7755575615628914e-14,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 10,
+      "new_pairs": 3,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 7867.8
+        },
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 3035.22
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 1575.82
+        }
+      ],
+      "growth_mm3": 22936.3,
+      "max_volume_mm3": 50446.68
+    },
+    {
+      "theta_x_deg": 10.0,
+      "theta_y_deg": 15.0,
+      "transform_delta_mm": 1.3877787807814457e-14,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 10,
+      "new_pairs": 3,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 8836.44
+        },
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 3035.22
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 1575.82
+        }
+      ],
+      "growth_mm3": 19705.52,
+      "max_volume_mm3": 47215.9
+    },
+    {
+      "theta_x_deg": 20.0,
+      "theta_y_deg": -15.0,
+      "transform_delta_mm": 3.469446951953614e-14,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 12,
+      "new_pairs": 5,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 8147.84
+        },
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 10912.1
+        },
+        {
+          "pair": "FD_ROTOR-1/FD_Blade-2 | FD_TopShroud-1",
+          "volume_mm3": 1462.42
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 767.15
+        },
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_ServoBracketY-1",
+          "volume_mm3": 7.22
+        }
+      ],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 25903.06
+    },
+    {
+      "theta_x_deg": 20.0,
+      "theta_y_deg": -7.5,
+      "transform_delta_mm": 6.938893903907228e-15,
+      "transform_delta_matrix": 8.326672684688674e-17,
+      "pairs": 12,
+      "new_pairs": 5,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 8147.56
+        },
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 10839.21
+        },
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_ServoBracketY-1",
+          "volume_mm3": 2046.84
+        },
+        {
+          "pair": "FD_ROTOR-1/FD_Blade-2 | FD_TopShroud-1",
+          "volume_mm3": 1504.98
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 767.15
+        }
+      ],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 25940.95
+    },
+    {
+      "theta_x_deg": 20.0,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 1.3877787807814457e-14,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 14,
+      "new_pairs": 7,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 8147.53
+        },
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 11830.55
+        },
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_ServoBracketY-1",
+          "volume_mm3": 1846.71
+        },
+        {
+          "pair": "FD_ROTOR-1/FD_Blade-2 | FD_TopShroud-1",
+          "volume_mm3": 1561.99
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 767.15
+        },
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_InnerCradle-1",
+          "volume_mm3": 690.68
+        },
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_PivotBushingY-1",
+          "volume_mm3": 199.88
+        }
+      ],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 22728.56
+    },
+    {
+      "theta_x_deg": 20.0,
+      "theta_y_deg": 7.5,
+      "transform_delta_mm": 0.0,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 13,
+      "new_pairs": 6,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 8147.89
+        },
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 10839.2
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketX-1 | FD_TopShroud-1",
+          "volume_mm3": 2521.27
+        },
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_ServoBracketY-1",
+          "volume_mm3": 2046.84
+        },
+        {
+          "pair": "FD_ROTOR-1/FD_Blade-2 | FD_TopShroud-1",
+          "volume_mm3": 1520.22
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 767.15
+        }
+      ],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 26163.34
+    },
+    {
+      "theta_x_deg": 20.0,
+      "theta_y_deg": 15.0,
+      "transform_delta_mm": 0.0,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 14,
+      "new_pairs": 7,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 8147.57
+        },
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 10912.17
+        },
+        {
+          "pair": "FD_ROTOR-1/FD_Blade-2 | FD_TopShroud-1",
+          "volume_mm3": 1259.5
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketX-1 | FD_TopShroud-1",
+          "volume_mm3": 1202.72
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 767.15
+        },
+        {
+          "pair": "FD_TILT-1/FD_PivotBushingX-1 | FD_TopShroud-1",
+          "volume_mm3": 267.41
+        },
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_ServoBracketY-1",
+          "volume_mm3": 7.22
+        }
+      ],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 25231.59
+    },
+    {
+      "theta_x_deg": 2.5,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 1.3010426069826053e-14,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 8,
+      "new_pairs": 1,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_SupportYoke-1",
+          "volume_mm3": 667.62
+        }
+      ],
+      "growth_mm3": 2316.75,
+      "max_volume_mm3": 29827.13
+    },
+    {
+      "theta_x_deg": 5.0,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 1.734723475976807e-15,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 8,
+      "new_pairs": 1,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_SupportYoke-1",
+          "volume_mm3": 3014.28
+        }
+      ],
+      "growth_mm3": 5358.88,
+      "max_volume_mm3": 32869.26
+    },
+    {
+      "theta_x_deg": 7.5,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 3.469446951953614e-15,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 11,
+      "new_pairs": 4,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 2118.12
+        },
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_SupportYoke-1",
+          "volume_mm3": 657.25
+        },
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 336.38
+        },
+        {
+          "pair": "FD_TILT-1/FD_PivotBushingX-1 | FD_TopShroud-1",
+          "volume_mm3": 92.93
+        }
+      ],
+      "growth_mm3": 13213.79,
+      "max_volume_mm3": 40724.17
+    },
+    {
+      "theta_x_deg": 12.5,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 2.352032944881132e-46,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 14,
+      "new_pairs": 7,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 14388.18
+        },
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 8199.43
+        },
+        {
+          "pair": "FD_TILT-1/FD_TravelStop-1 | FD_TopShroud-1",
+          "volume_mm3": 5899.85
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketX-1 | FD_TopShroud-1",
+          "volume_mm3": 1986.38
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 1222.42
+        },
+        {
+          "pair": "FD_TILT-1/FD_PivotBushingY-1 | FD_TopShroud-1",
+          "volume_mm3": 252.03
+        },
+        {
+          "pair": "FD_TILT-1/FD_PivotBushingX-1 | FD_TopShroud-1",
+          "volume_mm3": 243.02
+        }
+      ],
+      "growth_mm3": 27588.29,
+      "max_volume_mm3": 55098.67
+    },
+    {
+      "theta_x_deg": 15.0,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 1.7582589477634455e-46,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 13,
+      "new_pairs": 6,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 17625.41
+        },
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 8348.97
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketX-1 | FD_TopShroud-1",
+          "volume_mm3": 2195.94
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 2005.32
+        },
+        {
+          "pair": "FD_TILT-1/FD_PivotBushingX-1 | FD_TopShroud-1",
+          "volume_mm3": 4.24
+        },
+        {
+          "pair": "FD_TILT-1/FD_PivotBushingY-1 | FD_TopShroud-1",
+          "volume_mm3": 0.57
+        }
+      ],
+      "growth_mm3": 14801.64,
+      "max_volume_mm3": 42312.02
+    },
+    {
+      "theta_x_deg": 17.5,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 6.938893903907228e-15,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 13,
+      "new_pairs": 6,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_InnerCradle-1 | FD_TopShroud-1",
+          "volume_mm3": 8710.8
+        },
+        {
+          "pair": "FD_TILT-1/FD_OuterTiltRing-1 | FD_TopShroud-1",
+          "volume_mm3": 11432.74
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketY-1 | FD_TopShroud-1",
+          "volume_mm3": 2201.91
+        },
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketX-1 | FD_TopShroud-1",
+          "volume_mm3": 1674.23
+        },
+        {
+          "pair": "FD_ROTOR-1/FD_Blade-2 | FD_TopShroud-1",
+          "volume_mm3": 839.16
+        },
+        {
+          "pair": "FD_Downrod-1 | FD_TILT-1/FD_InnerCradle-1",
+          "volume_mm3": 91.45
+        }
+      ],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 27077.21
+    },
+    {
+      "theta_x_deg": -2.5,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 2.862293735361732e-14,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 1112.15,
+      "max_volume_mm3": 28622.53
+    },
+    {
+      "theta_x_deg": -5.0,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 1.734723475976807e-15,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 13815.78
+    },
+    {
+      "theta_x_deg": -7.5,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 4.2863012646806867e-76,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -12.5,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 3.469446951953614e-15,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -15.0,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 5.669887010411747e-91,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": -17.5,
+      "theta_y_deg": 0.0,
+      "transform_delta_mm": 1.1543026788756314e-90,
+      "transform_delta_matrix": 5.551115123125783e-17,
+      "pairs": 6,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 0.0,
+      "max_volume_mm3": 5488.0
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": 2.5,
+      "transform_delta_mm": 1.3877787807814457e-14,
+      "transform_delta_matrix": 1.1102230246251565e-16,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 4774.19,
+      "max_volume_mm3": 32284.57
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": 5.0,
+      "transform_delta_mm": 3.469446951953614e-15,
+      "transform_delta_matrix": 5.5435483655987447e-17,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 5753.43,
+      "max_volume_mm3": 33263.81
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": 10.0,
+      "transform_delta_mm": 0.0,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 1115.44,
+      "max_volume_mm3": 28625.82
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": 12.5,
+      "transform_delta_mm": 6.938893903907228e-15,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 1115.54,
+      "max_volume_mm3": 28625.92
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": -2.5,
+      "transform_delta_mm": 2.0816681711721685e-14,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 1301.24,
+      "max_volume_mm3": 28811.62
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": -5.0,
+      "transform_delta_mm": 3.469446951953614e-15,
+      "transform_delta_matrix": 1.232595164407831e-32,
+      "pairs": 7,
+      "new_pairs": 0,
+      "new_pairs_detail": [],
+      "growth_mm3": 4987.21,
+      "max_volume_mm3": 32497.59
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": -10.0,
+      "transform_delta_mm": 3.8518598887744717e-31,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 8,
+      "new_pairs": 1,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketX-1 | FD_TopShroud-1",
+          "volume_mm3": 1431.24
+        }
+      ],
+      "growth_mm3": 1142.2,
+      "max_volume_mm3": 28652.58
+    },
+    {
+      "theta_x_deg": 0.0,
+      "theta_y_deg": -12.5,
+      "transform_delta_mm": 7.703719777548943e-31,
+      "transform_delta_matrix": 2.220446049250313e-16,
+      "pairs": 8,
+      "new_pairs": 1,
+      "new_pairs_detail": [
+        {
+          "pair": "FD_TILT-1/FD_ServoBracketX-1 | FD_TopShroud-1",
+          "volume_mm3": 1442.52
+        }
+      ],
+      "growth_mm3": 1115.54,
+      "max_volume_mm3": 28625.92
+    }
+  ]
+}

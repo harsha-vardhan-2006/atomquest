@@ -1,0 +1,138 @@
+{
+  "FD_Downrod_DRAWING.SLDDRW": {
+    "before": 7,
+    "after": 7,
+    "views": [],
+    "recounted": true
+  },
+  "_png": {
+    "FD_Blade_DRAWING.SLDDRW": {
+      "path": "FD_Blade_DRAWING.png",
+      "bytes": 6155
+    },
+    "FD_SMART_FAN_ASSEMBLY_DRAWING.SLDDRW": {
+      "path": "FD_SMART_FAN_ASSEMBLY_DRAWING.png",
+      "bytes": 7885
+    }
+  },
+  "FD_BladeHub_DRAWING.SLDDRW": {
+    "before": 10,
+    "after": 10,
+    "views": [],
+    "recounted": true
+  },
+  "FD_Blade_DRAWING.SLDDRW": {
+    "before": 7,
+    "after": 7,
+    "views": [],
+    "recounted": true
+  },
+  "FD_CableCollar_DRAWING.SLDDRW": {
+    "before": 6,
+    "after": 6,
+    "views": [],
+    "recounted": true
+  },
+  "FD_CeilingPlate_DRAWING.SLDDRW": {
+    "before": 8,
+    "after": 8,
+    "views": [],
+    "recounted": true
+  },
+  "FD_InnerCradle_DRAWING.SLDDRW": {
+    "before": 9,
+    "after": 9,
+    "views": [],
+    "recounted": true
+  },
+  "FD_MotorAdapter_DRAWING.SLDDRW": {
+    "before": 8,
+    "after": 8,
+    "views": [],
+    "recounted": true
+  },
+  "FD_MotorCover_DRAWING.SLDDRW": {
+    "before": 7,
+    "after": 7,
+    "views": [],
+    "recounted": true
+  },
+  "FD_OuterTiltRing_DRAWING.SLDDRW": {
+    "before": 12,
+    "after": 12,
+    "views": [],
+    "recounted": true
+  },
+  "FD_PivotBushingX_DRAWING.SLDDRW": {
+    "before": 7,
+    "after": 7,
+    "views": [],
+    "recounted": true
+  },
+  "FD_PivotBushingY_DRAWING.SLDDRW": {
+    "before": 5,
+    "after": 5,
+    "views": [],
+    "recounted": true
+  },
+  "FD_REF_MotorEnvelope_DRAWING.SLDDRW": {
+    "before": 12,
+    "after": 12,
+    "views": [],
+    "recounted": true
+  },
+  "FD_ROTOR_DRAWING.SLDDRW": {
+    "before": 10,
+    "after": 10,
+    "views": [],
+    "recounted": true
+  },
+  "FD_SMART_FAN_ASSEMBLY_DRAWING.SLDDRW": {
+    "before": 11,
+    "after": 11,
+    "views": [],
+    "recounted": true
+  },
+  "FD_ServoBracketX_DRAWING.SLDDRW": {
+    "before": 5,
+    "after": 5,
+    "views": [],
+    "recounted": true
+  },
+  "FD_ServoBracketY_DRAWING.SLDDRW": {
+    "before": 6,
+    "after": 6,
+    "views": [],
+    "recounted": true
+  },
+  "FD_ServoHorn_DRAWING.SLDDRW": {
+    "before": 10,
+    "after": 10,
+    "views": [],
+    "recounted": true
+  },
+  "FD_SupportYoke_DRAWING.SLDDRW": {
+    "before": 11,
+    "after": 11,
+    "views": [],
+    "recounted": true
+  },
+  "FD_TILT_DRAWING.SLDDRW": {
+    "before": 12,
+    "after": 12,
+    "views": [],
+    "recounted": true
+  },
+  "FD_TopShroud_DRAWING.SLDDRW": {
+    "before": 5,
+    "after": 5,
+    "views": [],
+    "recounted": true
+  },
+  "FD_TravelStop_DRAWING.SLDDRW": {
+    "before": 4,
+    "after": 4,
+    "views": [],
+    "recounted": true
+  }
+}

@@ -45,24 +45,24 @@ stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_ServoBracketX.STL,8484,see export_verifica
 stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_ServoBracketY.STL,8884,see export_verification.csv
 stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_TopShroud.STL,24484,see export_verification.csv
 stl_mesh,FINAL_DESIGN/03_PRINT_STL/FD_TravelStop.STL,684,see export_verification.csv
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_BladeHub_DRAWING.SLDDRW,51849,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_Blade_DRAWING.SLDDRW,75733,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_CableCollar_DRAWING.SLDDRW,34507,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_CeilingPlate_DRAWING.SLDDRW,43482,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_Downrod_DRAWING.SLDDRW,31753,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_InnerCradle_DRAWING.SLDDRW,33780,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_MotorAdapter_DRAWING.SLDDRW,42782,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_MotorCover_DRAWING.SLDDRW,39420,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_OuterTiltRing_DRAWING.SLDDRW,50389,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_PivotBushingX_DRAWING.SLDDRW,36351,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_PivotBushingY_DRAWING.SLDDRW,35805,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_REF_MotorEnvelope_DRAWING.SLDDRW,49554,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_ROTOR_DRAWING.SLDDRW,108822,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_SMART_FAN_ASSEMBLY_DRAWING.SLDDRW,220621,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_ServoBracketX_DRAWING.SLDDRW,33499,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_ServoBracketY_DRAWING.SLDDRW,33454,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_ServoHorn_DRAWING.SLDDRW,34942,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_SupportYoke_DRAWING.SLDDRW,46795,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_TILT_DRAWING.SLDDRW,113334,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_TopShroud_DRAWING.SLDDRW,37681,third-angle model views; dimensioning pending
-drawing,FINAL_DESIGN/06_DRAWINGS/FD_TravelStop_DRAWING.SLDDRW,27360,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_BladeHub_DRAWING.SLDDRW,69745,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_Blade_DRAWING.SLDDRW,82923,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_CableCollar_DRAWING.SLDDRW,42870,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_CeilingPlate_DRAWING.SLDDRW,57999,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_Downrod_DRAWING.SLDDRW,41601,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_InnerCradle_DRAWING.SLDDRW,47775,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_MotorAdapter_DRAWING.SLDDRW,55756,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_MotorCover_DRAWING.SLDDRW,51605,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_OuterTiltRing_DRAWING.SLDDRW,68494,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_PivotBushingX_DRAWING.SLDDRW,45518,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_PivotBushingY_DRAWING.SLDDRW,44506,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_REF_MotorEnvelope_DRAWING.SLDDRW,64783,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_ROTOR_DRAWING.SLDDRW,118246,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_SMART_FAN_ASSEMBLY_DRAWING.SLDDRW,230161,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_ServoBracketX_DRAWING.SLDDRW,42543,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_ServoBracketY_DRAWING.SLDDRW,42215,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_ServoHorn_DRAWING.SLDDRW,50613,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_SupportYoke_DRAWING.SLDDRW,63820,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_TILT_DRAWING.SLDDRW,132508,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_TopShroud_DRAWING.SLDDRW,48025,third-angle model views; dimensioning pending
+drawing,FINAL_DESIGN/06_DRAWINGS/FD_TravelStop_DRAWING.SLDDRW,34738,third-angle model views; dimensioning pending

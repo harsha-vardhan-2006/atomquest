@@ -101,6 +101,12 @@ def main():
                for f in sorted(os.listdir(PARTS)) if f.upper().endswith(".SLDPRT")]
     sources += [(os.path.join(ASM, f), swDocumentTypes_e.swDocASSEMBLY)
                 for f in sorted(os.listdir(ASM)) if f.upper().endswith(".SLDASM")]
+    # Optional name filters so a single sheet can be rebuilt without waiting for
+    # the whole set: `generate_drawings.py FD_Downrod`.
+    only = [a.lower() for a in sys.argv[1:]]
+    if only:
+        sources = [s for s in sources
+                   if any(o in os.path.basename(s[0]).lower() for o in only)]
 
     for path, kind in sources:
         name = os.path.splitext(os.path.basename(path))[0]
@@ -172,6 +178,11 @@ def main():
                 except Exception as exc:  # noqa: BLE001
                     entry["bom_error"] = repr(exc)
 
+            # SaveAs will not overwrite silently, so an existing sheet is
+            # removed first. Without this the previous sheet survives and a
+            # rebuild appears to succeed while leaving stale dimensions.
+            if os.path.isfile(target):
+                os.remove(target)
             saved = md.Extension.SaveAs(target, 0, 1, None, 0, 0)
             saved_ok = saved[0] if isinstance(saved, tuple) else saved
             entry["saved"] = bool(saved_ok) and os.path.isfile(target)
