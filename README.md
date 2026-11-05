@@ -88,3 +88,23 @@ Level 1 prototype ≈ INR 10,000 (7,000–14,000), full-fan prototype ≈ INR 25
 the withdrawn figures (≈ INR 26,650 / ≈ INR 5.8 lakh). `submission/generate_600word_2page.py` carries the same
 text and can re-derive an equivalent 2-page PDF if re-run (it was NOT used to rebuild the checked-in upload file).
 Links: gradpartners.in/e/atomquest-2026-339 · atomberg.com
+
+---
+
+## Round 2 tilt servo (`servo/`)
+
+The tilt axes are specified: **4 x DSSERVO DS3235** (35 kg-cm class), two per axis, at 7.4 V.
+6.86 N.m per axis against a 4.45 / 3.62 N.m need, and one servo alone still holds 1.54x / 1.90x of
+the nominal torque if its partner fails — which is what REQ-35 asks for. It is the cheapest part that
+passes every check: the DS3225MG drops to 1.08x on X, the MG996R to 0.49x, and the industrial
+Futaba/Festo units fail the four-servo layout.
+
+- `servo/SERVO_SELECTION.md` — datasheet, margins, full candidate comparison, sourcing tiers, sources
+- `servo/servo_sizing.csv` — the same comparison as rows (torque, margins, retail and bulk price)
+- `servo/TECHNOMANCERS_Round2_Project_Status_v3.pdf` — generated status report
+- `python servo/generate_status_report.py` — rebuilds that report
+
+Cost: one 10-piece manufacturer lot at INR 700-880 each (about INR 900-1,150 landed) puts the four
+fitted servos at INR 3,600-4,600, inside the INR 3,500-6,500 actuator line the full-fan estimate
+already carried. Cash out for the lot is INR 9,000-11,500; the six spares pay for the lever-arm pull
+tests. Prices are 5 Nov 2026 listings, not quotations.
